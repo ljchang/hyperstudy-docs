@@ -9,17 +9,14 @@ Components are the building blocks of interactive experiments in the HyperStudy 
 
 ## Understanding Components
 
-Components serve different functions in your experiment:
+HyperStudy has two types of components:
 
-1. **Experiment States**: The main interactive element in each state
-2. **Global States**: Elements that can persist across multiple states
+1. **Focus Components**: The main interactive element in each experiment state. Only one focus component can be active per state.
+2. **Global Components**: Elements that persist across multiple states, providing consistent functionality throughout the experiment.
 
+## Focus Components
 
-## Component Types
-
-### Experiment States
-
-Experiment States are the main interactive elements in each state. Only one focus component can be active per state.
+Focus components are the primary content of each experiment state. When you add a state to your experiment, you select a focus component for that state.
 
 | Component                                   | Description                                 | Common Uses                         |
 | ------------------------------------------- | ------------------------------------------- | ----------------------------------- |
@@ -27,25 +24,34 @@ Experiment States are the main interactive elements in each state. Only one focu
 | [Image](./image.md)                         | Displays static images                      | Visual stimuli, diagrams, photos    |
 | [Synchronized Video](./video.md)            | Plays video with precise synchronization    | Stimuli, demonstrations, scenarios  |
 | [Multiple Choice](./multiple-choice.md)     | Presents a question with selectable options | Quizzes, surveys, decision tasks    |
+| [Text Input](./text-input.md)               | Field for free text entry                   | Open questions, form fields         |
 | [VAS Rating](./vas-rating.md)               | Visual analog scale for continuous ratings  | Subjective ratings, evaluations     |
-| Text Input                                   | Field for free text entry                   | Open questions, form fields         |
 | [Audio Recording](./audio-recording.md)     | Records participant audio responses         | Voice responses, think-aloud tasks  |
-| [Continuous Rating](./continuous-rating.md) | Real-time continuous rating during stimuli  | Moment-by-moment evaluations        |
+| [Code](./code.md)                           | Display syntax-highlighted code             | Programming tasks, code review      |
+| [Waiting](./waiting.md)                     | Empty state with optional message           | Transitions, synchronization points |
 | [Trigger](./trigger.md)                     | Hardware trigger send/receive               | fMRI sync, equipment time-locking   |
-| Code Component                               | Custom component with JavaScript            | Complex interactive tasks           |
-| Waiting                                      | Empty state with optional message           | Transitions, synchronization points |
+| [Likert Scale](./likert-scale.md)           | Standard agreement/frequency scales         | Surveys, questionnaires             |
+| [Ranking](./ranking.md)                     | Drag-and-drop ranking of items              | Preference ordering, prioritization |
+| [Rapid Rate](./rapid-rate.md)               | Multi-dimensional quick rating              | Emotion ratings, fast assessments   |
 
-### Global States
+## Global Components
 
-Global states can persist across multiple experiment states, providing consistent functionality throughout the experiment.
+Global components persist across multiple experiment states. Configure them once and control their visibility per state.
 
 | Component                                       | Description                         | Common Uses                           |
 | ----------------------------------------------- | ----------------------------------- | ------------------------------------- |
 | [Video Chat](./videochat.md)                    | Real-time audio/video communication | Participant interactions, interviews  |
-| Text Chat                                        | Text messaging between participants | Text-based communication              |
-| [Continuous Rating Bar](./continuous-rating.md) | Persistent rating component         | Ongoing evaluations during activities |
+| [Text Chat](./text-chat.md)                     | Text messaging between participants | Text-based communication              |
+| [Continuous Rating](./continuous-rating.md)     | Real-time rating during stimuli     | Moment-by-moment evaluations          |
 | [Sparse Rating](./sparse-rating.md)             | Time-based rating prompts           | Moment-specific evaluations           |
 | [Scanner Pulse Recorder](./scanner-pulse-recorder.md) | Records fMRI scanner TR pulses | fMRI hyperscanning synchronization    |
+
+### How Global Components Work
+
+1. **Enable** global components in the "Global Components" tab
+2. **Configure** their settings (position, appearance, behavior)
+3. **Control visibility** per state using the visibility matrix
+4. Global components overlay on top of focus components
 
 ## Component Configuration
 
@@ -167,16 +173,26 @@ For example:
 
 ## Available Components
 
-Explore detailed documentation for each component:
+### Focus Components
 
 - [Text Display](./text.md)
-- [Image Component](./image.md)
+- [Image](./image.md)
 - [Synchronized Video](./video.md)
 - [Multiple Choice](./multiple-choice.md)
-- [VAS Rating Scales](./vas-rating.md)
+- [Text Input](./text-input.md)
+- [VAS Rating](./vas-rating.md)
 - [Audio Recording](./audio-recording.md)
+- [Code](./code.md)
+- [Waiting](./waiting.md)
+- [Trigger](./trigger.md)
+- [Likert Scale](./likert-scale.md)
+- [Ranking](./ranking.md)
+- [Rapid Rate](./rapid-rate.md)
+
+### Global Components
+
 - [Video Chat](./videochat.md)
+- [Text Chat](./text-chat.md)
 - [Continuous Rating](./continuous-rating.md)
 - [Sparse Rating](./sparse-rating.md)
-- [Trigger](./trigger.md)
 - [Scanner Pulse Recorder](./scanner-pulse-recorder.md)

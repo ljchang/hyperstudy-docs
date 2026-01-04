@@ -7,17 +7,42 @@ sidebar_position: 1
 
 Welcome to the HyperStudy platform's administrator guide. As an administrator, you have full control over the platform, including user management, system settings, and oversight of all experiments. This guide will help you get started with your administrative responsibilities.
 
-## Administrator Responsibilities
+## Types of Administration
 
-As an administrator, you're responsible for:
+HyperStudy has two levels of administration:
 
-- Managing user accounts and permissions
-- Overseeing experimenter applications
-- Managing media resources
-- Monitoring system health
+### Platform Administrators (This Guide)
+
+Platform administrators have **full system access** across the entire HyperStudy installation:
+
+- Manage all user accounts and platform-wide permissions
+- Oversee all organizations on the platform
+- Access system health monitoring and logs
+- Configure platform-wide settings
+- Handle deployment and infrastructure
+
+### Organization Administrators
+
+Organization administrators manage **their organization** only:
+
+- Invite and manage team members
+- Assign roles within their organization (Admin, Member, Guest)
+- Monitor organization usage and quotas
+- Configure organization settings and branding
+
+For organization administration, see the [Organizations Guide](../experimenters/organizations/index.md) in the Experimenter section.
+
+## Platform Administrator Responsibilities
+
+As a platform administrator, you're responsible for:
+
+- Managing user accounts and platform-wide permissions
+- Overseeing all organizations and their usage
+- Managing media resources and storage
+- Monitoring system health and performance
 - Configuring system settings
 - Managing experiment rooms
-- Handling data storage and exports
+- Handling data storage and backups
 
 ![Admin Dashboard](/img/administrators/admin-dashboard.png)
 _The admin dashboard showing monitoring, user management, and system controls_
