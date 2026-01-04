@@ -3,10 +3,15 @@ title: Continuous Rating Component
 sidebar_position: 7
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Continuous Rating Component
 
 The Continuous Rating component allows participants to provide real-time, ongoing assessments throughout an experiment. As a global component, it can persist across multiple states, enabling moment-by-moment ratings during various tasks, stimuli presentations, or interactions.
 
+## Interactive Demo
+
+<StorybookEmbed story="experiment-continuousrating--default" showControls height="500px" />
 
 ## Key Features
 

@@ -3,9 +3,15 @@ title: Audio Recording Component
 sidebar_position: 11
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Audio Recording Component (Experiment State)
 
 The Audio Recording component enables participants to record audio responses directly within experiments. This component provides a simple, accessible interface for capturing voice responses, thoughts, or verbal reactions to experimental stimuli.
+
+## Interactive Demo
+
+<StorybookEmbed story="experiment-audiorecording--default" showControls height="500px" />
 
 ## Overview
 

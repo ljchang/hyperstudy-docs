@@ -1,0 +1,29 @@
+.container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: #1c1c1c;
+}
+
+.iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  text-align: right;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.link:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}

@@ -3,10 +3,15 @@ title: Synchronized Video Component
 sidebar_position: 3
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Synchronized Video Component
 
 The Synchronized Video component allows you to present video content precisely synchronized across all participants. It's one of the core features of the HyperStudy platform, enabling experiments where participants view the same media with millisecond-level synchronization.
 
+## Interactive Demo
+
+<StorybookEmbed story="experiment-showvideo--default" showControls height="500px" />
 
 ## Usage Scenarios
 

@@ -3,10 +3,15 @@ title: Multiple Choice Component
 sidebar_position: 4
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Multiple Choice Component
 
 The Multiple Choice component presents participants with a question and a set of predefined answer options. It's one of the most versatile components, useful for surveys, quizzes, decision-making tasks, and gathering structured responses.
 
+## Interactive Demo
+
+<StorybookEmbed story="experiment-multiplechoice--default" showControls height="500px" />
 
 ## Key Features
 

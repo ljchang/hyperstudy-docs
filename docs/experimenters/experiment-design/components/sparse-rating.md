@@ -3,9 +3,15 @@ title: Sparse Rating Component
 sidebar_position: 10
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Sparse Rating Component (Global State)
 
 The Sparse Rating component is a global state component that enables researchers to collect participant ratings at specific, predefined moments during video playback. Unlike continuous rating which collects data constantly, sparse rating prompts participants only at designated time points, reducing cognitive load while still capturing important temporal data.
+
+## Interactive Demo
+
+<StorybookEmbed story="experiment-sparserating--default" showControls height="500px" />
 
 ## Overview
 

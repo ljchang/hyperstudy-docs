@@ -3,10 +3,17 @@ title: VAS Rating Component
 sidebar_position: 5
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # VAS Rating Component
 
 The Visual Analog Scale (VAS) Rating component allows participants to provide responses along a continuous scale by selecting a point that represents their answer. It's ideal for collecting subjective ratings, opinions, feelings, or perceptions on a dimensional scale.
 
+## Interactive Demo
+
+Try the component with different configurations:
+
+<StorybookEmbed story="experiment-vasrating--default" showControls height="500px" />
 
 ## Key Features
 

@@ -3,10 +3,15 @@ title: Image Component
 sidebar_position: 3
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Image Component
 
 The Image component displays static images to participants. It's useful for presenting visual stimuli, diagrams, photos, or any visual content that doesn't require animation.
 
+## Interactive Demo
+
+<StorybookEmbed story="experiment-showimage--default" showControls height="500px" />
 
 ## Key Features
 

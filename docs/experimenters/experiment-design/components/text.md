@@ -3,10 +3,15 @@ title: Text Component
 sidebar_position: 2
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Text Component
 
 The Text component displays formatted text content to participants. It's one of the most frequently used components, serving for instructions, stories, scenarios, explanations, and more.
 
+## Interactive Demo
+
+<StorybookEmbed story="experiment-showtext--default" showControls height="500px" />
 
 ## Key Features
 
