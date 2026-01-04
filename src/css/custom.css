@@ -1,0 +1,390 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #4bac54;
+  --ifm-color-primary-dark: #43a047;
+  --ifm-color-primary-darker: #3d8b40;
+  --ifm-color-primary-darkest: #2e682f;
+  --ifm-color-primary-light: #5cb85c;
+  --ifm-color-primary-lighter: #6ec06e;
+  --ifm-color-primary-lightest: #8bc88b;
+  --ifm-color-success: #4caf50;
+  --ifm-color-success-dark: #43a047;
+  --ifm-color-danger: #f44336;
+  --ifm-color-danger-dark: #e53935;
+  --ifm-code-font-size: 95%;
+  --ifm-container-width: 1140px;
+  --ifm-font-family-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #121212;
+  --ifm-background-surface-color: #1a1a1a;
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-font-color-base: rgba(255, 255, 255, 0.87);
+  --ifm-button-border-radius: 8px;
+  --ifm-card-border-radius: 8px;
+  --ifm-navbar-height: 60px;
+  --ifm-card-background-color: #1a1a1a;
+  --ifm-color-emphasis-200: rgba(255, 255, 255, 0.1);
+  --ifm-color-emphasis-300: rgba(255, 255, 255, 0.2);
+  --ifm-color-emphasis-600: rgba(255, 255, 255, 0.6);
+}
+
+/* Force dark mode colors always */
+html[data-theme='light'] {
+  --ifm-color-primary: #4bac54;
+  --ifm-color-primary-dark: #43a047;
+  --ifm-color-primary-darker: #3d8b40;
+  --ifm-color-primary-darkest: #2e682f;
+  --ifm-color-primary-light: #5cb85c;
+  --ifm-color-primary-lighter: #6ec06e;
+  --ifm-color-primary-lightest: #8bc88b;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #121212;
+  --ifm-background-surface-color: #1a1a1a;
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-font-color-base: rgba(255, 255, 255, 0.87);
+  --ifm-card-background-color: #1a1a1a;
+  --ifm-color-emphasis-200: rgba(255, 255, 255, 0.1);
+  --ifm-color-emphasis-300: rgba(255, 255, 255, 0.2);
+  --ifm-color-emphasis-600: rgba(255, 255, 255, 0.6);
+}
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* General styles */
+body {
+  font-family: var(--ifm-font-family-base);
+  line-height: 1.5;
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Override any light mode specific styles */
+html[data-theme='light'] body {
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Button styling to match main app */
+.button {
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 1px solid transparent;
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: white;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Success and danger buttons */
+.button--success {
+  background-color: var(--ifm-color-success);
+  color: white;
+  border-color: var(--ifm-color-success);
+}
+
+.button--success:hover {
+  background-color: var(--ifm-color-success-dark);
+  border-color: var(--ifm-color-success-dark);
+  color: white;
+}
+
+.button--danger {
+  background-color: var(--ifm-color-danger);
+  color: white;
+  border-color: var(--ifm-color-danger);
+}
+
+.button--danger:hover {
+  background-color: var(--ifm-color-danger-dark);
+  border-color: var(--ifm-color-danger-dark);
+  color: white;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: var(--ifm-navbar-background-color);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  height: var(--ifm-navbar-height);
+}
+
+.navbar__brand {
+  height: var(--ifm-navbar-height);
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  height: 36px;
+  width: 36px;
+  margin-right: 0.5rem;
+}
+
+/* Homepage features */
+.homepage-features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.feature-card {
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.15);
+  margin: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.feature-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.card {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card--full-height {
+  height: 100%;
+}
+
+.card__header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-card-background-color);
+}
+
+.card__header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.card__body {
+  padding: 1rem 1.5rem;
+  flex: 1 1 auto;
+}
+
+.card__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-card-background-color);
+}
+
+.card__footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.screenshot-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.screenshot {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.screenshot-caption {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Code blocks */
+pre {
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Alert/admonition styling */
+.alert {
+  border-radius: 8px;
+}
+
+/* Menu styling */
+.menu__link {
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.menu__link--active {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--ifm-navbar-background-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Additional utility classes */
+.text-success {
+  color: var(--ifm-color-success);
+}
+
+.text-danger {
+  color: var(--ifm-color-danger);
+}
+
+.text-primary {
+  color: var(--ifm-color-primary);
+}
+
+/* Input styling */
+input, textarea, select {
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+}
+
+input,
+textarea,
+select {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+/* Clickable card styles */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clickable-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px 0 rgba(75, 172, 84, 0.3);
+  border-color: var(--ifm-color-primary);
+}
+
+.clickable-card h3 {
+  color: var(--ifm-color-primary);
+}
+
+/* Remove theme toggle button if it appears */
+.navbar__items--right .react-toggle {
+  display: none;
+}
+
+/* Navbar brand styling */
+.navbar__brand:hover {
+  color: var(--ifm-color-primary);
+}
+
+.navbar__title {
+  color: var(--ifm-font-color-base);
+}
+
+.navbar__brand:hover .navbar__title {
+  color: var(--ifm-color-primary);
+}
+
+/* Ensure logo displays at proper size */
+.navbar__logo {
+  height: 40px;
+  width: auto;
+  margin-right: 0.75rem;
+}
+
+/* Force navbar links to have consistent color */
+.navbar__link {
+  color: var(--ifm-font-color-base);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Menu link active state */
+.menu__link--active:not(.menu__link--sublist) {
+  background-color: rgba(75, 172, 84, 0.15);
+  color: var(--ifm-color-primary);
+}
+
+/* Ensure main layout background is dark */
+.main-wrapper {
+  background-color: #121212;
+}
