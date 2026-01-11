@@ -106,6 +106,7 @@ module.exports = {
           ],
         },
         'experimenters/media-management',
+        'experimenters/permissions',
         'experimenters/collaboration',
         {
           type: 'category',

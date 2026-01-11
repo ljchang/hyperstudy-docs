@@ -1,11 +1,15 @@
 ---
 title: Collaborating Through Groups
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Collaborating Through Groups
 
 The HyperStudy platform provides robust collaboration features through its group system. Groups allow experimenters to share resources, collaborate on experiments, and manage team access efficiently. This guide explains how to use groups for effective collaboration.
+
+:::tip
+For detailed information on how permissions work, including the unified Permission Manager interface, see the [Permissions & Sharing](./permissions.md) guide.
+:::
 
 
 ## Understanding Experimenter Groups
@@ -112,30 +116,42 @@ Members can be added individually or in bulk via CSV import.
 
 ## Sharing Resources with Groups
 
+HyperStudy uses a unified Permission Manager for sharing experiments, media, and data with groups.
+
 ### Sharing Experiments
 
 To share an experiment with a group:
 
 1. Go to the experiment in Experiment Designer
-2. Open the "Permissions" tab
-3. Set Visibility to "Group"
-4. Select the group(s) to share with
-5. Set access level (View, Edit, or Manage)
-6. Click "Save Permissions"
+2. Open the **Permissions** tab
+3. In the **Grant Access** section, click **Add Group**
+4. Select the group from the dropdown
+5. Toggle permissions using the icons:
+   - **View** (eye) - Can see the experiment
+   - **Edit** (pencil) - Can modify the experiment
+   - **Duplicate** (copy) - Can create a copy
+   - **Manage Access** (gear) - Can change permissions
 
-Group members will now see the experiment in their dashboard.
-
+Group members will immediately see the experiment in their dashboard.
 
 ### Sharing Media
 
-To share media resources:
+To share images or videos with a group:
 
-1. In the Media Library, select the item(s) to share
-2. Click "Permissions" or use the info panel
-3. Set Visibility to "Group"
-4. Select the group(s) to share with
-5. Choose read-only or edit access
-6. Click "Save"
+1. In the Media Library, select the item
+2. Click **Permissions** in the info panel
+3. Click **Add Group** in the Grant Access section
+4. Select the group and toggle desired permissions
+
+### Sharing Data
+
+To share experiment data with a group:
+
+1. Go to **Data Management**
+2. Select the experiment
+3. Click the **Permissions** tab
+4. Click **Add Group** and select the group
+5. Toggle **View** and/or **Export** permissions
 
 ### Folder-Based Sharing
 
@@ -230,5 +246,6 @@ Groups can have different visibility settings:
 
 Now that you understand collaboration through groups, explore these related topics:
 
-- [Media Management](./media-management.md)
-{/* The following guides are coming soon: Managing Permissions and Sharing, Experiment Publishing, Resource Templates */}
+- [Permissions & Sharing](./permissions.md) - Complete guide to the unified permission system
+- [Media Management](./media-management.md) - Managing images and videos
+- [Data Permissions](./data-management/permissions.md) - Controlling data access

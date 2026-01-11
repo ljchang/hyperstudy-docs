@@ -5,7 +5,11 @@ sidebar_position: 2
 
 # Data Permissions
 
-Control who can view and export data from your experiments. HyperStudy provides flexible data sharing options to support collaboration while maintaining data security.
+Control who can view and export data from your experiments. Data permissions are managed separately from experiment design permissions, giving you fine-grained control over data access.
+
+:::tip
+For a complete overview of how permissions work across HyperStudy, see the [Permissions & Sharing](../permissions.md) guide.
+:::
 
 ## Understanding Data Permissions
 
@@ -14,158 +18,171 @@ Data permissions control access to experiment data separately from experiment de
 - Let colleagues view data without editing the experiment
 - Share data with external collaborators
 - Control who can export vs. just view data
-
-## Visibility Levels
-
-Each experiment has a visibility setting that controls default access:
-
-### Private
-
-**Default for all experiments**
-
-- Only the experiment owner can access data
-- No one else can view or export unless explicitly shared
-- Most restrictive option
-
-### Organization
-
-- All members of your organization can **view** data
-- Export still requires explicit sharing
-- Good for team transparency
-
-:::note
-Organization visibility only grants view access. To allow colleagues to export data, you must share with them explicitly.
-:::
+- Keep sensitive data restricted while sharing experiment designs
 
 ## Permission Types
 
-When sharing data, you can grant two types of permissions:
+Data resources support two permission types:
 
-| Permission | Description |
-|------------|-------------|
-| **View** | Can view data in the Data Management interface |
-| **Export** | Can download data as files (CSV, JSON, etc.) |
+| Permission | Icon | Description |
+|------------|------|-------------|
+| **View** | Eye | Can see data in the Data Management interface, view charts and summaries |
+| **Export** | Download | Can download data as files (CSV, JSON, etc.) |
 
 Export permission automatically includes view permission.
 
+:::note
+Unlike experiments and media, data resources **cannot be made public**. All data access must be explicitly granted to specific users or groups.
+:::
+
 ## Access Hierarchy
 
-HyperStudy checks permissions in the following order:
+HyperStudy checks data permissions in the following order:
 
-1. **Experiment Owner** - Always has full access
-2. **Organization Admins** - Full access to all org experiments
-3. **Explicitly Shared Users** - Access based on share settings
-4. **Organization Members** - View access if visibility is "Organization"
-5. **Everyone Else** - No access
+1. **Experiment Owner** - Always has full access to their experiment's data
+2. **Organization Admins** - Full access to all organization experiment data
+3. **Explicitly Shared Users/Groups** - Access based on share settings
+4. **Organization Members** - Default permissions from organization group
 
-## Managing Permissions
+## Managing Data Permissions
 
-### Changing Visibility
+### Opening the Permission Manager
 
-To change an experiment's visibility:
+1. Go to **Data Management** from the main navigation
+2. Select the experiment whose data you want to manage
+3. Click the **Permissions** tab
 
-1. Go to **Data Management** for your experiment
-2. Click the **Permissions** tab
-3. Under **Visibility**, select the desired level
-4. Click **Save**
+### The Permission Interface
 
-### Sharing with Users
+The Permission Manager shows all current access:
 
-To share data with a specific user:
+- **Owner** - The experiment owner (always has full access)
+- **Organization** - Your organization's default access (marked "Default")
+- **Shared Users** - Individual users with explicit access
+- **Shared Groups** - Experimenter groups with access
 
-1. Go to **Data Management > Permissions**
-2. Click **Share with User**
-3. Enter the user's email address
-4. Select permissions:
-   - **View** - Can view data only
-   - **Export** - Can view and download data
-5. Click **Share**
+### Granting View Access
 
-The user will now see this experiment in their Data Management interface.
+To let someone view data without downloading:
 
-### Sharing with Groups
+1. Click **Add User** or **Add Group**
+2. Select the user or group
+3. Ensure only the **View** (eye) icon is enabled
+4. The **Export** (download) icon should be disabled/gray
 
-If you have experimenter groups set up, you can share with entire groups:
+### Granting Export Access
 
-1. Go to **Data Management > Permissions**
-2. Click **Share with Group**
-3. Select the group
-4. Select permissions (View or Export)
-5. Click **Share**
+To let someone download data:
 
-All current and future group members will have access.
+1. Click **Add User** or **Add Group**
+2. Select the user or group
+3. Enable both **View** and **Export** icons
 
-### Viewing Current Shares
+### Modifying Permissions
 
-The Permissions tab shows all current shares:
+To change existing permissions:
 
-- **Users** - Individual users with access
-- **Groups** - Groups with access
-- **Permission level** - View or Export for each
+1. Find the user or group in the list
+2. Click permission icons to toggle them:
+   - Click **Export** to enable/disable download capability
+   - **View** cannot be disabled if Export is enabled
 
-### Removing Shares
+### Removing Access
 
-To revoke access:
+To revoke data access:
 
-1. Find the share in the Permissions list
-2. Click the **Remove** button (trash icon)
-3. Confirm the removal
+1. Find the user or group in the list
+2. Click the **X** button on their row
+3. Access is revoked immediately
 
-Access is revoked immediately.
+:::caution
+You cannot remove the organization default group. To restrict organization-wide access, disable all permissions for that group instead.
+:::
 
 ## Checking Your Access
 
-To check your access level to an experiment:
+When viewing the Data Management list:
 
-1. Go to **Data Management**
-2. Find the experiment
-3. Look for the access indicator:
-   - **Full Access** - You own this experiment
-   - **Export Access** - You can view and download
-   - **View Access** - You can only view
+- **Your experiments** - Full access (you're the owner)
+- **Shared experiments** - Access level shown by permission icons
+- **Not listed** - You don't have access to that experiment's data
 
-If an experiment doesn't appear in your Data Management, you don't have access to it.
+## Common Scenarios
+
+### Lab Data Sharing
+
+For a research lab:
+
+1. Organization group has **View** by default
+2. Grant **Export** only to data analysts who need downloads
+3. Keep export restricted for preliminary or sensitive data
+
+### External Collaboration
+
+For sharing data with external researchers:
+
+1. Add the external collaborator by email
+2. Grant **View** for dashboard review
+3. Grant **Export** when they need raw data access
+4. Remove access when collaboration concludes
+
+### Multi-Site Studies
+
+For studies across institutions:
+
+1. Create a group for each site's researchers
+2. Share data with appropriate groups
+3. Site leads get **Export** access
+4. Other site members get **View** only
 
 ## Best Practices
 
-### For Experiment Owners
-
-- Start with **Private** visibility
-- Share explicitly with collaborators who need access
-- Grant **Export** permission only to those who need to download data
-- Review shares periodically and remove outdated access
-
 ### For Data Security
 
-- Use organization visibility for internal transparency
-- Keep sensitive experiments on Private visibility
-- Don't share Export permission unless necessary
-- Remove access promptly when collaboration ends
+- Start with **View** only, add **Export** when needed
+- Regularly audit who has export access
+- Remove access promptly when no longer needed
+- Document data sharing agreements
 
 ### For Collaboration
 
-- Use groups for lab-wide or team-wide access
-- Document who has access and why
-- Communicate with collaborators when sharing
+- Use groups for team-based access
+- Communicate when sharing data access
+- Establish clear protocols for data handling
+
+### For Compliance
+
+- Keep export permission restricted for sensitive data
+- Track who has accessed and downloaded data
+- Review permissions before IRB audits
 
 ## Frequently Asked Questions
 
-### Can I share with someone outside my organization?
+### Can I make data publicly accessible?
 
-Yes, as long as they have a HyperStudy account. Share using their email address.
+No, data cannot be made public. All data access must be explicitly granted to authenticated users. This protects participant information and research data.
 
-### What happens when I remove someone from a share?
+### What happens to downloaded data when I remove access?
 
-They immediately lose access. Any data they previously downloaded remains with them.
+Removing access prevents future views and downloads. Data already downloaded by the user remains with them.
 
-### Can participants see experiment data?
+### Does experiment edit access include data access?
 
-No, participants never have access to experiment data. Only experimenters with appropriate permissions can access data.
+No, they are separate. Someone with experiment edit permission cannot automatically see data. You must explicitly grant data access.
 
-### How do I share all my experiments at once?
+### How do I share all my experiments' data at once?
 
-Currently, sharing is per-experiment. For team-wide access, use Organization visibility or set up experimenter groups.
+Data sharing is per-experiment. For broad access, either:
+- Use your organization group's default permissions
+- Create an experimenter group and add it to each experiment
 
-### Does visibility affect experiment design access?
+### Can participants access experiment data?
 
-No, visibility only controls **data** access. Experiment design (editing states, components, etc.) is controlled through [Collaboration](../collaboration.md) settings.
+Never. Participants can only see their own experience during the experiment. They cannot access any data, including their own responses.
+
+## Related Documentation
+
+- [Permissions & Sharing](../permissions.md) - Complete permission system overview
+- [Data Management](../data-management.md) - Working with experiment data
+- [Data Management Interface](../data-management-interface.md) - Using the data interface
+- [Collaborating Through Groups](../collaboration.md) - Managing experimenter groups
