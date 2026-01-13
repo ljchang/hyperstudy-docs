@@ -666,6 +666,37 @@ If approaching storage limits:
 | Image display issues | Verify format support; check image dimensions |
 | Synchronization problems | Use platform-hosted media instead of external links |
 
+### HLS Transcoding Issues
+
+If a video's HLS status shows **Failed** or remains **Pending** for more than 10 minutes:
+
+| Status | What It Means | What To Do |
+|--------|---------------|------------|
+| ⏳ Pending (>10 min) | Transcoding hasn't started | Use the retry button |
+| ✗ Failed | Transcoding encountered an error | Hover to see error, then retry |
+| 🔄 Processing (>15 min) | Transcoding is taking longer than expected | Wait, or contact support for large files |
+
+**To retry transcoding:**
+
+1. Go to Admin → Videos
+2. Find the video with the issue
+3. Hover over the HLS status to see error details (if any)
+4. Click the **retry button** (circular arrow icon) next to the status
+5. The status will change to "Pending" and transcoding will restart
+
+**Common error messages:**
+
+| Error | Meaning | Solution |
+|-------|---------|----------|
+| "Video file not found" | Original file is missing | Re-upload the video |
+| "Video file is too large" | Exceeds 4GB limit | Compress or split the video |
+| "Video format not supported" | Codec not recognized | Convert to MP4 (H.264) |
+| "Video encoding failed" | FFmpeg processing error | Try a different format/codec |
+
+:::tip Progressive Fallback
+Even if HLS transcoding fails, your video is still playable via progressive download. HLS provides adaptive streaming benefits, but the original upload always works as a fallback.
+:::
+
 ## Next Steps
 
 Now that you understand media management, explore these related topics:
