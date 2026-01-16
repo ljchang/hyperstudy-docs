@@ -354,13 +354,13 @@ Released: 2026-01-16
 ---
 
 
-[View all v0.5 releases →](v0.5)
+[View all v0.5 releases →](/release-notes/v0.5)
 
 ## Previous Versions
 
-- [v0.4 releases](v0.4)
-- [v0.3 releases](v0.3)
-- [Archived releases](archived)
+- [v0.4 releases](/release-notes/v0.4)
+- [v0.3 releases](/release-notes/v0.3)
+- [Archived releases](/release-notes/archived)
 
 ## Stay Informed
 
