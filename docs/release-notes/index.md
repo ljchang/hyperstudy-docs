@@ -8,6 +8,29 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.8
+
+Released: 2026-01-19
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix MediaConvert HLS transcoding - add required segmentsPerSubdirectory (0774a86b)
+- Fix: Add organizationId to multipart upload video document (06f55593)
+- Fix security and error handling in multipart upload (2eb512aa)
+- Add multipart upload support for large video files (>100MB) (2cd11949)
+- Increase video upload size limit from 5GB to 10GB (445b824f)
+- Add resource permissions migration script (6bf22745)
+- Fix emulator tests to use dynamic plan values from plans.js (584d8dee)
+- Consolidate monitoring dashboards from 10 to 3 (e6b7149e)
+- Add sync-quotas migration script for updating organization quotas (cc83ef55)
+- Update usage tracking tests for new Pro plan quotas (431f7fea)
+- Fix invite member modal to use correct API endpoint (636b4327)
+- Update plan quotas and video upload limits (a641b231)
+
+---
+
 ## v0.5.7
 
 Released: 2026-01-18
@@ -35,35 +58,6 @@ Released: 2026-01-18
 - Fix logger reference error in getExperimenterExperiments deprecation warning (ae8591ff)
 - Fix ExperimentsTable tests to use loadOrgExperiments mock (0ed38490)
 - Migrate frontend to V3 experiment API for faster loading (3d96d508)
-
----
-
-## v0.5.5
-
-Released: 2026-01-17
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix LocalStack CI flakiness: use docker run instead of service container (1a919e94)
-- Add real-time collaboration for experiment designer (Phase 1) (81f25cb1)
-- Remove HTTP auto-save fallback from ExperimentDesigner (7f64e0c2)
-- Fix memory leak: cleanup debounce timeout on unmount (ec5534cc)
-- Fix double-save: use setLocalField for WebSocket mode (6cb9ffd3)
-- Fix questionnaire not persisting - autoSave.experiment is getter-only (91c49c41)
-- Fix questionnaire debounce race condition losing new questions (ddd1ece6)
-- Fix PostExperimentQuestionnaire input not working with WebSocket mode (8fa6782f)
-- Fix platform admin permissions for experiments, media, and data access (78d9f4a5)
-- Fix PostExperimentQuestionnaire input not working with WebSocket mode (93621598)
-- Add V4 Participant API with session-based authentication (9a5ed15c)
-- Exclude LocalStack tests from main test suite (ca123ec7)
-- Update package-lock.json with LocalStack testing dependencies (e22abded)
-- Add LocalStack AWS testing infrastructure and MediaConvert Lambda unit tests (6e003651)
-- Use absolute paths for release notes links in Docusaurus (052a66aa)
-- Fix relative links in release notes index - remove ./ prefix (51a412d5)
-- Fix version sorting and awk pattern for release notes index (51ac630f)
-- Add auto-regeneration of release notes index.md (79387977)
 
 ---
 
