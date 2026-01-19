@@ -153,6 +153,63 @@ response <- GET(
 )
 ```
 
+### Organization Scoping
+
+HyperStudy uses a multi-tenant architecture where data is isolated by organization. When making API requests, you should include your organization ID:
+
+```http
+X-Organization-Id: org_your_organization_id
+```
+
+**Why Organization Scoping?**
+
+- **Data isolation**: Each organization's data is kept separate
+- **Explicit context**: Ensures you're accessing data from the correct organization
+- **Cross-org support**: Required when accessing shared resources from other organizations
+
+**Example with Organization Header** (Python):
+```python
+headers = {
+    'X-API-Key': 'hst_live_your_api_key_here',
+    'X-Organization-Id': 'org_abc123'  # Your organization ID
+}
+
+response = requests.get(url, headers=headers)
+```
+
+:::tip Finding Your Organization ID
+You can find your organization ID in:
+- **Settings > Organization** - shown at the top of the page
+- **API Keys page** - displayed when creating a key
+- **Browser URL** - often visible in the URL bar when viewing organization settings
+:::
+
+### Accessing Shared Data
+
+To access experiments shared with you from other organizations, use the `/shared` endpoints:
+
+```python
+# Get experiments shared with you from other organizations
+response = requests.get(
+    f'{BASE_URL}/experiments/shared',
+    headers={
+        'X-API-Key': API_KEY,
+        'X-Organization-Id': YOUR_ORG_ID  # Your organization
+    }
+)
+
+# Access data from a specific shared experiment
+response = requests.get(
+    f'{BASE_URL}/data/events/experiment/{SHARED_EXPERIMENT_ID}',
+    headers={
+        'X-API-Key': API_KEY,
+        'X-Organization-Id': YOUR_ORG_ID
+    }
+)
+```
+
+See [Cross-Organization Collaboration](../cross-org-collaboration.md) for more details on sharing resources across organizations.
+
 ### Endpoint Structure
 
 API endpoints follow this pattern:

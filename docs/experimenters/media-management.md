@@ -31,12 +31,14 @@ All videos must be uploaded to the platform for security, performance, and HLS s
 #### Platform-Hosted Videos
 - **Security**: Videos use signed URLs that are not publicly accessible
 - **Privacy**: URLs are only valid for authorized users and expire after 3 hours
-- **HLS Streaming**: Automatic transcoding to adaptive bitrate HLS format
+- **HLS Streaming**: Automatic transcoding to adaptive bitrate HLS format via AWS MediaConvert
 - **Performance**: Optimized for all connection speeds with automatic quality adaptation
 - **Precaching**: Automatically precached for optimal loading and synchronization
 - **Accepted formats**: MP4, WebM, OGG, MOV, AVI, MKV, M4V
 - **Recommended format**: MP4 (H.264 video, AAC audio, yuv420p chroma)
-- **Maximum file size**: 5GB per video
+- **Maximum file size**: 10GB per video
+- **Large file support**: Files over 100MB automatically use multipart upload for reliability
+- **Long video support**: Videos over 1.5 hours are fully supported
 - **Recommended resolution**: 1080p (1920x1080) or smaller
 
 :::info Why Upload-Only?
@@ -53,10 +55,17 @@ All uploaded videos are automatically transcoded to HLS (HTTP Live Streaming) fo
 
 ### How It Works
 
-1. **Upload**: You upload your video in any supported format
-2. **Automatic Transcoding**: The platform transcodes to multiple quality levels (360p, 480p, 720p, 1080p)
-3. **HLS Ready**: Within 2-5 minutes, your video is available in adaptive streaming format
+1. **Upload**: You upload your video in any supported format (files over 100MB use automatic multipart upload)
+2. **Automatic Transcoding**: AWS MediaConvert transcodes to multiple quality levels (360p, 480p, 720p, 1080p)
+3. **HLS Ready**: Processing time varies by video length:
+   - Short videos (under 30 min): 2-5 minutes
+   - Medium videos (30-90 min): 5-15 minutes
+   - Long videos (over 90 min): 15-45 minutes
 4. **Smart Playback**: The player automatically selects the best quality based on viewer's connection
+
+:::info AWS MediaConvert
+HyperStudy uses AWS MediaConvert for transcoding, which has no timeout limit. This means videos of any length can be processed, including multi-hour recordings that were previously unsupported.
+:::
 
 ### Benefits
 
@@ -81,18 +90,32 @@ Videos are transcoded to multiple resolutions based on the source quality:
 
 ### HLS Status Indicators
 
-In the Video Manager, each video shows its HLS transcoding status:
+In the Video Manager, each video shows its HLS transcoding status with color-coded badges:
 
-| Status | Meaning |
-|--------|---------|
-| ✓ Ready | HLS streaming available |
-| 🔄 Processing | Transcoding in progress (2-5 min) |
-| ⏳ Pending | Waiting to start transcoding |
-| ✗ Failed | Transcoding error (original still playable) |
-| — | Pre-HLS video (progressive only) |
+| Status | Color | Meaning |
+|--------|-------|---------|
+| **Ready** | Green | HLS streaming available and working |
+| **Processing** | Blue (with spinner) | Currently transcoding |
+| **Pending** | Yellow | Waiting to start transcoding |
+| **Failed** | Red | Transcoding error (see below for retry) |
+| **—** | Gray | Pre-HLS video (progressive only) |
+
+#### Retrying Failed Transcodes
+
+If a video's HLS status shows **Failed**:
+
+1. Hover over the status badge to see the error details
+2. Click the **retry button** (circular arrow icon) next to the status
+3. The status changes to "Pending" and transcoding restarts
+4. Monitor progress in the HLS status column
+
+Common failure reasons:
+- **Unsupported codec**: Convert source to H.264 MP4 and re-upload
+- **Corrupted file**: Try re-uploading the original file
+- **Processing error**: Click retry; usually succeeds on second attempt
 
 :::tip Progressive Fallback
-Videos remain playable immediately after upload using progressive download. HLS becomes available once transcoding completes. If transcoding fails, the original video continues to work.
+Videos remain playable immediately after upload using progressive download. HLS becomes available once transcoding completes. If transcoding fails, the original video continues to work via progressive download.
 :::
 
 ## Video Format Recommendations
@@ -335,9 +358,22 @@ Upload videos directly to HyperStudy's secure storage:
 6. Select target folder and set permissions
 7. Monitor upload progress
 
+#### Large File Uploads
+
+For files larger than 100MB, HyperStudy automatically uses **multipart upload**:
+
+- **Chunked transfer**: Large files are split into smaller parts (up to 4 concurrent uploads)
+- **Resume capability**: If upload is interrupted, it can resume from where it left off
+- **Progress tracking**: See detailed progress for each chunk
+- **Maximum size**: 10GB per video
+
+:::tip Uploading Long Videos
+The system now supports videos of any length. Multi-hour recordings (e.g., 2-3 hour lectures) are fully supported thanks to AWS MediaConvert's unlimited processing capability.
+:::
+
 **What Happens After Upload:**
 1. **Immediate**: Video available via progressive download
-2. **2-5 minutes**: HLS transcoding completes (360p-1080p adaptive streaming)
+2. **Variable time**: HLS transcoding completes (time depends on video length)
 3. **Automatic**: System switches to HLS once ready
 
 **Security Benefits:**
@@ -374,10 +410,11 @@ For multiple files:
 
 When uploading media, consider:
 
-- **Network Bandwidth**: Larger files take longer to upload
-- **Storage Limits**: Your account may have storage quotas
-- **Participant Experience**: Larger files may cause loading delays
-- **Quality Needs**: Balance file size with required quality
+- **Network Bandwidth**: Larger files take longer to upload (multipart upload helps with reliability)
+- **Storage Limits**: Your account may have storage quotas (check Organization settings)
+- **Upload Limits**: Images max 10MB, videos max 10GB
+- **Participant Experience**: HLS adaptive streaming automatically adjusts quality, so large source files don't impact participant experience
+- **Quality Needs**: Higher resolution source files enable better HLS quality levels
 
 ## Media Organization
 
@@ -553,7 +590,7 @@ HyperStudy automatically precaches media to ensure smooth playback and precise t
 #### Best Practices
 
 1. **Upload to Platform**: Platform-hosted media has optimal precaching support
-2. **Keep Media Reasonable**: Very large files (>500MB) may take time to precache
+2. **Keep Media Reasonable**: Very large files (over 500MB) may take time to precache
 3. **Test Precaching**: Check the console logs during testing to verify precaching completion
 4. **Stable URLs**: External videos should have stable, consistent URLs
 
@@ -668,13 +705,18 @@ If approaching storage limits:
 
 ### HLS Transcoding Issues
 
-If a video's HLS status shows **Failed** or remains **Pending** for more than 10 minutes:
+If a video's HLS status shows **Failed** or remains **Pending** for an extended time:
 
 | Status | What It Means | What To Do |
 |--------|---------------|------------|
-| ⏳ Pending (>10 min) | Transcoding hasn't started | Use the retry button |
+| ⏳ Pending (over 15 min) | Transcoding queue backlog | Wait, or use the retry button |
 | ✗ Failed | Transcoding encountered an error | Hover to see error, then retry |
-| 🔄 Processing (>15 min) | Transcoding is taking longer than expected | Wait, or contact support for large files |
+| 🔄 Processing (over 45 min for short video) | Unexpected delay | Wait or contact support |
+
+**Expected processing times:**
+- Videos under 30 min: 2-5 minutes
+- Videos 30-90 min: 5-15 minutes
+- Videos over 90 min: 15-45 minutes
 
 **To retry transcoding:**
 
@@ -688,10 +730,10 @@ If a video's HLS status shows **Failed** or remains **Pending** for more than 10
 
 | Error | Meaning | Solution |
 |-------|---------|----------|
-| "Video file not found" | Original file is missing | Re-upload the video |
-| "Video file is too large" | Exceeds 4GB limit | Compress or split the video |
-| "Video format not supported" | Codec not recognized | Convert to MP4 (H.264) |
-| "Video encoding failed" | FFmpeg processing error | Try a different format/codec |
+| "Video file not found" | Original file is missing from storage | Re-upload the video |
+| "Video format not supported" | Codec not recognized by MediaConvert | Convert to MP4 (H.264) |
+| "Transcoding job failed" | MediaConvert processing error | Try retry; if persistent, re-encode source |
+| "Access denied" | Storage permission issue | Contact support |
 
 :::tip Progressive Fallback
 Even if HLS transcoding fails, your video is still playable via progressive download. HLS provides adaptive streaming benefits, but the original upload always works as a fallback.

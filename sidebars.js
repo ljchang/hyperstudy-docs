@@ -108,6 +108,7 @@ module.exports = {
         'experimenters/media-management',
         'experimenters/permissions',
         'experimenters/collaboration',
+        'experimenters/cross-org-collaboration',
         {
           type: 'category',
           label: 'Data Management',
@@ -152,6 +153,7 @@ module.exports = {
       items: [
         'administrators/getting-started',
         'administrators/user-management',
+        'administrators/platform-administration',
         'administrators/email-configuration',
         'administrators/monitoring',
       ],
@@ -169,6 +171,9 @@ module.exports = {
           items: [
             'developers/architecture/overview',
             'developers/architecture/horizontal-scaling',
+            'developers/architecture/multi-tenant',
+            'developers/architecture/collaborative-editing',
+            'developers/architecture/hls-transcoding',
             'developers/video-synchronization',
           ],
         },
@@ -181,6 +186,7 @@ module.exports = {
           label: 'Data API',
           items: [
             'developers/data-api/data-collection-v2',
+            'developers/api/participant-api-v4',
           ],
         },
         {

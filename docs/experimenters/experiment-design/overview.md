@@ -14,6 +14,39 @@ The Experiment Designer is a comprehensive interface for creating and configurin
 ![Experiment Creation Interface](/img/experimenters/create-experiment-main.png)
 _The experiment creation interface with tabs for General settings, Roles, Variables, Permissions, Recruitment, Consent, and Instructions_
 
+### Instant Auto-Save
+
+The Experiment Designer automatically saves your changes in real-time. There's no need for a manual "Save" button.
+
+- **Instant persistence**: Changes are saved immediately as you make them
+- **No data loss**: Even if your browser crashes, your work is preserved
+- **Visual feedback**: A subtle indicator shows when changes are being saved
+- **Offline resilience**: If you lose connection, changes queue locally and sync when reconnected
+
+:::tip No Save Button Needed
+You don't need to manually save your experiment. Every change you make is automatically persisted to the server within milliseconds. Just edit and close when you're done.
+:::
+
+### Collaborative Editing
+
+Multiple team members can work on the same experiment simultaneously.
+
+#### Real-Time Collaboration
+
+- **See who's editing**: The interface shows other editors currently working on the experiment
+- **Live updates**: Changes from collaborators appear instantly in your view
+- **No conflicts**: The system handles concurrent edits gracefully
+
+#### Collaboration Best Practices
+
+1. **Coordinate on major changes**: Communicate with your team before restructuring states
+2. **Work in different areas**: Reduce conflicts by editing different states/sections
+3. **Check who's online**: Look for the editor indicators before making large changes
+
+:::note Permission Cache
+Permission checks are cached for 30 seconds for performance. If you're just granted access to an experiment, you may need to wait up to 30 seconds or refresh the page.
+:::
+
 ## Core Concepts in Experiment Design
 
 ### States

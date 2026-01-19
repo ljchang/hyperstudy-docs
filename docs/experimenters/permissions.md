@@ -47,9 +47,24 @@ HyperStudy checks permissions in the following order:
 
 1. **Owner** - Full access to all actions
 2. **Organization Admins** - Full access to all organization resources
-3. **Shared Users/Groups** - Access based on specific share settings
-4. **Organization Members** - Default permissions set for the organization group
-5. **Public Access** - Permissions granted to all authenticated users (if enabled)
+3. **Platform Admins** - Global access for support and debugging (all access is logged)
+4. **Explicitly Shared** - Users, groups, or external organizations with explicit permissions
+5. **Organization Members** - Default permissions set for the organization group
+6. **Public Access** - Permissions granted to all authenticated users (if enabled)
+
+```
+Owner
+  ↓
+Organization Admin (same org)
+  ↓
+Platform Admin (global, logged)
+  ↓
+Explicitly Shared (user/group/external org)
+  ↓
+Organization Default (org members)
+  ↓
+Public (if enabled)
+```
 
 ## Using the Permission Manager
 
@@ -194,6 +209,105 @@ To share an experiment template publicly:
 3. Enable **Duplicate** so others can copy it
 4. Keep **Edit** and **Manage Access** disabled
 
+## Cross-Organization Sharing
+
+HyperStudy supports sharing resources with users and organizations outside your own organization.
+
+### Sharing with External Users
+
+To share with a researcher at another institution:
+
+1. Click **Add User** in the Permission Manager
+2. Enter their email address
+3. Select them from the search results
+4. Configure their permissions
+5. They'll see the resource in their "Shared With Me" panel
+
+:::tip
+External users are displayed with their organization name, making cross-org shares easy to identify.
+:::
+
+### Sharing with External Organizations
+
+For ongoing collaborations, you can share with an entire organization:
+
+1. Click **Add Organization** in the Permission Manager
+2. Search for the organization by name
+3. Select the organization
+4. Configure organization-wide permissions
+
+All current (and future) members of that organization inherit the permissions.
+
+### What External Collaborators Can Access
+
+When you share a resource externally:
+
+| Can Access | Cannot Access |
+|------------|---------------|
+| The specific shared resource | Your organization's media library |
+| Media used within that resource | Other experiments in your organization |
+| Design/settings (based on permissions) | Data (unless separately shared) |
+
+For comprehensive guidance, see [Cross-Organization Collaboration](./cross-org-collaboration.md).
+
+## Time-Limited Access
+
+All permissions support optional expiration dates for enhanced security.
+
+### Setting Expiration Dates
+
+1. After adding a user, group, or organization to permissions
+2. Click the **calendar icon** next to their entry
+3. Select an expiration date
+4. Access automatically revokes at midnight (UTC) on that date
+
+### Expiration Recommendations
+
+| Use Case | Suggested Expiration |
+|----------|---------------------|
+| One-time review | 1-2 weeks |
+| Active collaboration | 3-6 months |
+| Grant-aligned work | Match grant end date |
+| Course collaboration | End of semester |
+| Permanent team member | Leave blank |
+
+### Expiration Notifications
+
+- Users receive notification 7 days before expiration
+- Resource owners receive weekly summaries of expiring access
+- All expirations are logged in the audit trail
+
+## Audit Trail
+
+HyperStudy maintains comprehensive audit logs for compliance with research regulations (HIPAA, FERPA, GDPR).
+
+### What Gets Logged
+
+All permission-related activities are recorded:
+
+- When access was granted or revoked
+- Who made the change
+- What permissions were set
+- Expiration dates configured
+- When external users accessed resources
+- Platform admin access events
+
+### Viewing Audit Logs
+
+Organization administrators can access audit logs:
+
+1. Go to **Settings > Organization > Audit Log**
+2. Filter by resource type, action, time period, or user
+3. Export logs for compliance documentation
+
+### Compliance Support
+
+| Regulation | Relevant Features |
+|------------|-------------------|
+| HIPAA | Access logging, role-based access, automatic revocation |
+| FERPA | Data isolation, explicit permissions, audit trails |
+| GDPR | Time-limited access, access logging, data separation |
+
 ## Best Practices
 
 ### Security
@@ -249,6 +363,7 @@ Yes, for media folders. When you set permissions on a folder:
 
 ## Related Documentation
 
+- [Cross-Organization Collaboration](./cross-org-collaboration.md) - Multi-site studies and external sharing
 - [Collaborating Through Groups](./collaboration.md) - Managing experimenter groups
 - [Data Permissions](./data-management/permissions.md) - Detailed data access controls
 - [Media Management](./media-management.md) - Managing images and videos

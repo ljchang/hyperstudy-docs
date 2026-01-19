@@ -13,12 +13,20 @@ For a complete overview of how permissions work across HyperStudy, see the [Perm
 
 ## Understanding Data Permissions
 
-Data permissions control access to experiment data separately from experiment design access. This means you can:
+Data permissions control access to experiment data **completely separately** from experiment design access. This strict separation is a core security principle in HyperStudy.
+
+:::warning Design ≠ Data
+Having permission to edit an experiment does **not** grant any access to its data. You must explicitly grant data permissions separately. This protects participant data and research integrity.
+:::
+
+This separation means you can:
 
 - Let colleagues view data without editing the experiment
-- Share data with external collaborators
+- Share experiment designs without exposing collected data
+- Share data with external collaborators for analysis
 - Control who can export vs. just view data
 - Keep sensitive data restricted while sharing experiment designs
+- Support IRB requirements for data access control
 
 ## Permission Types
 
@@ -41,8 +49,13 @@ HyperStudy checks data permissions in the following order:
 
 1. **Experiment Owner** - Always has full access to their experiment's data
 2. **Organization Admins** - Full access to all organization experiment data
-3. **Explicitly Shared Users/Groups** - Access based on share settings
-4. **Organization Members** - Default permissions from organization group
+3. **Platform Admins** - Can access data for support and debugging (all access is logged)
+4. **Explicitly Shared Users/Groups** - Access based on share settings
+5. **Organization Members** - Default permissions from organization group
+
+:::note Platform Admin Access
+Platform administrators may access experiment data for technical support and debugging purposes. All platform admin data access is logged in the audit trail for compliance and transparency. This access is used sparingly and only when necessary to resolve technical issues.
+:::
 
 ## Managing Data Permissions
 

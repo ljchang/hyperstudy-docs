@@ -47,15 +47,40 @@ Team organizations allow multiple users to collaborate. Team organizations provi
 
 Your new organization will be created with you as the owner.
 
-### Switching Organizations
+### Switching Organizations (OrgSwitcher)
 
-If you belong to multiple organizations:
+If you belong to multiple organizations, use the **Organization Switcher** in the header to change your active workspace.
 
-1. Click your profile icon in the top right
-2. Select **Switch Organization**
-3. Choose the organization you want to work in
+#### Using the OrgSwitcher
 
-All experiments and data you see will be scoped to the selected organization.
+1. Look for your current organization name in the top navigation bar
+2. Click it to open the organization dropdown
+3. Select the organization you want to work in
+4. The page refreshes with the new organization context
+
+#### What Changes When You Switch
+
+When you switch organizations, the following are scoped to your new active organization:
+
+| Resource | Behavior |
+|----------|----------|
+| **Experiments** | Only see experiments owned by or shared within the new organization |
+| **Media Library** | Only see images and videos from the new organization |
+| **Data** | Only see data from experiments in the new organization |
+| **Team Members** | See members of the new organization |
+| **Quotas** | Usage counts against the new organization's limits |
+
+:::info Shared Experiments
+Experiments shared with you from **other organizations** appear in the separate "Shared With Me" panel, not in your main experiment list. This keeps your workspace organized and makes it clear which experiments belong to which organization.
+
+See [Cross-Organization Collaboration](../cross-org-collaboration.md) for details on sharing across organizations.
+:::
+
+#### Organization Context Persistence
+
+- Your selected organization persists across browser sessions
+- Opening a direct link to a resource may switch your context automatically
+- The OrgSwitcher shows your current organization for clarity
 
 ## Organization Roles
 
@@ -85,3 +110,4 @@ See [Usage & Quotas](./usage-quotas.md) for details on monitoring usage, and [Bi
 - [Manage team members](./members.md)
 - [Monitor usage and quotas](./usage-quotas.md)
 - [Upgrade your plan](./billing.md)
+- [Cross-organization collaboration](../cross-org-collaboration.md) - Share with external researchers
