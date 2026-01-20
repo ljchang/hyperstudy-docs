@@ -8,6 +8,25 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.10
+
+Released: 2026-01-20
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix ExperimentsTable search to use substring matching (3d5b5190)
+- Fix V3 API participant data access to use roomId from query params (3fe66a86)
+- Fix dataAccessControl to support both inline and Firestore org checks (b6f7ef10)
+- Update DataDownloader documentation to reflect V3 API migration (7903ba01)
+- Add BridgeTriggerSetup component and Storybook documentation (7d16bfc9)
+- Clean up dead code and migrate to V3 APIs (1b52d7ad)
+- Use TabGroup component for trigger mode selection (4b651061)
+- Fix V3 API permission issues for organization administrators (22ad0671)
+
+---
+
 ## v0.5.9
 
 Released: 2026-01-20
@@ -55,19 +74,6 @@ Released: 2026-01-19
 - Update usage tracking tests for new Pro plan quotas (431f7fea)
 - Fix invite member modal to use correct API endpoint (636b4327)
 - Update plan quotas and video upload limits (a641b231)
-
----
-
-## v0.5.7
-
-Released: 2026-01-18
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix deployment workflow and pod router configuration (fc8daf84)
-- Fix pod router to support dynamic HPA scaling (fixes multi-participant sync) (a4a724b7)
 
 ---
 
