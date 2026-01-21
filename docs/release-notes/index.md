@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.11
+
+Released: 2026-01-21
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix PlatformAdminDashboard test to expect 14 nav tabs (729ff624)
+- Add Account Requests tab to Platform Admin and remove legacy admin dashboard (131268e4)
+- Update settings UI to use green primary color and hide radio button dots (14598b03)
+- Add migration script to fix experiments with deleted: undefined (9a562e8a)
+- Fix permissions for platform admins and experiment participants (28415e49)
+
+---
+
 ## v0.5.10
 
 Released: 2026-01-20
@@ -51,29 +67,6 @@ Released: 2026-01-20
 - Add prometheus aggregation rules with proper subquery syntax (10e6f4c0)
 - Fix prometheus rules syntax and workflow --repo flag (65ed44ca)
 - Fix missing --repo flag in gh run list commands in promote workflow (f9dac5ea)
-
----
-
-## v0.5.8
-
-Released: 2026-01-19
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix MediaConvert HLS transcoding - add required segmentsPerSubdirectory (0774a86b)
-- Fix: Add organizationId to multipart upload video document (06f55593)
-- Fix security and error handling in multipart upload (2eb512aa)
-- Add multipart upload support for large video files (>100MB) (2cd11949)
-- Increase video upload size limit from 5GB to 10GB (445b824f)
-- Add resource permissions migration script (6bf22745)
-- Fix emulator tests to use dynamic plan values from plans.js (584d8dee)
-- Consolidate monitoring dashboards from 10 to 3 (e6b7149e)
-- Add sync-quotas migration script for updating organization quotas (cc83ef55)
-- Update usage tracking tests for new Pro plan quotas (431f7fea)
-- Fix invite member modal to use correct API endpoint (636b4327)
-- Update plan quotas and video upload limits (a641b231)
 
 ---
 
