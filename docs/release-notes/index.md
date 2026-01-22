@@ -8,6 +8,33 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.12
+
+Released: 2026-01-22
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix ProlificFilters: guard against undefined filterValues during render (14540683)
+- Fix emulator tests for permission system changes (35833df4)
+- Fix remaining test using removed POST /participants/assignments route (27f61740)
+- Fix Prolific integration issues (8d5306d1)
+- Fix emulator tests for removed routes and permission changes (e7f0e5f3)
+- Fix missing logAuditEvent export causing dev deployment crash (7b0a6e9f)
+- Fix Prolific tests to use new service layer mocks (f7d644bd)
+- Prolific integration security fixes and refactor (db54354a)
+- Fix org admin permission check for experiment access (5e6da217)
+- Fix frontend tests for removed deprecated functions (3a6cdcf6)
+- Codebase cleanup: remove dead code and legacy permission system (fa747211)
+- Add experiment permissions diagnostic and repair scripts (98341db4)
+- Fix signed URL flow for video preloading to prevent CORS errors (1eb7d3a6)
+- Complete Phase 4 membership migration: remove legacy arrays, single source of truth (e7398e01)
+- Add tests for new platform admin user management features (13a571ca)
+- Add user management actions to Platform Admin users table (93124b8c)
+
+---
+
 ## v0.5.11
 
 Released: 2026-01-21
@@ -40,33 +67,6 @@ Released: 2026-01-20
 - Clean up dead code and migrate to V3 APIs (1b52d7ad)
 - Use TabGroup component for trigger mode selection (4b651061)
 - Fix V3 API permission issues for organization administrators (22ad0671)
-
----
-
-## v0.5.9
-
-Released: 2026-01-20
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix TriggerComponent tests to use keydown instead of keypress (b1957826)
-- Fix WebSocket not connecting after experiment creation (98b7a053)
-- Code review fixes: remove unused code, add button types, use keydown (135cbb06)
-- Redesign Trigger component UI with new Receive Then Send mode (b6023e03)
-- Fix experiment creation not saving all config fields (681bc63a)
-- Fix WebSocket race condition and undefined disconnectTimeout errors (5d37fd74)
-- Fix metadata changes failing for new experiments (93f69568)
-- Fix experiment creation failing due to missing WebSocket connection (cd0570cb)
-- Fix tests to use visibility field after permission field consolidation (17e2288b)
-- Fix visibility field mismatch causing participants to not see public experiments (d8d0386c)
-- Complete WebSocket migration for experiment designer (0f47cde9)
-- Fix storage metrics queries to deduplicate by type (9ceab839)
-- Add Usage & Billing dashboard to Grafana configmap (e5aa9b87)
-- Add prometheus aggregation rules with proper subquery syntax (10e6f4c0)
-- Fix prometheus rules syntax and workflow --repo flag (65ed44ca)
-- Fix missing --repo flag in gh run list commands in promote workflow (f9dac5ea)
 
 ---
 
