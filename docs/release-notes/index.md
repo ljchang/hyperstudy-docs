@@ -8,6 +8,49 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.13
+
+Released: 2026-01-26
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix platform admin queries and update org delete tests (f69abcd8)
+- Remove test for personal org delete restriction (f7e299a6)
+- Fix organization delete issues and allow personal org deletion (136f53e6)
+- Add delete button to organization table rows (2515efd7)
+- Fix authService tests missing user.reload() mock (f77bbb4b)
+- Add organization rename and delete for Platform Admin (329b3e61)
+- Fix non-invited users being auto-approved as experimenters (2c8c2a25)
+- Fix navigation buttons missing detail wrapper in auth routes (4ba02ce7)
+- Match Platform Admin logout button styling to Experimenter dashboard (fda9c9ac)
+- Fix email verification status not updating for invited users (cd18a2d2)
+- Add comprehensive debug logging to invitation auto-approval flow (60da9c3d)
+- Add debug logging for invitation registration flow (d44ab056)
+- Fix race condition preventing auto-approval of invited experimenters (8acd5ec0)
+- Remove hourglass icon from pending approval screen (d8bce053)
+- Add invite user button to platform admin users section (68993db0)
+- Add migration to set all experiments to organization visibility (08553a8a)
+- Add visibility indexes and consolidate Firestore index files (c42a5319)
+- Fix grantPermission to return existing permission instead of throwing (9e87fa21)
+- Fix org member visibility for organization-scoped experiments (d73d4493)
+- Update platform admin user invite modal for org-based invitations (e5901780)
+- Add org key visibility for members and key preference toggle (62c81758)
+- Fix emulator test status code expectations for V3 permission endpoints (3323d5e3)
+- Unify permission system across all resources (images/videos/folders) (7ebc4d31)
+- Add organization sharing toggle to API Key Manager (71c8fb08)
+- Fix emailRoutes emulator test for updated invite-user endpoint (6f90e195)
+- Fix Prolific test mocks: update API key format and error message assertion (09d4477e)
+- Fix orgInvitationRoutes test: add missing requireExperimenterOrAdmin mock (dd583448)
+- Consolidate invitation system and add experiment participant invitations (bd9ee0d9)
+- Move Clear All button to top of notifications panel (110f8974)
+- Fix experimenter registration flow for pending approval (a0895e74)
+- Fix organization invitation links for multi-tenant system (fa91ffae)
+- Fix Prolific workspace loading error and add organization API key sharing (58a107f1)
+
+---
+
 ## v0.5.12
 
 Released: 2026-01-22
@@ -48,25 +91,6 @@ Released: 2026-01-21
 - Update settings UI to use green primary color and hide radio button dots (14598b03)
 - Add migration script to fix experiments with deleted: undefined (9a562e8a)
 - Fix permissions for platform admins and experiment participants (28415e49)
-
----
-
-## v0.5.10
-
-Released: 2026-01-20
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix ExperimentsTable search to use substring matching (3d5b5190)
-- Fix V3 API participant data access to use roomId from query params (3fe66a86)
-- Fix dataAccessControl to support both inline and Firestore org checks (b6f7ef10)
-- Update DataDownloader documentation to reflect V3 API migration (7903ba01)
-- Add BridgeTriggerSetup component and Storybook documentation (7d16bfc9)
-- Clean up dead code and migrate to V3 APIs (1b52d7ad)
-- Use TabGroup component for trigger mode selection (4b651061)
-- Fix V3 API permission issues for organization administrators (22ad0671)
 
 ---
 
