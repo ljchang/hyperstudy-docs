@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.15
+
+Released: 2026-01-30
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix video duration for HLS videos in sparse rating component (4e2b0de8)
+- Fix experiment save allowing states without transition types (b3801a75)
+
+---
+
 ## v0.5.14
 
 Released: 2026-01-30
@@ -89,33 +102,6 @@ Released: 2026-01-26
 - Fix experimenter registration flow for pending approval (a0895e74)
 - Fix organization invitation links for multi-tenant system (fa91ffae)
 - Fix Prolific workspace loading error and add organization API key sharing (58a107f1)
-
----
-
-## v0.5.12
-
-Released: 2026-01-22
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix ProlificFilters: guard against undefined filterValues during render (14540683)
-- Fix emulator tests for permission system changes (35833df4)
-- Fix remaining test using removed POST /participants/assignments route (27f61740)
-- Fix Prolific integration issues (8d5306d1)
-- Fix emulator tests for removed routes and permission changes (e7f0e5f3)
-- Fix missing logAuditEvent export causing dev deployment crash (7b0a6e9f)
-- Fix Prolific tests to use new service layer mocks (f7d644bd)
-- Prolific integration security fixes and refactor (db54354a)
-- Fix org admin permission check for experiment access (5e6da217)
-- Fix frontend tests for removed deprecated functions (3a6cdcf6)
-- Codebase cleanup: remove dead code and legacy permission system (fa747211)
-- Add experiment permissions diagnostic and repair scripts (98341db4)
-- Fix signed URL flow for video preloading to prevent CORS errors (1eb7d3a6)
-- Complete Phase 4 membership migration: remove legacy arrays, single source of truth (e7398e01)
-- Add tests for new platform admin user management features (13a571ca)
-- Add user management actions to Platform Admin users table (93124b8c)
 
 ---
 
