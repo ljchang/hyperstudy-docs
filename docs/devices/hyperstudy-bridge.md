@@ -1,0 +1,277 @@
+---
+sidebar_position: 2
+title: HyperStudy Bridge
+---
+
+# HyperStudy Bridge
+
+A unified, high-performance desktop application for bridging HyperStudy web experiments with research hardware devices.
+
+## Overview
+
+HyperStudy Bridge provides a reliable, low-latency communication layer between the HyperStudy web application and various research devices. Built with Tauri and Rust for maximum performance and minimal resource usage, it serves as the central hub for all device integrations.
+
+The Bridge runs locally on your research computer and creates a WebSocket server that the HyperStudy web application connects to, enabling real-time communication with connected hardware.
+
+## Features
+
+- **High Performance**: Sub-millisecond latency for time-critical operations
+- **Multi-Device Support**: Simultaneous connection to multiple device types
+- **Auto-Reconnection**: Resilient connection management with automatic recovery
+- **Real-Time Monitoring**: Live status dashboard for all connected devices
+- **Secure**: Local-only connections with sandboxed architecture
+- **Cross-Platform**: macOS (primary), with Windows and Linux support planned
+
+## Supported Devices
+
+| Device | Type | Connection | Status |
+|--------|------|------------|--------|
+| [HyperStudy TTL](/devices/hyperstudy-ttl) | TTL Pulse Generator | USB Serial | Supported |
+| Kernel Flow2 | fNIRS | TCP Socket | Supported |
+| Pupil Labs Neon | Eye Tracker | WebSocket | Supported |
+| Lab Streaming Layer | Various | LSL Protocol | Supported |
+
+## Installation
+
+### macOS
+
+1. **Download the DMG**
+   - Visit the [GitHub Releases page](https://github.com/ljchang/hyperstudy-bridge/releases/latest)
+   - Download the appropriate `.dmg` for your Mac:
+     - **Apple Silicon (M1/M2/M3)**: `HyperStudy-Bridge_x.x.x_aarch64.dmg`
+     - **Intel**: `HyperStudy-Bridge_x.x.x_x64.dmg`
+
+2. **Install the Application**
+   - Open the downloaded DMG file
+   - Drag HyperStudy Bridge to your Applications folder
+   - Eject the DMG
+
+3. **First Launch**
+   - Open HyperStudy Bridge from your Applications folder
+   - If macOS shows a security warning, right-click the app and select "Open"
+   - The app is signed and notarized by Apple for security
+
+4. **Grant Permissions** (if prompted)
+   - **Serial Port Access**: Required for TTL device communication
+   - **Network Access**: Required for device connections
+
+### Windows (Coming Soon)
+
+Windows installer will be available in future releases.
+
+### Linux (Coming Soon)
+
+Linux AppImage will be available in future releases.
+
+## Configuration
+
+### Bridge Settings
+
+Settings are stored in:
+- **macOS**: `~/Library/Application Support/hyperstudy-bridge/`
+- **Windows**: `%APPDATA%\hyperstudy-bridge\`
+- **Linux**: `~/.config/hyperstudy-bridge/`
+
+Example configuration:
+
+```json
+{
+  "bridge": {
+    "port": 9000,
+    "autoConnect": true
+  },
+  "devices": {
+    "ttl": {
+      "port": "/dev/tty.usbmodem1234",
+      "baudRate": 115200
+    },
+    "kernel": {
+      "ip": "192.168.1.100",
+      "port": 6767
+    }
+  }
+}
+```
+
+### Device Configuration
+
+Each device type has its own configuration panel in the Bridge GUI:
+
+**TTL Device:**
+- Serial port selection (auto-detected by USB VID/PID)
+- Baud rate (default: 115200)
+- Connection timeout settings
+
+**Kernel Flow2:**
+- IP address of Kernel acquisition computer
+- Port (default: 6767)
+- Event categories to forward
+
+**Pupil Labs Neon:**
+- Connection URL
+- Gaze data streaming options
+
+**LSL Streams:**
+- Stream name patterns to discover
+- Outlet configuration
+
+## Usage
+
+### Basic Workflow
+
+1. **Launch the Bridge** before starting your experiment
+2. **Configure Devices** using the GUI interface
+3. **Connect Devices** by clicking "Connect All" or individual device buttons
+4. **Verify Status** - all required devices should show green status
+5. **Start Experiment** - the Bridge handles all communication automatically
+
+### Finding Your Bridge IP Address
+
+Participants need the Bridge's IP address to connect during experiments:
+
+1. The Bridge displays its IP address and port in the status bar
+2. Alternatively, find your IP:
+   - **macOS**: Open Terminal and run `ifconfig | grep "inet "`
+   - **Windows**: Open Command Prompt and run `ipconfig`
+   - **Linux**: Run `ip addr` or `hostname -I`
+
+### WebSocket Protocol
+
+The Bridge exposes a WebSocket server on port 9000 (configurable). Connect using:
+
+```javascript
+const ws = new WebSocket('ws://192.168.1.100:9000');
+```
+
+**Message Format:**
+
+```javascript
+// Send command to device
+{
+  "type": "command",
+  "device": "ttl",
+  "action": "send",
+  "payload": { "command": "PULSE" }
+}
+
+// Receive data from device
+{
+  "type": "data",
+  "device": "kernel",
+  "payload": { /* device-specific data */ },
+  "timestamp": 1634567890123
+}
+```
+
+## Architecture
+
+```
+┌─────────────────┐     WebSocket      ┌──────────────┐
+│   HyperStudy    │◄──────:9000───────►│    Bridge    │
+│   Web App       │                     │   Server     │
+└─────────────────┘                     └──────┬───────┘
+                                               │
+                         ┌─────────────────────┼─────────────────────┐
+                         │                     │                     │
+                   ┌─────▼─────┐         ┌────▼────┐         ┌─────▼─────┐
+                   │    TTL    │         │ Kernel  │         │  Pupil    │
+                   │  Serial   │         │   TCP   │         │    WS     │
+                   └─────┬─────┘         └────┬────┘         └─────┬─────┘
+                         │                     │                     │
+                   ┌─────▼─────┐         ┌────▼────┐         ┌─────▼─────┐
+                   │ TTL Device│         │ Flow2   │         │   Neon    │
+                   └───────────┘         └─────────┘         └───────────┘
+```
+
+## Performance
+
+| Metric | Target | Typical |
+|--------|--------|---------|
+| TTL Latency | <1ms | 0.5ms |
+| Message Throughput | >1000/sec | 1500/sec |
+| Memory Usage | <100MB | 45MB |
+| CPU Usage (idle) | <5% | 2% |
+| Startup Time | <2sec | 1.2sec |
+
+## Troubleshooting
+
+### Connection Issues
+
+**Cannot connect from HyperStudy:**
+- Verify the Bridge is running and shows "Server running on port 9000"
+- Check that both devices are on the same network
+- Ensure firewall allows connections on port 9000
+- Try using the Bridge computer's IP address directly
+
+**Port already in use:**
+```bash
+# Find process using port 9000
+lsof -i :9000
+
+# Kill process if needed (use with caution)
+kill -9 <PID>
+```
+
+### Device Issues
+
+**Serial port access denied (macOS/Linux):**
+```bash
+# Add user to dialout group (Linux)
+sudo usermod -a -G dialout $USER
+
+# Check port permissions (macOS)
+ls -la /dev/tty.*
+```
+
+**Device not detected:**
+1. Verify device is powered on and connected
+2. Check device appears in system (System Information on macOS)
+3. Try unplugging and reconnecting the device
+4. Restart the Bridge application
+
+### Logging
+
+View Bridge logs for debugging:
+- **macOS**: `~/Library/Logs/hyperstudy-bridge/`
+- Check the Bridge GUI's log panel for real-time output
+
+## Development
+
+For developers who want to build from source:
+
+### Prerequisites
+
+- [Rust](https://rustup.rs/) (latest stable)
+- [Node.js](https://nodejs.org/) (v18+)
+- [Tauri CLI](https://tauri.app/v1/guides/getting-started/prerequisites)
+
+### Building
+
+```bash
+# Clone the repository
+git clone https://github.com/ljchang/hyperstudy-bridge.git
+cd hyperstudy-bridge
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run tauri dev
+
+# Build for production
+npm run tauri build
+```
+
+## Resources
+
+- **GitHub Repository**: [ljchang/hyperstudy-bridge](https://github.com/ljchang/hyperstudy-bridge)
+- **API Documentation**: See repository `/docs/api/` folder
+- **Related**: [Kernel Integration Guide](/experimenters/experiment-design/kernel-integration)
+
+---
+
+## Release Notes
+
+<!-- RELEASE_NOTES_START -->
+_Release notes are automatically synced from GitHub releases._
+<!-- RELEASE_NOTES_END -->

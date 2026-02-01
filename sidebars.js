@@ -204,6 +204,17 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Devices',
+      collapsed: false,
+      items: [
+        'devices/index',
+        'devices/hyperstudy-bridge',
+        'devices/hyperstudy-ttl',
+        'devices/hyperstudy-gige',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Release Notes',
       collapsed: false,
       items: [

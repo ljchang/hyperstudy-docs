@@ -81,6 +81,12 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'devices/index',
+            position: 'left',
+            label: 'Devices',
+          },
+          {
+            type: 'doc',
             docId: 'release-notes/index',
             position: 'left',
             label: 'Release Notes',
@@ -108,6 +114,10 @@ const config = {
               {
                 label: 'Developer Guide',
                 to: '/developers/architecture/overview',
+              },
+              {
+                label: 'Devices',
+                to: '/devices/',
               },
               {
                 label: 'Release Notes',
