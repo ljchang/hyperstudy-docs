@@ -187,11 +187,11 @@ const ws = new WebSocket('ws://192.168.1.100:9000');
 
 | Metric | Target | Typical |
 |--------|--------|---------|
-| TTL Latency | <1ms | 0.5ms |
-| Message Throughput | >1000/sec | 1500/sec |
-| Memory Usage | <100MB | 45MB |
-| CPU Usage (idle) | <5% | 2% |
-| Startup Time | <2sec | 1.2sec |
+| TTL Latency | \<1ms | 0.5ms |
+| Message Throughput | \>1000/sec | 1500/sec |
+| Memory Usage | \<100MB | 45MB |
+| CPU Usage (idle) | \<5% | 2% |
+| Startup Time | \<2sec | 1.2sec |
 
 ## Troubleshooting
 

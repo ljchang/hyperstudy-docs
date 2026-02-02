@@ -245,9 +245,9 @@ python3 testing/find_ttl_port.py
 | Parameter | Value |
 |-----------|-------|
 | Pulse Duration | 10ms |
-| Rise Time | <1μs |
-| Fall Time | <1μs |
-| Command Latency | <1ms |
+| Rise Time | \<1μs |
+| Fall Time | \<1μs |
+| Command Latency | \<1ms |
 | Minimum Inter-Pulse Interval | 20ms |
 
 ### Pin Mapping
