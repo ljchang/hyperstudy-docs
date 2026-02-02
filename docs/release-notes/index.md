@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.18
+
+Released: 2026-02-02
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix failing Prolific gateway tests (9fe1466b)
+
+---
+
 ## v0.5.17
 
 Released: 2026-02-02
@@ -43,19 +55,6 @@ Released: 2026-01-31
 ## Changes since last production release
 
 - Standardize media visibility field and integrate resourcePermissions (053aba5c)
-
----
-
-## v0.5.15
-
-Released: 2026-01-30
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix video duration for HLS videos in sparse rating component (4e2b0de8)
-- Fix experiment save allowing states without transition types (b3801a75)
 
 ---
 
