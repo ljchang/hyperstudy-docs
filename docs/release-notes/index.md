@@ -8,6 +8,35 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.5.19
+
+Released: 2026-02-03
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix gear button visibility - use all:unset to clear global styles (d690bc28)
+- Fix recruitment settings UI - search, gear visibility, and border (0dff4e83)
+- Fix Prolific gateway auth error - reorder route registration (a0ce00a2)
+- Fix gear icon visibility and allow unselecting all recruitment methods (f572dc9f)
+- Fix MediaConvert HLS transcoding - IAM role and duration extraction (68d3490d)
+- Fix recruitment card layout - move gear icon inside header (f63d5ede)
+- Redesign recruitment configuration UI with focus mode and unified search (995cf414)
+- Add multi-select recruitment methods and fix public experiments query (f839ca2b)
+- Add missing index for V4 participant assignments query (076e17b1)
+- Add debouncing to text inputs in experiment designer config editors (20af7f70)
+- Fix EligibleRooms test to include loadExperiments mock (58effa21)
+- Fix participants unable to see public experiments (13a65c24)
+- Remove redundant video.recording.requested event (d0e8a611)
+- Fix video duration not being captured in MediaConvert transcoding pipeline (3db6fb7d)
+- Fix audio recordings not appearing in Data Management (91033c53)
+- Fix spurious "Unknown error" in TTL Trigger Setup modal (295ea31c)
+- Fix trigger and scanner pulse events not being recorded (daad999e)
+- Fix org admin visibility for images/videos and modal blur issue (32aad81b)
+
+---
+
 ## v0.5.18
 
 Released: 2026-02-02
@@ -43,18 +72,6 @@ Released: 2026-02-02
 - Simplify device integration with flat data structure and DeviceCard UI (e96aaf6f)
 - Remove Kernel forwarding tests from dataServiceV2 (moved to deviceStore) (47420fdb)
 - Add unified device management system for experiment hardware integration (5da81d52)
-
----
-
-## v0.5.16
-
-Released: 2026-01-31
-
-## What's Changed
-
-## Changes since last production release
-
-- Standardize media visibility field and integrate resourcePermissions (053aba5c)
 
 ---
 
