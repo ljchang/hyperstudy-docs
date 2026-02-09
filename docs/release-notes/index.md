@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.2
+
+Released: 2026-02-09
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix Redis reconnection failures and remove conflicting IngressRoute (39328e25)
+
+---
+
 ## v0.6.1
 
 Released: 2026-02-09
