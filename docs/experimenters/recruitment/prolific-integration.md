@@ -5,7 +5,7 @@ description: Recruit participants from Prolific directly within HyperStudy
 
 # Prolific Integration
 
-HyperStudy's Prolific integration allows you to seamlessly recruit research participants from the Prolific platform while leveraging HyperStudy's powerful experiment features. This guide covers everything you need to know about setting up and managing Prolific studies.
+HyperStudy's Prolific integration allows you to seamlessly recruit research participants from the Prolific platform while leveraging HyperStudy's powerful experiment features. Prolific studies are configured at the **deployment** level, so each [deployment](../deployments.md) can have its own Prolific study. This guide covers everything you need to know about setting up and managing Prolific studies.
 
 ## Overview
 
@@ -35,6 +35,7 @@ The Prolific integration enables:
 1. An active Prolific researcher account
 2. A valid Prolific API key
 3. An experiment created in HyperStudy
+4. A [deployment](../deployments.md) created for that experiment
 
 ### Step 1: Configure Your Prolific API Key
 
@@ -46,11 +47,11 @@ The Prolific integration enables:
 
 Your API key is encrypted and stored securely. You only need to do this once.
 
-### Step 2: Enable Prolific for Your Experiment
+### Step 2: Enable Prolific for Your Deployment
 
-1. Open your experiment in the HyperStudy dashboard
-2. Navigate to **Recruitment Settings**
-3. Click on the **Prolific** tab
+1. Navigate to the **Deployments** page
+2. Open the deployment you want to configure (or create a new one)
+3. Click on the **Prolific** section within the deployment
 4. You'll see the Prolific configuration interface
 
 ## Configuring Your Prolific Study
@@ -221,12 +222,13 @@ When a Prolific participant declines consent:
 
 ### For Prolific Participants
 
-1. **Click study link on Prolific** → Redirected to HyperStudy
+1. **Click study link on Prolific** → Redirected to HyperStudy via the deployment URL
 2. **Authentication** → Automatic using Prolific token
 3. **Consent (if enabled)** → Must agree to proceed
 4. **Waiting Room** → Matched with other participants
 5. **Experiment** → Complete the study
 6. **Completion** → Receive code and return to Prolific
+7. **Data** → Session data is recorded under the deployment for tracking and export
 
 ### Completion Codes
 
@@ -389,6 +391,7 @@ Be aware of Prolific's API limits:
 - HyperStudy Support: support@hyperstudy.io
 - Prolific Support: Through their platform
 
----
+## Related Documentation
 
-*Last updated: [Current Date]*
+- [Deployments](../deployments.md) - Managing deployment lifecycle and data collection
+- [Recruitment Settings](./settings.md) - Overview of all recruitment methods

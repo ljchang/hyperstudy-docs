@@ -5,41 +5,47 @@ sidebar_position: 1
 
 # Recruitment Settings
 
-Participant recruitment is a crucial aspect of experiment design in the HyperStudy platform. The Recruitment Settings panel allows you to configure how participants join your experiment. This guide explains the available recruitment options and best practices.
+Participant recruitment in HyperStudy is configured at the **deployment** level. When you create a [deployment](../deployments.md), you choose a recruitment method that determines how participants join your study. This guide explains the available recruitment options and best practices.
 
 ## Accessing Recruitment Settings
 
-To configure recruitment for your experiment:
+To configure recruitment for your study:
 
-1. Open your experiment in the Experiment Designer
-2. Click on the "Recruitment" tab in the main navigation
-3. You'll see the recruitment configuration panel
-4. Changes save automatically as you modify settings
+1. Navigate to the **Deployments** page
+2. Create a new deployment or open an existing one
+3. Click on the **Recruitment** section within the deployment
+4. Select your recruitment method and configure settings
+5. Changes save automatically as you modify settings
+
+:::tip Why Deployments?
+Recruitment is tied to deployments rather than experiments because the same experiment can be deployed multiple times with different recruitment strategies. See the [Deployments](../deployments.md) guide for details.
+:::
 
 ## Recruitment Methods
 
-HyperStudy offers three recruitment methods to suit different research needs. Select your method in the Recruitment tab of the Experiment Designer using the radio button options.
+HyperStudy offers three recruitment methods. Select your method when creating or configuring a deployment.
 
 ### 1. Public Enrollment
 
 **Best for:** Open studies, broad recruitment campaigns, general populations
 
-Public enrollment allows any registered participant to join your experiment from their participant dashboard.
+Public enrollment allows any registered participant to join your study through a shareable link.
 
 **How it works:**
-- Your experiment appears in the public experiment list (if published)
-- Participants can browse and enroll themselves
-- No invitation required - open to all eligible participants
-- Participants click "Join Experiment" to enroll
+- Your deployment generates a unique participation URL
+- Participants access the experiment through this link
+- No invitation required -- open to all eligible participants
+- Participants are routed to the correct deployment automatically
+
+**Participation URL format:**
+```
+https://hyperstudy.io/participant?experimentId=X&deploymentId=Y
+```
 
 **Configuration:**
-1. Select "Public Enrollment" radio button
-2. Publish your experiment to make it available
-3. Share your experiment link: `https://hyperstudy.io/participant`
-
-**Participant Eligibility:**
-- Currently: Open to all registered participants
-- Future updates will include eligibility criteria filtering (age, location, etc.)
+1. Select **Public Enrollment** as the recruitment method
+2. Copy the generated participation URL from the deployment
+3. Share the link through your preferred channels (email lists, social media, forums)
 
 **Advantages:**
 - Quick to set up
@@ -56,11 +62,11 @@ Public enrollment allows any registered participant to join your experiment from
 
 **Best for:** Targeted recruitment, specific participant pools, invitation-only studies
 
-Private enrollment restricts participation to only those you specifically invite. This provides maximum control over who joins your experiment.
+Private enrollment restricts participation to only those you specifically invite through the deployment's recruitment panel.
 
 **How it works:**
 - Only invited participants can access the experiment
-- You select participants or enter email addresses
+- You select participants or enter email addresses from the deployment
 - System sends invitation emails automatically
 - Participants receive personalized invitation links
 - System tracks who was invited and their response status
@@ -71,16 +77,17 @@ Private enrollment restricts participation to only those you specifically invite
 
 Invite participants already registered in the system:
 
-1. Select "Private Enrollment" radio button
-2. Click "Select Participants" button
-3. Search for participants by name or email
-4. Select one or multiple participants from the list
-5. Click "Send Invitations"
-6. System creates participant assignments and sends invitation emails
+1. Open your deployment
+2. Go to the **Recruitment** section
+3. Click **Select Participants**
+4. Search for participants by name or email
+5. Select one or multiple participants from the list
+6. Click **Send Invitations**
+7. System creates participant assignments and sends invitation emails
 
 **What participants receive:**
 - Email invitation with experiment details
-- Direct link to join: `https://hyperstudy.io/participant?experiment={experimentId}`
+- Direct link to join through this specific deployment
 - Can accept or decline invitation
 - In-app notification on their participant dashboard
 
@@ -88,37 +95,37 @@ Invite participants already registered in the system:
 
 Invite people who don't have HyperStudy accounts yet:
 
-1. Select "Private Enrollment" radio button
-2. Enter email addresses (one per line or comma-separated)
-3. Click "Send Invitations"
-4. System sends invitation emails to all addresses
+1. Open your deployment
+2. Go to the **Recruitment** section
+3. Enter email addresses (one per line or comma-separated)
+4. Click **Send Invitations**
+5. System sends invitation emails to all addresses
 
 **What recipients receive:**
 - Email invitation with experiment description
-- Registration link: `https://hyperstudy.io/auth/participant?redirect=/participant&experiment={experimentId}`
-- Prompted to create account first
-- Then automatically directed to experiment
+- Registration link that routes to this deployment after account creation
+- Prompted to create account first, then automatically directed to the experiment
 
 **Participant Assignment System:**
 
-When you invite participants, the system creates **participant assignments** to track invitations:
+When you invite participants through a deployment, the system creates **participant assignments** to track invitations:
 
 - **Status Tracking**: Active, Declined, Completed
 - **Invitation History**: When invited, by whom
 - **Re-invitation**: Can re-invite participants who declined
-- **Dashboard View**: See all invited participants and their status
+- **Dashboard View**: See all invited participants and their status in the deployment
 
 **Re-invitation Workflow:**
 1. Participant declines initial invitation
 2. Status changes to "Declined"
-3. You can re-invite from the recruitment dashboard
+3. You can re-invite from the deployment recruitment panel
 4. System tracks re-invitation date
 5. Participant receives new invitation email
 
 **Advantages:**
 - Complete control over participant selection
 - Target specific demographics
-- Track invitation status
+- Track invitation status per deployment
 - Professional participant management
 - Can invite non-registered users
 
@@ -131,13 +138,14 @@ When you invite participants, the system creates **participant assignments** to 
 
 **Best for:** Academic research, paid studies, diverse participant pools, quality control
 
-Connect with Prolific for professional participant recruitment with built-in payment processing and advanced screening.
+Connect with Prolific for professional participant recruitment with built-in payment processing and advanced screening. Prolific studies are scoped to individual deployments.
 
 **How it works:**
-- Configure study details in HyperStudy
+- Configure study details within the deployment's Prolific section
 - Study published directly to Prolific platform
 - Prolific handles participant recruitment and payment
 - Participants authenticate automatically via Prolific tokens
+- Participants are routed through the deployment for tracking
 - Completion codes returned to Prolific for payment approval
 
 **Key Features:**
@@ -145,7 +153,7 @@ Connect with Prolific for professional participant recruitment with built-in pay
 - **Participant Screening**: Advanced eligibility filters
 - **Device Requirements**: Desktop, Tablet, Mobile compatibility
 - **Quality Control**: Automatic or manual approval
-- **Real-time Monitoring**: Track participant progress
+- **Real-time Monitoring**: Track participant progress within the deployment
 - **Workspace Management**: Organize studies by project
 
 **Study Lifecycle:**
@@ -161,7 +169,7 @@ Draft → Unpublished → Active → Paused/Stopped → Completed
 
 **Consent Integration:**
 - Uses HyperStudy's unified consent system
-- If participant declines → receives `NO_CONSENT` code
+- If participant declines, they receive a `NO_CONSENT` code
 - Returned to Prolific without payment
 - Study slot becomes available for others
 
@@ -204,12 +212,13 @@ HyperStudy uses an immediate participation model:
 - The waiting room manages participant flow
 - Sessions start when minimum participant requirements are met
 - No advance scheduling required
+- Each participant is tracked within their specific deployment
 
 ### Waiting Room Configuration
 
 Configure how participants wait for experiments to begin:
 
-1. Set minimum participant requirements
+1. Set minimum participant requirements in the experiment design
 2. Configure maximum waiting time
 3. Define messages shown to waiting participants
 4. Set automatic start conditions
@@ -222,19 +231,19 @@ When using Private Enrollment, the system automatically sends invitation emails:
 
 **For Registered Participants:**
 - **Subject**: Invitation to participate in "[Experiment Name]"
-- **Content**: Experiment description, estimated duration, direct join link
+- **Content**: Experiment description, estimated duration, direct join link (includes deployment ID)
 - **Delivery**: Sent via AWS SES with delivery tracking
-- **Success/Failure**: Tracked and displayed in recruitment dashboard
+- **Success/Failure**: Tracked and displayed in the deployment recruitment panel
 
 **For Non-Registered Users:**
 - **Subject**: Invitation to participate in "[Experiment Name]"
 - **Content**: Experiment details, registration instructions, combined registration + join link
-- **Registration Flow**: User creates account → automatically directed to experiment
-- **Delivery Tracking**: Success/failure status available in admin dashboard
+- **Registration Flow**: User creates account, then automatically directed to the deployment
+- **Delivery Tracking**: Success/failure status available in the deployment
 
 **Email Template Customization:**
 - Templates can be customized by administrators
-- Edit via Admin Dashboard → Email Templates → "Participant Invitation"
+- Edit via Admin Dashboard > Email Templates > "Participant Invitation"
 - Supports variables: `{{experimentName}}`, `{{sessionUrl}}`, `{{experimentDescription}}`
 - Markdown formatting supported
 
@@ -264,7 +273,7 @@ Email reminder and follow-up systems are planned for future releases. For now, u
 
 When using Prolific integration:
 
-1. Set the payment amount in your Prolific study settings
+1. Set the payment amount in your Prolific study settings within the deployment
 2. Configure completion codes for payment verification
 3. Payments are handled directly through Prolific's platform
 
@@ -272,7 +281,7 @@ When using Prolific integration:
 
 For non-Prolific studies:
 
-1. Export participant completion data
+1. Export participant completion data from the deployment
 2. Process payments through your preferred method
 3. Track compensation status in your records
 
@@ -282,9 +291,9 @@ For non-Prolific studies:
 
 Configure informed consent:
 
-1. Add consent forms in the Experiment Designer
-2. Participants must accept before proceeding
-3. Consent records are stored with participant data
+1. Add consent forms in the Experiment Designer (design-level setting)
+2. Participants must accept before proceeding in any deployment of that experiment
+3. Consent records are stored with participant data within the deployment
 4. Configure consent text and requirements
 
 ### Data Usage Disclosure
@@ -313,9 +322,10 @@ For experiments with audio/video recording:
 
 **Configuration:**
 ```
+Deployment: "Emotion Recognition - Spring 2026"
 Recruitment Method: Prolific Integration
-Compensation: $15.00 USD (30 minutes × $30/hour)
-Total Slots: 100 participants
+Compensation: $15.00 USD (30 minutes x $30/hour)
+Target Count: 100 participants
 Device Requirements: Desktop only, Webcam required
 Participant Filters:
   - Age: 18-65
@@ -326,18 +336,14 @@ Completion: Auto-approve on SUCCESS code
 ```
 
 **Workflow:**
-1. Configure study in HyperStudy Prolific tab
-2. Publish to Prolific
-3. Participants recruited via Prolific platform
-4. Authenticate automatically with Prolific tokens
-5. Complete consent → experiment → completion code
-6. Prolific processes payment
-
-**Data Collection:**
-- Participant demographics from Prolific
-- Consent timestamps
-- Experiment performance data
-- Completion codes
+1. Create deployment linked to your experiment
+2. Configure Prolific study within the deployment
+3. Publish to Prolific
+4. Participants recruited via Prolific platform
+5. Authenticate automatically with Prolific tokens
+6. Complete consent > experiment > completion code
+7. Prolific processes payment
+8. Data available in deployment's data management
 
 ---
 
@@ -347,6 +353,7 @@ Completion: Auto-approve on SUCCESS code
 
 **Configuration:**
 ```
+Deployment: "Psych 101 - Lab Assignment 3"
 Recruitment Method: Private Enrollment
 Invitation Method: Select Existing Participants
 Target: Students registered as "Student_Psych101"
@@ -357,18 +364,14 @@ Compensation: Course credit (tracked manually)
 ```
 
 **Workflow:**
-1. Students register for accounts with .edu email
-2. Instructor searches for students by email domain
-3. Selects all students from roster
-4. Clicks "Send Invitations"
-5. Students receive email invitations
-6. Students join at their convenience (pairs matched in waiting room)
-
-**Participant Management:**
-- View invitation status for each student
-- Re-invite students who missed deadline
-- Track completion status
-- Export data for grading
+1. Create deployment for this lab assignment
+2. Students register for accounts with .edu email
+3. Open deployment, go to Recruitment section
+4. Search for students by email domain
+5. Select all students from roster
+6. Click "Send Invitations"
+7. Students receive email invitations
+8. Students join at their convenience (pairs matched in waiting room)
 
 ---
 
@@ -378,6 +381,7 @@ Compensation: Course credit (tracked manually)
 
 **Configuration:**
 ```
+Deployment: "Pilot Test - v2"
 Recruitment Method: Private Enrollment
 Invitation Method: Email Addresses
 Email List:
@@ -389,18 +393,12 @@ Consent: Optional (IRB approved waiver)
 ```
 
 **Workflow:**
-1. Enter colleague email addresses in text field
-2. Click "Send Invitations"
-3. System sends invitation emails
+1. Create a deployment for pilot testing
+2. Enter colleague email addresses in the recruitment panel
+3. Click "Send Invitations"
 4. Non-registered colleagues create accounts
-5. Automatically directed to experiment
+5. Automatically directed to experiment through the deployment
 6. Provide feedback via debrief questions
-
-**Advantages:**
-- Quick pilot testing
-- Invite external collaborators
-- Informal consent process
-- Rapid iteration
 
 ---
 
@@ -410,33 +408,20 @@ Consent: Optional (IRB approved waiver)
 
 **Configuration:**
 ```
+Deployment: "Decision Making - Open Recruitment"
 Recruitment Method: Public Enrollment
-Access: Any registered participant
+Access: Any registered participant via link
 Waiting Room: Single-participant, immediate start
 Consent: Required (detailed IRB-approved consent)
-Data Collection: Anonymous (no email/name stored with responses)
 Compensation: None (voluntary participation)
 ```
 
 **Workflow:**
-1. Select "Public Enrollment"
-2. Publish experiment
-3. Share participation link on social media, forums, email lists
-4. Participants register/login → browse experiments
-5. Click "Join Experiment" from their dashboard
-6. Complete consent → immediate experiment start
-
-**Recruitment Channels:**
-- Twitter/social media with experiment link
-- Email to department mailing list
-- Post on r/SampleSize or research forums
-- University announcement boards
-
-**Considerations:**
-- No control over participant demographics
-- Self-selection bias
-- Require clear eligibility criteria in description
-- Monitor for duplicate/spam participants
+1. Create deployment with Public Enrollment
+2. Copy the participation URL from the deployment
+3. Share link on social media, forums, email lists
+4. Participants register/login and follow the link
+5. Complete consent > immediate experiment start
 
 ## Best Practices
 
@@ -446,6 +431,7 @@ Compensation: None (voluntary participation)
 2. **Technical Requirements**: Clearly state browser and device requirements
 3. **Time Estimates**: Give accurate completion time estimates
 4. **Availability**: Consider timezone differences for international participants
+5. **Separate Deployments**: Create distinct deployments for different recruitment waves
 
 ### Technical Considerations
 
@@ -472,12 +458,13 @@ Compensation: None (voluntary participation)
 | Technical problems | Provide clear setup instructions; test on multiple browsers; offer tech support contact |
 | Waiting room timeouts | Adjust minimum participant requirements; schedule specific session times |
 | Prolific integration issues | Verify API credentials; check study settings; ensure completion URLs are correct |
+| Participants not linked to deployment | Verify the participation URL includes the `deploymentId` parameter |
 
 ## Next Steps
 
 Now that you understand recruitment settings, explore these related topics:
 
-- [Prolific Integration](./prolific-integration.md)
-- [Waiting Room Configuration](../experiment-design/waiting-room.md)
-- [Experiment States](../experiment-design/experiment-states.md)
-- [Consent Forms](../experiment-design/consent-forms.md)
+- [Deployments](../deployments.md) - Managing deployment lifecycle and tracking
+- [Prolific Integration](./prolific-integration.md) - Detailed Prolific setup guide
+- [Waiting Room Configuration](../experiment-design/waiting-room.md) - Waiting room settings
+- [Consent Forms](../experiment-design/consent-forms.md) - Configuring informed consent

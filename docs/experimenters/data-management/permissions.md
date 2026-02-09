@@ -48,10 +48,15 @@ Unlike experiments and media, data resources **cannot be made public**. All data
 HyperStudy checks data permissions in the following order:
 
 1. **Experiment Owner** - Always has full access to their experiment's data
-2. **Organization Admins** - Full access to all organization experiment data
-3. **Platform Admins** - Can access data for support and debugging (all access is logged)
-4. **Explicitly Shared Users/Groups** - Access based on share settings
-5. **Organization Members** - Default permissions from organization group
+2. **Deployment Owner** - Full access to data collected through their deployment (even if they don't own the experiment)
+3. **Organization Admins** - Full access to all organization experiment data
+4. **Platform Admins** - Can access data for support and debugging (all access is logged)
+5. **Explicitly Shared Users/Groups** - Access based on share settings
+6. **Organization Members** - Default permissions from organization group
+
+:::tip Deployment-Scoped Data
+Data can be accessed at both the experiment level (all data from all deployments) and the deployment level (data from a specific deployment only). Deployment owners always have full access to data from their own deployments. See the [Deployments](../deployments.md) guide for details.
+:::
 
 :::note Platform Admin Access
 Platform administrators may access experiment data for technical support and debugging purposes. All platform admin data access is logged in the audit trail for compliance and transparency. This access is used sparingly and only when necessary to resolve technical issues.
@@ -196,6 +201,7 @@ Never. Participants can only see their own experience during the experiment. The
 ## Related Documentation
 
 - [Permissions & Sharing](../permissions.md) - Complete permission system overview
+- [Deployments](../deployments.md) - Deployment data ownership and permissions
 - [Data Management](../data-management.md) - Working with experiment data
 - [Data Management Interface](../data-management-interface.md) - Using the data interface
 - [Collaborating Through Groups](../collaboration.md) - Managing experimenter groups

@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # Permissions & Sharing
 
-HyperStudy provides a unified permission system for controlling access to experiments, media, and data. This guide explains how permissions work and how to share resources with collaborators.
+HyperStudy provides a unified permission system for controlling access to experiments, media, deployments, and data. This guide explains how permissions work and how to share resources with collaborators.
 
 ## Overview
 
@@ -29,6 +29,19 @@ Different resource types support different permissions:
 | **Edit** | Can modify the resource (design, settings, etc.) |
 | **Duplicate** | Can create a copy of the resource |
 | **Manage Access** | Can change permission settings for others |
+
+### Deployments
+
+| Permission | Description |
+|------------|-------------|
+| **View** | Can see the deployment, its sessions, and tracking data |
+| **Edit** | Can modify deployment settings (name, target count, scheduling) |
+| **Manage Access** | Can change who has access to the deployment's data |
+| **Export** | Can download data collected through this deployment |
+
+:::note Deployment Data Ownership
+The person who creates a deployment owns all data collected through it, regardless of who designed the experiment. This allows lab members to deploy shared experiments while maintaining clear data ownership.
+:::
 
 ### Data
 
@@ -80,6 +93,11 @@ The Permission Manager provides a unified interface for managing access to any r
 1. Go to the Media Library
 2. Select an image or video
 3. Click **Permissions** in the info panel or context menu
+
+**For Deployments:**
+1. Go to the Deployments page
+2. Find the deployment in the table
+3. Click the **settings gear** icon on the deployment row
 
 **For Data:**
 1. Go to Data Management
@@ -199,6 +217,17 @@ For sharing experiment data with analysts:
 2. Add users who need data access
 3. Grant **View** for dashboard-only access
 4. Grant **Export** to allow data downloads
+
+### Deployment Data Sharing
+
+For sharing deployment data with a data analyst:
+
+1. Create a deployment and collect data
+2. Open the deployment's permissions via the settings gear icon
+3. Add the data analyst as a user
+4. Grant **View** for dashboard access
+5. Grant **Export** to allow data downloads
+6. The analyst can access data from this deployment without needing access to the experiment design
 
 ### Published Templates
 
@@ -363,6 +392,7 @@ Yes, for media folders. When you set permissions on a folder:
 
 ## Related Documentation
 
+- [Deployments](./deployments.md) - Managing deployments and deployment data permissions
 - [Cross-Organization Collaboration](./cross-org-collaboration.md) - Multi-site studies and external sharing
 - [Collaborating Through Groups](./collaboration.md) - Managing experimenter groups
 - [Data Permissions](./data-management/permissions.md) - Detailed data access controls

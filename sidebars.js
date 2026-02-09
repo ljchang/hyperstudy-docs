@@ -105,8 +105,10 @@ module.exports = {
             'experimenters/organizations/billing',
           ],
         },
+        'experimenters/deployments',
         'experimenters/media-management',
         'experimenters/permissions',
+        'experimenters/collaborative-editing',
         'experimenters/collaboration',
         'experimenters/cross-org-collaboration',
         {
@@ -118,7 +120,6 @@ module.exports = {
             'experimenters/data-management/permissions',
           ],
         },
-        'experimenters/experiment-tracking',
         {
           type: 'category',
           label: 'API Access',

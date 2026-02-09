@@ -69,13 +69,11 @@ HyperStudy uses AWS MediaConvert for transcoding, which has no timeout limit. Th
 
 ### Benefits
 
-| Feature | Progressive Download | HLS Streaming |
-|---------|---------------------|---------------|
-| Buffering on slow connections | Frequent pauses | Automatic quality reduction |
-| Time to first frame | Wait for initial buffer | Near-instant playback |
-| Bandwidth usage | Fixed high bitrate | Adapts to connection |
-| Multi-participant sync | May desync during buffering | Consistent playback |
-| Format compatibility | Varies by browser | Universal (H.264) |
+- **No buffering**: Automatic quality adjustment prevents pauses on slow connections
+- **Near-instant playback**: Segment-based loading means video starts almost immediately
+- **Bandwidth efficiency**: Adapts bitrate to the viewer's connection in real-time
+- **Reliable sync**: Consistent playback across all participants in multi-participant experiments
+- **Universal compatibility**: H.264 output works in all modern browsers
 
 ### Quality Levels
 
@@ -98,7 +96,6 @@ In the Video Manager, each video shows its HLS transcoding status with color-cod
 | **Processing** | Blue (with spinner) | Currently transcoding |
 | **Pending** | Yellow | Waiting to start transcoding |
 | **Failed** | Red | Transcoding error (see below for retry) |
-| **—** | Gray | Pre-HLS video (progressive only) |
 
 #### Retrying Failed Transcodes
 
@@ -113,10 +110,6 @@ Common failure reasons:
 - **Unsupported codec**: Convert source to H.264 MP4 and re-upload
 - **Corrupted file**: Try re-uploading the original file
 - **Processing error**: Click retry; usually succeeds on second attempt
-
-:::tip Progressive Fallback
-Videos remain playable immediately after upload using progressive download. HLS becomes available once transcoding completes. If transcoding fails, the original video continues to work via progressive download.
-:::
 
 ## Video Format Recommendations
 
@@ -278,16 +271,6 @@ Before using a video in an experiment with sparse rating or timestamp features:
    - Verify no "corrupt file" errors when transitioning between states
 4. **Test sparse rating**: If using sparse rating component, test pause/resume functionality in Firefox
 
-### Automatic Transcoding (Now Available)
-
-All uploaded videos are now automatically transcoded to HLS format with multiple quality levels. This system:
-- Converts all formats to web-optimized H.264 automatically
-- Eliminates browser compatibility issues (including Firefox problems)
-- Provides adaptive bitrate streaming for optimal performance
-- Ensures consistent playback on slow connections
-
-See the [HLS Adaptive Streaming](#hls-adaptive-streaming) section above for details.
-
 ## Media Library
 
 ### Accessing the Media Library
@@ -372,9 +355,9 @@ The system now supports videos of any length. Multi-hour recordings (e.g., 2-3 h
 :::
 
 **What Happens After Upload:**
-1. **Immediate**: Video available via progressive download
-2. **Variable time**: HLS transcoding completes (time depends on video length)
-3. **Automatic**: System switches to HLS once ready
+1. **Immediate**: Upload completes and video metadata is stored
+2. **Automatic transcoding**: HLS transcoding begins (processing time depends on video length)
+3. **Ready**: Once transcoding completes, the video is available for adaptive streaming in experiments
 
 **Security Benefits:**
 - **Private by Default**: Videos are not publicly accessible
@@ -466,26 +449,19 @@ For managing multiple items:
 
 ## Media Permissions
 
-The platform uses a comprehensive permission system to control media access.
+Media permissions are managed through HyperStudy's unified [Permission Manager](./permissions.md), the same interface used for experiments, deployments, and data.
 
-### Permission Levels
+### Managing Media Permissions
 
-Media items can have three visibility levels:
+To set permissions for a media item:
 
-1. **Private**: Only visible to you
-2. **Group**: Visible to members of specified groups
-3. **Public**: Visible to all experimenters on the platform
-
-### Setting Permissions
-
-To set permissions for media:
-
-1. Select the media item(s)
-2. Click "Permissions" or find the permissions section in the info panel
-3. Choose the visibility level
-4. For Group visibility, select which groups can access
-5. Click "Save" to apply the permissions
-
+1. Select the image or video in the Media Library
+2. Click **Permissions** in the info panel or context menu
+3. The Permission Manager opens, showing:
+   - **Owner** - Who uploaded the media
+   - **Who Has Access** - Current users, groups, and public access
+   - **Grant Access** - Add users or groups
+4. Toggle permission icons (View, Edit, Duplicate, Manage Access) for each entry
 
 ### Folder Permissions
 
@@ -496,19 +472,7 @@ Folders have their own permission settings:
 3. Individual items can override folder permissions
 4. Moving items between folders updates their permissions
 
-### Experimenter Groups
-
-Permission groups allow controlled sharing:
-
-1. Administrators create experimenter groups
-2. Groups typically represent labs, departments, or research teams
-3. When you share with a group, all members get access
-4. You can be a member of multiple groups
-
-To see your groups:
-1. Go to your profile settings
-2. Check the "Groups" section
-3. Group membership is managed by administrators
+For more details on the permission system, see the [Permissions & Sharing](./permissions.md) guide.
 
 ## Using Media in Experiments
 
@@ -559,8 +523,8 @@ For optimal video performance:
 
 1. **Use appropriate resolution**: 720p or 1080p is sufficient for most experiments
 2. **Compress efficiently**: Use H.264 encoding with balanced quality settings
-3. **Consider segmentation**: Break long videos into shorter segments
-4. **Progressive loading**: Enable for longer videos
+3. **Consider segmentation**: Break long videos into shorter segments if your experiment design allows it
+4. **Upload in recommended format**: MP4 with H.264/yuv420p ensures the best source quality for HLS transcoding
 
 ### Media Precaching for Performance
 
@@ -582,17 +546,14 @@ HyperStudy automatically precaches media to ensure smooth playback and precise t
 
 #### What Gets Precached
 
-- **Videos**: All videos used in Video components
+- **Videos**: All videos used in Video components (HLS segments and playlists)
 - **Images**: All images used in Image components
-- **Platform-Hosted Media**: Uploaded media benefits most from precaching
-- **External Media**: External videos are also precached when possible
 
 #### Best Practices
 
-1. **Upload to Platform**: Platform-hosted media has optimal precaching support
-2. **Keep Media Reasonable**: Very large files (over 500MB) may take time to precache
-3. **Test Precaching**: Check the console logs during testing to verify precaching completion
-4. **Stable URLs**: External videos should have stable, consistent URLs
+1. **Keep Media Reasonable**: Very large files (over 500MB) may take time to precache
+2. **Test Precaching**: Check the console logs during testing to verify precaching completion
+3. **Wait for HLS**: Ensure video transcoding is complete before running experiments with that video
 
 #### Monitoring Precaching
 
@@ -662,8 +623,7 @@ For experiments requiring precise timing:
 
 1. **Frame-Accurate Sync**: Videos synchronized across all participants
 2. **Preloading**: Media cached before experiment start
-3. **Bandwidth Adaptation**: Quality adjusts based on connection
-4. **Fallback Options**: Alternative URLs if primary fails
+3. **Bandwidth Adaptation**: HLS quality adjusts based on connection automatically
 
 ### Monitoring Usage
 
@@ -701,7 +661,6 @@ If approaching storage limits:
 | Video won't play | Check format compatibility; verify processing completed |
 | Poor playback quality | Check internet connection; lower video resolution |
 | Image display issues | Verify format support; check image dimensions |
-| Synchronization problems | Use platform-hosted media instead of external links |
 
 ### HLS Transcoding Issues
 
@@ -735,15 +694,11 @@ If a video's HLS status shows **Failed** or remains **Pending** for an extended 
 | "Transcoding job failed" | MediaConvert processing error | Try retry; if persistent, re-encode source |
 | "Access denied" | Storage permission issue | Contact support |
 
-:::tip Progressive Fallback
-Even if HLS transcoding fails, your video is still playable via progressive download. HLS provides adaptive streaming benefits, but the original upload always works as a fallback.
-:::
-
 ## Next Steps
 
 Now that you understand media management, explore these related topics:
 
 - [Image Component Configuration](./experiment-design/components/image.md)
 - [Video Component Configuration](./experiment-design/components/video.md)
+- [Permissions & Sharing](./permissions.md) - Managing media access controls
 - [Collaborating Through Groups](./collaboration.md)
-{/* The following guide is coming soon: Experiment Sharing */}
