@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.4
+
+Released: 2026-02-10
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix HLS video streaming on Safari with CloudFront signed URLs (00cf8035)
+- Enforce consent → instructions → waiting room sequence (c56252e4)
+- Prevent SSL outages during deployments by skipping unnecessary Traefik restarts (68507e35)
+- Fix experiment permission 500 error and owner Unknown display (ba48deb9)
+
+---
+
 ## v0.6.3
 
 Released: 2026-02-10
@@ -48,78 +63,6 @@ Released: 2026-02-09
 ## Changes since last production release
 
 - Fix Redis reconnection failures and remove conflicting IngressRoute (39328e25)
-
----
-
-## v0.6.1
-
-Released: 2026-02-09
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix VideoAdmin drag-and-drop test to match renamed CSS classes (c93db21e)
-- Remove legacy recruitment fields from export/import tests (10b478b3)
-- Compute deployment participant counts from rooms and show active sessions (2434fa41)
-- Unify upload video and upload image modal styling (a54f2a0f)
-- Fix permission icons wrapping to 2x2 grid in Deployments table (393b66db)
-- Sync config to Prolific before publishing study (b3be71ad)
-- Fix Prolific API error extraction for nested error objects (fc27b392)
-- Remove legacy experiment-embedded recruitment system (857a9402)
-- Require study description for Prolific publish and fix error classification (7466ca56)
-- Fix Prolific deployment study creation 500 error and rename docKey params (f47f28ed)
-- Add green focus-visible rings to custom-styled buttons across components (47185dab)
-- Fix deployment card UX: top-pinned expand, single-click close, drag reorder, completed sessions (1890bd7a)
-- Derive experiment visibility from resourcePermissions instead of stale doc field (13e3fdaa)
-- Replace default blue focus outlines with green focus rings on recruitment page (5536bdf2)
-- Fix sessionRecorder emulator test expecting undefined instead of empty array (52df265c)
-- Fix org-level permissions missing from deployment and legacy experiment listings (ee915e9c)
-- Add room subcollections, experiment stats, and sync metrics batching (8a03b0fd)
-- Add caching, Firestore transactions, and simplify server-side pagination (e1d34c69)
-- Fix deployment auto-stop not triggering when target participants reached (816cd8e4)
-- Fix expired token errors by preferring Firebase SDK over stale localStorage (c057cee9)
-- Simplify Data Management access column to show only view and export badges (03b87470)
-- Remove draft deployment state, create deployments directly as active (cf2b4e88)
-- Fix Global State Matrix column alignment at narrow window sizes (0f18ad74)
-- Fix waitingRoomManager emulator tests for subcollection removal (d05df5a6)
-- Add deployment deletion, fix deploymentId tracking, replace SSE with WebSocket, remove participants subcollection (5258e617)
-- Replace experiments table with deployments table in Data Management (6cf5e0ed)
-- Fix deployment invitation missing real-time updates and draft study participation (0d411579)
-- Update EligibleRooms test assertions to match Experiment-to-Study terminology change (49fe03cd)
-- Add deployment lifecycle management and use deployment names in participant-facing UI (96c29f56)
-- Fix private recruitment 500 errors and show directly assigned participants (48aff9f3)
-- Replace deployment creation modal with direct navigation and WebSocket auto-save (dc513215)
-- Fix test mocks to use text() for safeParseJson compatibility (1724b34b)
-- Fix recruitment UI bugs: flickering sessions, broken search, non-editable config (9099ddf7)
-- Redesign recruitment UI with expandable cards and collapsible detail sections (0c1bd357)
-- Fix acceptExperimentParticipantInvitation: swap misapplied code review fix (436a7766)
-- Fix 24 failing emulator tests and 2 production permission bugs (e1c1a627)
-- Add deployment-scoped recruitment system (4ed7ee72)
-- Fix missing Comprehension tab in Data Management by including pre-experiment events (bb6b3048)
-- Fix ImageUploader tests to match simplified permissions and updated drag-drop text (f2c0f56d)
-- Fix recruitment deployment system: API resilience, caching, card UI, and edit discoverability (b3bb3d10)
-- Clean up Image and Video uploaders: simplify permissions, improve drag-drop UX (d008eb97)
-- Fix Image Manager showing empty folders by switching to client-side filtering (a3441690)
-- Fix collaboration cursors for scroll offset and add selection highlighting (92ee0176)
-- Fix org members not seeing shared experiments due to missing resourcePermissions entries (d409bb04)
-- Fix recruitment system: Firestore indexes, query simplification, experiment loading, and invitation redirect (9fbe0893)
-- Fix dataAccessControl tests to match resourcePermissions migration (4224bb00)
-- Generalize instruction questions to support scored and unscored types (58baaaee)
-- Add Recruitment tab with deployment service for decoupled experiment campaigns (ba413e23)
-- Fix failing tests for V3 permission migration and race condition in UnifiedPermissionManager (ff31d8cc)
-- Migrate data permissions to resourcePermissions and remove dead V2 data routes (576540ac)
-- Replace PreExperimentTab with dedicated ComprehensionTab in data management (3c830e3f)
-- Migrate media permissions to resourcePermissions as single source of truth (04155d61)
-- Migrate experiment permissions to resourcePermissions as single source of truth (51d13c2a)
-- Update base64 audio recovery script to use org-scoped storage paths (d73843af)
-- Fix recording storage architecture: unify audio and video under org-scoped paths (02b4e5e1)
-- Skip personal workspace creation when registering via team invitation (b999b1ef)
-- Fix Register tests for invitation flow changes (bad9fe35)
-- Fix video preloading failures by enabling CloudFront HLS delivery (bc94bbb4)
-- Fix invitation flow: email pre-fill, auto-approval, and auth hardening (2f99dc9a)
-- Fix audio recording uploads by fixing participant permission check (2f7d776e)
-- Add real-time collaboration UI for experiment designer (7a896f6b)
 
 ---
 
