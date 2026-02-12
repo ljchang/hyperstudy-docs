@@ -8,6 +8,39 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.5
+
+Released: 2026-02-12
+
+## What's Changed
+
+## Changes since last production release
+
+- Add opt-in monitoring for active deployment cards (cdc8921e)
+- Fix effect_update_depth_exceeded and WaitingComponent console errors (f87509e1)
+- Fix effect_update_depth_exceeded and parseTemplate warning spam (e8c4ca60)
+- Fix lookup() to handle key-category stimulus mappings (7c698de9)
+- Fix deployment API 500: handle Firestore Timestamps in sort (92e67b66)
+- Fix bridgeService tests for structured Kernel event values (41d209fb)
+- Fix Kernel Flow2 event forwarding: sync connection state and improve event data (bb75fdba)
+- Fix deployment API 500 error and platform admin access (2539aee9)
+- Fix Instructions page tab scrollbar artifact and Grant Access button sizing (5074f88c)
+- Add key-category batch draw support for MultipleChoice image source (368f1ab1)
+- Improve Instructions editor: drag-and-drop blocks, remove purple theme, fix Add Page button (41819245)
+- Add inline question blocks, preview toggle, and changeable question types (a9bc0985)
+- Fix empty folder picker and add help text for stimulus mappings (d7e97a8c)
+- Fix emulator tests for org-level deployment permissions (bff22846)
+- Fix Instructions test assertions after tab bar redesign (0abbe830)
+- Integrate deployments into unified permission system (aad3006a)
+- Fix cross-page question corruption and improve instructions designer layout (5d79241b)
+- Fix low audio volume: add loudness normalization, raise bitrates and default volume (eef1a245)
+- Add dynamic image selection for MultipleChoice component (3c2ecabc)
+- Fix HLS video buffering: prefetch segments at startup, fix sync engine PID windup (b8e037c8)
+- Add question preview to instructions designer preview panel (e67a2db4)
+- Fix Kernel Flow fNIRS events silently dropped due to missing id field (96a78daf)
+
+---
+
 ## v0.6.4
 
 Released: 2026-02-10
@@ -51,18 +84,6 @@ Released: 2026-02-10
 - Add pre-experiment pipeline tracking for deployment dashboard (5beb2130)
 - Store video duration at selection time for sparse rating editor (40f9eec6)
 - Fix instructionsPages not persisted on experiment creation (ebbd41a7)
-
----
-
-## v0.6.2
-
-Released: 2026-02-09
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix Redis reconnection failures and remove conflicting IngressRoute (39328e25)
 
 ---
 
