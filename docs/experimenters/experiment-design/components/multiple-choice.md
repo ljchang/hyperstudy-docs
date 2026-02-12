@@ -23,6 +23,7 @@ The Multiple Choice component presents participants with a question and a set of
 - Customizable styling for choices
 - Required response enforcement
 - Data capture in variables
+- Dynamic image assignment from stimulus mapping pools (Image Source)
 
 ## When to Use
 
@@ -190,6 +191,57 @@ Beyond randomizing option order, you can:
 2. Use different randomization patterns (block randomization, etc.)
 3. Ensure certain options always appear in fixed positions
 
+### Image Source
+
+The Image Source feature automatically assigns images from a [stimulus mapping](../stimulus-mappings.md) pool to each choice button. Instead of manually setting images per choice or writing template functions, you configure the mapping once and the component handles random assignment, consumption tracking, and variable storage.
+
+#### How It Works
+
+1. You create a **Category** or **Key-Category** stimulus mapping containing your image pool
+2. In the Multiple Choice component settings, you set the **Image Source** to that mapping name
+3. When the component renders, it draws one random image per choice button from the pool
+4. After the participant selects a choice, the chosen image's URL is stored in a variable for downstream use
+
+#### Configuration
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| **Image Source** | Name of a Category or Key-Category mapping to draw images from | *(empty — disabled)* |
+| **Image Source Key Variable** | For Key-Category mappings: variable whose value selects which category to draw from | *(empty)* |
+| **Image Consume Mode** | `"all"` = exclude all drawn images from future trials. `"selected"` = only exclude the image the participant chose. | `"all"` |
+| **Draw Scope** | `"room"` = all participants see same images. `"participant"` = independent random draws. | `"participant"` |
+| **Selected Image Variable** | Variable to store the URL of the image on the chosen button | *(empty)* |
+
+#### Example: Face Selection Task (Category Mapping)
+
+A "pick a face" paradigm where each trial shows different random faces:
+
+1. Create a **Category** mapping called `facesPool` with all face images
+2. Configure the Multiple Choice component:
+   - **Image Source:** `facesPool`
+   - **Image Consume Mode:** `all`
+   - **Selected Image Variable:** `chosenFace`
+3. Each choice button displays a random face from the pool
+4. The chosen face's URL is saved to `chosenFace`
+5. Display it later with a ShowImage component using `{chosenFace}` in the dynamic URL field
+
+#### Example: Conditional Image Selection (Key-Category Mapping)
+
+A two-step design where a prior choice determines which image category appears:
+
+1. **State 1:** Multiple Choice asks "Which category?" → saves `"Happy"` to `categoryChoice`
+2. **State 2:** Multiple Choice with:
+   - **Image Source:** `emotionFolders` (a Key-Category mapping)
+   - **Image Source Key Variable:** `categoryChoice`
+   - **Selected Image Variable:** `chosenImage`
+3. The component reads `categoryChoice`, looks up the matching folder in `emotionFolders`, and draws random images from that folder for each button
+
+#### Pool Exhaustion
+
+When all images in the pool have been consumed (based on the consume mode), the pool resets automatically and images can appear again. To avoid this, ensure your pool has enough images to cover the number of trials in your experiment.
+
+For full details on stimulus mappings, draw scope, and consumption modes, see the [Stimulus Mappings](../stimulus-mappings.md#multiplechoice-image-source) documentation.
+
 ## Data Collection
 
 ### Stored Values
@@ -199,6 +251,10 @@ Configure what gets stored in your output variable:
 - **Simple Value**: Just the selected option value(s)
 - **Detailed Object**: Values, timestamps, response times
 - **History**: Track changes if participants modify their selection
+
+:::note Image Source and Output Variable
+When using the [Image Source](#image-source) feature, the **Output Variable** stores the participant's answer value (the choice label/value), while the **Selected Image Variable** stores the URL of the image that was displayed on the chosen button. These are separate variables — the Output Variable does not contain image information.
+:::
 
 Example data structure:
 ```json
