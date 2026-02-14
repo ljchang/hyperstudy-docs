@@ -273,5 +273,64 @@ npm run tauri build
 ## Release Notes
 
 <!-- RELEASE_NOTES_START -->
+
+### v0.8.14
+
+**Released:** 2026-02-14
+
+## 🎉 HyperStudy Bridge v0.8.14
+
+^[[1m# Changelog for v0.8.14^[[0m
+
+**Changes since v0.8.13**
+
+## ✨ Features
+- Add PyApp-based FRENZ Python bridge with process lifecycle management (3b1d2b7)
+
+## 🔨 Maintenance
+- Bump version to 0.8.14 (e1d3d41)
+- Fix formatting across Rust and frontend code to pass CI checks (4191b2a)
+
+## 📝 Other Changes
+- Fix Kernel event delivery reliability with TCP keepalive and send retry (8446bba)
+
+## 📊 Statistics
+- **Commits**: 4
+- **Contributors**: 1
+- **Files changed**:  64 files changed, 7959 insertions(+), 2953 deletions(-)
+
+---
+
+**Full Changelog**: https://github.com/ljchang/hyperstudy-bridge/compare/v0.8.13...v0.8.14
+
+---
+
+## 📦 Installation
+
+### macOS
+- **Apple Silicon (M1/M2/M3)**: Download `HyperStudy-Bridge-v0.8.14-aarch64-apple-darwin.dmg`
+- **Intel Macs**: Download `HyperStudy-Bridge-v0.8.14-x86_64-apple-darwin.dmg`
+
+Open the DMG and drag HyperStudy Bridge to your Applications folder.
+
+All macOS builds are signed and notarized by Apple.
+
+### Windows
+- Download `HyperStudy-Bridge-v0.8.14-x86_64-windows.msi`
+
+> **Note**: Windows may show a SmartScreen warning on first run.
+> Click "More info" → "Run anyway" to proceed.
+
+### Linux
+- Download `HyperStudy-Bridge-v0.8.14-x86_64-linux.AppImage`
+
+Make executable and run:
+\`\`\`bash
+chmod +x HyperStudy-Bridge-*.AppImage
+./HyperStudy-Bridge-*.AppImage
+\`\`\`
+
+---
+
 _Release notes are automatically synced from GitHub releases._
 <!-- RELEASE_NOTES_END -->
