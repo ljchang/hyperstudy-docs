@@ -274,6 +274,26 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.19
+
+**Released:** 2026-02-15
+
+## What's Changed
+
+### Improvements
+- Forward Neon event response data (recording_id, timestamp) to HyperStudy instead of discarding it
+- Normalize device IDs to lowercase to prevent silent lookup failures from case mismatches
+
+### Bug Fixes
+- Fix flaky memory leak integration tests by measuring process RSS instead of system-wide memory
+
+### Technical
+- Change `Device::send_event` return type to `Result<serde_json::Value, DeviceError>` for richer response data
+- Upgrade Neon event logging from debug to info level with recording_id
+
+---
+
+
 ### v0.8.18
 
 **Released:** 2026-02-15
