@@ -274,6 +274,18 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.16
+
+**Released:** 2026-02-15
+
+## What's Changed
+
+### Bug Fixes
+- Fixed Pupil Labs Neon connection failure caused by missing `port` field in the device's Phone status response. The field is now optional via `#[serde(default)]`, matching the real Neon REST API behavior.
+
+---
+
+
 ### v0.8.15
 
 **Released:** 2026-02-14
