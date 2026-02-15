@@ -274,6 +274,20 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.17
+
+**Released:** 2026-02-15
+
+## What's Changed
+
+### Bug Fixes
+- **Fixed Pupil Labs Neon connection failure** — two issues resolved:
+  1. Made `PhoneInfo.port` optional (`#[serde(default)]`) since the Neon REST API doesn't include it in the Phone status response
+  2. Added mDNS hostname pre-resolution for `.local` addresses — the reqwest/hyper HTTP client can't resolve mDNS names on macOS, so we now resolve via `tokio::net::lookup_host` (which uses the system's mDNSResponder) before making HTTP requests
+
+---
+
+
 ### v0.8.16
 
 **Released:** 2026-02-15
