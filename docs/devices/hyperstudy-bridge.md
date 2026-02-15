@@ -274,6 +274,17 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.18
+
+**Released:** 2026-02-15
+
+## Bug Fixes
+
+- **Pupil Labs Neon**: Fix "Failed to parse event response" error when sending events without an active recording. The `recording_id` field in the Neon API response is now handled as optional, allowing test events and annotations to succeed regardless of recording state.
+
+---
+
+
 ### v0.8.17
 
 **Released:** 2026-02-15
