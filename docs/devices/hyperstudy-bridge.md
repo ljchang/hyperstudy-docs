@@ -274,6 +274,22 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.20
+
+**Released:** 2026-02-15
+
+## What's Changed
+
+### New Features
+- **Unified FRENZ Connect button** — Single "Connect" button now orchestrates the full FRENZ flow: starts the Python bridge, waits for streaming state with a progress bar, then connects LSL streams. "Disconnect" tears down both LSL and the bridge process. No more separate "Start Bridge" / "Stop Bridge" buttons.
+
+### Technical
+- Backend: `"frenz"` recognized in WebSocket device validation; early-return handlers for Connect, Disconnect, and Status actions route through `FrenzLslManager`
+- Frontend: orchestrated multi-step connect with indeterminate progress bar and phase text during bridge startup (30s–3min)
+
+---
+
+
 ### v0.8.19
 
 **Released:** 2026-02-15
