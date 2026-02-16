@@ -8,6 +8,36 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.7
+
+Released: 2026-02-16
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix Pupil Neon connection bugs and simplify setup UI (b967601f)
+- Streamline Neon REST connection: Bridge resolves hostname internally (54366fa1)
+- Wire up Frenz EEG event/marker sending via bridge LSL (43611739)
+- Fix gaze overlay not working due to LSL data not reaching frontend (ac222bdd)
+- Remove auto-select fallback for global component tabs (5226f7c3)
+- Fix GlobalComponentConfigurator showing wrong config schema for selected component (e86d9252)
+- Hide GazeOverlay from global components UI when Pupil Neon is disabled (851d4691)
+- Fix global component config saving to wrong component on tab switch (713c54bf)
+- Move Neon recording option into DeviceCard component (a68b9eb1)
+- Fix Pupil Neon bridge protocol mismatches and add recording config (d582f344)
+- Set emailVerified on approval and surface re-enable failures (9f57e33b)
+- Fix device event ordering and async cleanup in experiment lifecycle (9887e9b0)
+- Fix registration failure for orphaned Firebase Auth users (72889afd)
+- Register GazeOverlay as a global component with configurable trail (206e48a4)
+- Deploy dev TLSStore in shared deployment workflow (4dcb08bf)
+- Block unapproved experimenters at registration and API level, remove dead auth code (2750aac9)
+- Add Pupil Labs Neon eye tracker integration (b07307d7)
+- Fix post-experiment questionnaire selection highlighting, data shape, and back navigation (b68660e2)
+- Harden auth system: fix race conditions, remove dead code, add tests (d0d2b59d)
+
+---
+
 ## v0.6.6
 
 Released: 2026-02-13
@@ -56,21 +86,6 @@ Released: 2026-02-12
 - Fix HLS video buffering: prefetch segments at startup, fix sync engine PID windup (b8e037c8)
 - Add question preview to instructions designer preview panel (e67a2db4)
 - Fix Kernel Flow fNIRS events silently dropped due to missing id field (96a78daf)
-
----
-
-## v0.6.4
-
-Released: 2026-02-10
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix HLS video streaming on Safari with CloudFront signed URLs (00cf8035)
-- Enforce consent → instructions → waiting room sequence (c56252e4)
-- Prevent SSL outages during deployments by skipping unnecessary Traefik restarts (68507e35)
-- Fix experiment permission 500 error and owner Unknown display (ba48deb9)
 
 ---
 
