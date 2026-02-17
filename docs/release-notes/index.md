@@ -8,6 +8,27 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.8
+
+Released: 2026-02-17
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix sessionRecorder mock missing addParticipantToRoom and createOrUpdateRoom (0770d0d4)
+- Hide completed rooms in deployment tracker and allow reactivation (1c7cff8c)
+- Fix participants not appearing in data management panel (ef2dfca5)
+- Fix 3 failing emulator tests after recent refactors (b1bdb5e4)
+- Upgrade API keys route to use resourcePermissions for auth checks (ee9b7573)
+- Fix deployment participant counter never incrementing (647d4169)
+- Remove legacy permission fallbacks and clean up stale data paths (b838b161)
+- Fix comprehension data leaking across rooms via lobbySessionId stamping (33ded8c3)
+- Fix tab overflow in data management panel by adding flex-wrap (fc8b0094)
+- Fix experiment tracker showing wrong completion info for finished sessions (530129a4)
+
+---
+
 ## v0.6.7
 
 Released: 2026-02-16
@@ -53,39 +74,6 @@ Released: 2026-02-13
 - Fix experimenter account request flow showing Access Denied instead of Pending Approval (4ba1c6b0)
 - Fix answer leaking between questions in InstructionsQuestionBlock (a4dcc501)
 - Make Monitor button a toggle with highlighted active state (bf70a063)
-
----
-
-## v0.6.5
-
-Released: 2026-02-12
-
-## What's Changed
-
-## Changes since last production release
-
-- Add opt-in monitoring for active deployment cards (cdc8921e)
-- Fix effect_update_depth_exceeded and WaitingComponent console errors (f87509e1)
-- Fix effect_update_depth_exceeded and parseTemplate warning spam (e8c4ca60)
-- Fix lookup() to handle key-category stimulus mappings (7c698de9)
-- Fix deployment API 500: handle Firestore Timestamps in sort (92e67b66)
-- Fix bridgeService tests for structured Kernel event values (41d209fb)
-- Fix Kernel Flow2 event forwarding: sync connection state and improve event data (bb75fdba)
-- Fix deployment API 500 error and platform admin access (2539aee9)
-- Fix Instructions page tab scrollbar artifact and Grant Access button sizing (5074f88c)
-- Add key-category batch draw support for MultipleChoice image source (368f1ab1)
-- Improve Instructions editor: drag-and-drop blocks, remove purple theme, fix Add Page button (41819245)
-- Add inline question blocks, preview toggle, and changeable question types (a9bc0985)
-- Fix empty folder picker and add help text for stimulus mappings (d7e97a8c)
-- Fix emulator tests for org-level deployment permissions (bff22846)
-- Fix Instructions test assertions after tab bar redesign (0abbe830)
-- Integrate deployments into unified permission system (aad3006a)
-- Fix cross-page question corruption and improve instructions designer layout (5d79241b)
-- Fix low audio volume: add loudness normalization, raise bitrates and default volume (eef1a245)
-- Add dynamic image selection for MultipleChoice component (3c2ecabc)
-- Fix HLS video buffering: prefetch segments at startup, fix sync engine PID windup (b8e037c8)
-- Add question preview to instructions designer preview panel (e67a2db4)
-- Fix Kernel Flow fNIRS events silently dropped due to missing id field (96a78daf)
 
 ---
 
