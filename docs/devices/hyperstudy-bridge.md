@@ -275,6 +275,26 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.21
+
+**Released:** 2026-02-17
+
+## What's Changed
+
+### Improvements
+- TTL module now sends `PULSE <duration_ms>` format to support configurable pulse duration on firmware v1.4.0+
+- Configurable `pulse_duration_ms` setting (default 10ms, range 1–10000ms)
+- Serial buffer drain on TTL connect for cleaner handshake
+
+### Documentation
+- Updated TTL protocol docs, API documentation, and CLAUDE.md for firmware v1.4.0 compatibility
+
+### Compatibility
+- Requires TTL firmware v1.4.0+ (bridge now sends duration parameter with every PULSE command)
+
+---
+
+
 ### v0.8.20
 
 **Released:** 2026-02-15
