@@ -260,10 +260,10 @@ python3 testing/find_ttl_port.py
 | Parameter | Value |
 |-----------|-------|
 | Pulse Duration | 10ms default (configurable 1–10000ms) |
-| Rise Time | \<1μs |
-| Fall Time | \<1μs |
-| On-Device Latency | Typically \<100μs (serial-available to GPIO toggle) |
-| End-to-End Command Latency | \<1ms (Bridge to GPIO output) |
+| Rise Time | &lt;1μs |
+| Fall Time | &lt;1μs |
+| On-Device Latency | Typically &lt;100μs (serial-available to GPIO toggle) |
+| End-to-End Command Latency | &lt;1ms (Bridge to GPIO output) |
 | Optocoupler Propagation | ~150–300ns |
 | Minimum Inter-Pulse Interval | Pulse duration + ~1ms |
 
@@ -305,10 +305,10 @@ TTL Output
 |-------|----------------|-----------------|
 | ① Bridge latency | WebSocket receive → serial write | 0.1–0.5ms |
 | ② USB bus latency | Serial write → device receives | 125μs–1ms |
-| ③ On-device latency | Serial available → GPIO toggle | \<100μs |
+| ③ On-device latency | Serial available → GPIO toggle | &lt;100μs |
 | ④ Optocoupler propagation | LED on → output transition | ~200ns |
 
-**Total end-to-end latency** (① through ④) is typically **\<1ms**.
+**Total end-to-end latency** (① through ④) is typically **&lt;1ms**.
 
 ### Querying On-Device Timing
 
@@ -329,9 +329,9 @@ The Bridge also logs its own internal latency (stage ①) for each command.
 
 ### Interpreting Results
 
-- **\<1ms total**: Expected performance with firmware v1.4.0+
+- **&lt;1ms total**: Expected performance with firmware v1.4.0+
 - **1–2ms total**: Acceptable; may indicate USB hub or system load issues
-- **\>2ms total**: Investigate — check for USB hubs, high CPU load, or other serial port consumers
+- **&gt;2ms total**: Investigate — check for USB hubs, high CPU load, or other serial port consumers
 
 ## Resources
 
