@@ -100,6 +100,7 @@ Each device type has its own configuration panel in the Bridge GUI:
 **TTL Device:**
 - Serial port selection (auto-detected by USB VID/PID)
 - Baud rate (default: 115200)
+- Pulse duration (default: 10ms, range 1–10000ms)
 - Connection timeout settings
 
 **Kernel Flow2:**

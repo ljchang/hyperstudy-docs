@@ -23,7 +23,7 @@ HyperStudy TriggerComponent → HyperStudy Bridge → RP2040 Firmware → TTL Ou
 - **Electrical Isolation**: HCPL-2211 optocoupler protects both devices
 - **Bridge Compatible**: Response format matches HyperStudy Bridge parser expectations
 - **Easy Setup**: PlatformIO-based firmware with comprehensive documentation
-- **Configurable**: 10ms pulse duration (modifiable in firmware)
+- **Configurable**: Pulse duration adjustable at runtime (default 10ms) via serial command or Bridge settings
 
 ## Hardware Requirements
 
@@ -39,9 +39,11 @@ HyperStudy TriggerComponent → HyperStudy Bridge → RP2040 Firmware → TTL Ou
 ### Specifications
 
 - **Communication**: USB serial, 115200 baud
-- **Pulse Output**: GPIO Pin 5 (active HIGH)
-- **Pulse Duration**: 10ms (configurable)
+- **Pulse Output**: GPIO Pin 6 / D4 (active HIGH)
+- **Pulse Duration**: Configurable (default 10ms, range 1–10000ms)
 - **USB Identification**: VID `0x239A`, PID `0x80F1`
+- **Unique Serial Number**: Auto-generated from RP2040 flash chip ID
+- **Firmware Version**: 1.4.0+
 - **Input Voltage**: 5V (USB powered)
 - **Output Voltage**: 3.3V or 5V (depending on optocoupler configuration)
 
@@ -82,13 +84,26 @@ The firmware accepts case-insensitive serial commands via USB:
 
 | Command | Response | Description |
 |---------|----------|-------------|
-| `PULSE` | `OK:Pulse sent` | Triggers a 10ms TTL pulse on GPIO 5 |
+| `PULSE` | `OK:Pulse sent` | Triggers a TTL pulse using the default duration (10ms) |
+| `PULSE <ms>` | `OK:Pulse sent` | Triggers a TTL pulse with the specified duration (1–10000ms) |
+| `SETDURATION <ms>` | `OK:Duration set to <ms>ms` | Sets the default pulse duration (persists until reboot) |
+| `TIMING` | `OK:Timing us:<N>,dur:<ms>` | Reports last pulse's serial-to-GPIO latency in microseconds |
+| `SERIAL` | `OK:Serial <hex>` | Returns the board's unique serial number (from flash chip ID) |
 | `TEST` | `OK:Test successful` | Validates the serial connection |
-| `VERSION` | `OK:Version 1.0.2` | Returns firmware version |
+| `VERSION` | `OK:Version 1.4.0` | Returns firmware version |
+| `LONGPULSE` | `OK:Long pulse sent` | Triggers a 3-second pulse for testing/visibility |
 
 ### Response Format
 
 All responses follow the pattern `OK:<message>` or `ERROR:<message>` for easy parsing by the HyperStudy Bridge.
+
+### Pulse Duration Configuration
+
+Pulse duration can be configured in three ways:
+
+1. **Per-pulse override**: `PULSE 5` sends a 5ms pulse without changing the default
+2. **Set default**: `SETDURATION 20` changes the default to 20ms (until device reboot)
+3. **Via HyperStudy Bridge**: Configure `pulse_duration_ms` in TTL device settings — the Bridge sends the duration with each PULSE command automatically
 
 ## Wiring Diagrams
 
@@ -99,7 +114,7 @@ For testing or when isolation is not required:
 ```
 Adafruit Feather RP2040
         │
-        │ GPIO 5
+        │ GPIO 6
         ▼
     ┌───────┐
     │  100Ω │  (current limiting resistor)
@@ -120,7 +135,7 @@ Recommended for production use to protect both the computer and connected equipm
                     HCPL-2211
               ┌─────────────────┐
               │                 │
-GPIO 5 ──────┤ 1 (Anode)    8 (Vcc2) ├──── +5V (external)
+GPIO 6 ──────┤ 1 (Anode)    8 (Vcc2) ├──── +5V (external)
               │    LED          │
 GND ─────┬───┤ 2 (Cathode)  7 (Vo1) ├──── TTL Output
          │   │                 │
@@ -244,19 +259,79 @@ python3 testing/find_ttl_port.py
 
 | Parameter | Value |
 |-----------|-------|
-| Pulse Duration | 10ms |
+| Pulse Duration | 10ms default (configurable 1–10000ms) |
 | Rise Time | \<1μs |
 | Fall Time | \<1μs |
-| Command Latency | \<1ms |
-| Minimum Inter-Pulse Interval | 20ms |
+| On-Device Latency | Typically \<100μs (serial-available to GPIO toggle) |
+| End-to-End Command Latency | \<1ms (Bridge to GPIO output) |
+| Optocoupler Propagation | ~150–300ns |
+| Minimum Inter-Pulse Interval | Pulse duration + ~1ms |
 
 ### Pin Mapping
 
 | Function | GPIO | Notes |
 |----------|------|-------|
-| TTL Output | 5 | 3.3V logic level |
+| TTL Output | 6 (D4) | 3.3V logic level |
 | Status LED | Built-in | Flashes on pulse |
 | USB | Native | 115200 baud |
+
+## Latency Measurement
+
+### Understanding the Latency Chain
+
+When a TTL pulse is triggered from a HyperStudy experiment, the signal passes through several stages:
+
+```
+HyperStudy Web App
+       │
+       │  ① WebSocket message (~0.1–0.5ms)
+       ▼
+HyperStudy Bridge
+       │
+       │  ② USB serial write + bus transfer (~125μs–1ms)
+       ▼
+RP2040 Firmware
+       │
+       │  ③ Serial parse → GPIO toggle (<100μs, measured by TIMING command)
+       ▼
+HCPL-2211 Optocoupler
+       │
+       │  ④ Optical propagation (~150–300ns, negligible)
+       ▼
+TTL Output
+```
+
+| Stage | What's Measured | Typical Latency |
+|-------|----------------|-----------------|
+| ① Bridge latency | WebSocket receive → serial write | 0.1–0.5ms |
+| ② USB bus latency | Serial write → device receives | 125μs–1ms |
+| ③ On-device latency | Serial available → GPIO toggle | \<100μs |
+| ④ Optocoupler propagation | LED on → output transition | ~200ns |
+
+**Total end-to-end latency** (① through ④) is typically **\<1ms**.
+
+### Querying On-Device Timing
+
+After sending a `PULSE` command, you can query the on-device measured latency with the `TIMING` command:
+
+```
+> PULSE
+OK:Pulse sent
+> TIMING
+OK:Timing us:42,dur:10
+```
+
+This reports:
+- `us:42` — 42 microseconds from serial data available to GPIO going HIGH
+- `dur:10` — the pulse duration was 10ms
+
+The Bridge also logs its own internal latency (stage ①) for each command.
+
+### Interpreting Results
+
+- **\<1ms total**: Expected performance with firmware v1.4.0+
+- **1–2ms total**: Acceptable; may indicate USB hub or system load issues
+- **\>2ms total**: Investigate — check for USB hubs, high CPU load, or other serial port consumers
 
 ## Resources
 
