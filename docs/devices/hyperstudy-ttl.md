@@ -359,7 +359,7 @@ The Bridge also logs its own internal latency (stage ①) for each command.
 - **SERIAL command**: Query the board's unique identifier at runtime
 
 ### Performance
-- **Removed `delay(1)` polling bottleneck**: Tight polling loop reduces on-device latency from up to 1ms to typically <100μs
+- **Removed `delay(1)` polling bottleneck**: Tight polling loop reduces on-device latency from up to 1ms to typically &lt;100μs
 - GPIO toggle happens immediately on command receipt — duration parsing occurs *after* the pin goes HIGH
 
 ### Compatibility
