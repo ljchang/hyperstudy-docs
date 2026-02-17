@@ -345,5 +345,28 @@ The Bridge also logs its own internal latency (stage ①) for each command.
 ## Release Notes
 
 <!-- RELEASE_NOTES_START -->
+
+### v1.4.0
+
+**Released:** 2026-02-17
+
+## What's Changed
+
+### New Features
+- **Configurable pulse duration**: `PULSE <ms>` for per-pulse override, `SETDURATION <ms>` to change the default (range 1–10000ms)
+- **On-device timing measurement**: `TIMING` command reports serial-to-GPIO latency in microseconds
+- **Unique board serial numbers**: Each device auto-generates a unique USB serial descriptor from its RP2040 flash chip ID
+- **SERIAL command**: Query the board's unique identifier at runtime
+
+### Performance
+- **Removed `delay(1)` polling bottleneck**: Tight polling loop reduces on-device latency from up to 1ms to typically <100μs
+- GPIO toggle happens immediately on command receipt — duration parsing occurs *after* the pin goes HIGH
+
+### Compatibility
+- Requires HyperStudy Bridge v0.8.21+ (bridge now sends `PULSE <duration>` format)
+- Fully backward-compatible serial protocol (`OK:`/`ERROR:` response format unchanged)
+
+---
+
 _Release notes are automatically synced from GitHub releases._
 <!-- RELEASE_NOTES_END -->
