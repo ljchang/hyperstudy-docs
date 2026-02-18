@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.9
+
+Released: 2026-02-18
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix Kernel and TTL device status check ignoring Bridge "Connected" response (65dc227b)
+- Fix Neon Bridge integration: race condition, recording order, and gaze setup (6a5cedcf)
+- Fix question buttons clipped when preview panel is open in Instructions tab (ed0cee4d)
+
+---
+
 ## v0.6.8
 
 Released: 2026-02-17
@@ -56,24 +70,6 @@ Released: 2026-02-16
 - Add Pupil Labs Neon eye tracker integration (b07307d7)
 - Fix post-experiment questionnaire selection highlighting, data shape, and back navigation (b68660e2)
 - Harden auth system: fix race conditions, remove dead code, add tests (d0d2b59d)
-
----
-
-## v0.6.6
-
-Released: 2026-02-13
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix Comprehension tab accuracy for data-only questions and unscored event recording (c4cf8f43)
-- Parallelize Firestore batch queries and add server-side deploymentId filter for data management (39147883)
-- Fix Kernel Flow2 event delivery by serializing value field to string (a4d59329)
-- Add Type column to data management Deployments table (4fef22e9)
-- Fix experimenter account request flow showing Access Denied instead of Pending Approval (4ba1c6b0)
-- Fix answer leaking between questions in InstructionsQuestionBlock (a4dcc501)
-- Make Monitor button a toggle with highlighted active state (bf70a063)
 
 ---
 
