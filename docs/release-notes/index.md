@@ -8,6 +8,25 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.11
+
+Released: 2026-02-19
+
+## What's Changed
+
+## Changes since last production release
+
+- Remove unreliable active sessions count from collapsed deployment cards (880afd9c)
+- Fix participant messaging: use socketMap instead of socket.roomId (53a4a8b7)
+- Restyle participant messaging button as Help pill above Feedback button (4213f55d)
+- Disconnect LiveKit on experiment completion and add redirect countdown timer (5fb7d8b9)
+- Add cancel/remove actions for private recruitment invitations and assignments (82107d67)
+- Fix effect_update_depth_exceeded in InstructionsQuestionBlock (4d52de6e)
+- Fix HLS video loading: switch MediaConvert to SINGLE_DIRECTORY (f589bfa6)
+- Fix duplicate experiment IDs causing Svelte each_key_duplicate crash (75a3fd49)
+
+---
+
 ## v0.6.10
 
 Released: 2026-02-19
@@ -66,27 +85,6 @@ Released: 2026-02-18
 - Fix Kernel and TTL device status check ignoring Bridge "Connected" response (65dc227b)
 - Fix Neon Bridge integration: race condition, recording order, and gaze setup (6a5cedcf)
 - Fix question buttons clipped when preview panel is open in Instructions tab (ed0cee4d)
-
----
-
-## v0.6.8
-
-Released: 2026-02-17
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix sessionRecorder mock missing addParticipantToRoom and createOrUpdateRoom (0770d0d4)
-- Hide completed rooms in deployment tracker and allow reactivation (1c7cff8c)
-- Fix participants not appearing in data management panel (ef2dfca5)
-- Fix 3 failing emulator tests after recent refactors (b1bdb5e4)
-- Upgrade API keys route to use resourcePermissions for auth checks (ee9b7573)
-- Fix deployment participant counter never incrementing (647d4169)
-- Remove legacy permission fallbacks and clean up stale data paths (b838b161)
-- Fix comprehension data leaking across rooms via lobbySessionId stamping (33ded8c3)
-- Fix tab overflow in data management panel by adding flex-wrap (fc8b0094)
-- Fix experiment tracker showing wrong completion info for finished sessions (530129a4)
 
 ---
 
