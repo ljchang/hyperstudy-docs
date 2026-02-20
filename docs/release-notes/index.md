@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.12
+
+Released: 2026-02-20
+
+## What's Changed
+
+## Changes since last production release
+
+- Prolific system review: fix V4 gateway, domain consistency, status guards, bonus V4 support, dead code cleanup (4d9a7286)
+- Fix Prolific real-time tracking by forwarding deploymentId through gateway redirects (84a791f1)
+- Fix Prolific study pause/resume/stop 502 errors for AWAITING_REVIEW status (fbe33a38)
+
+---
+
 ## v0.6.11
 
 Released: 2026-02-19
@@ -71,20 +85,6 @@ Released: 2026-02-19
 - Add tests for gaze calibration and sharing, fix effect_orphan in gazeShareService (4792ee0f)
 - Add gaze calibration, require-calibration config, and multi-participant gaze overlay (1a00c34b)
 - Fix gaze overlay not rendering by handling varied bridge data formats (b5e1ccad)
-
----
-
-## v0.6.9
-
-Released: 2026-02-18
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix Kernel and TTL device status check ignoring Bridge "Connected" response (65dc227b)
-- Fix Neon Bridge integration: race condition, recording order, and gaze setup (6a5cedcf)
-- Fix question buttons clipped when preview panel is open in Instructions tab (ed0cee4d)
 
 ---
 
