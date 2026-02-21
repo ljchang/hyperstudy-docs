@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.15
+
+Released: 2026-02-21
+
+## What's Changed
+
+## Changes since last production release
+
+- Migrate experiment components from experimentDataService facade to dataServiceV4 directly (70b4fb86)
+
+---
+
 ## v0.6.14
 
 Released: 2026-02-21
@@ -38,20 +50,6 @@ Released: 2026-02-20
 - Fix pre-experiment events missing from Data Management by using V4 session tokens (cd4cb95d)
 - Fix experiment permissions system and deployment invite access (8cbf62e6)
 - Fix Prolific workspace selection gaps and improve API key error handling (305f8ed9)
-
----
-
-## v0.6.12
-
-Released: 2026-02-20
-
-## What's Changed
-
-## Changes since last production release
-
-- Prolific system review: fix V4 gateway, domain consistency, status guards, bonus V4 support, dead code cleanup (4d9a7286)
-- Fix Prolific real-time tracking by forwarding deploymentId through gateway redirects (84a791f1)
-- Fix Prolific study pause/resume/stop 502 errors for AWAITING_REVIEW status (fbe33a38)
 
 ---
 
