@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.16
+
+Released: 2026-02-21
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix required questions skippable via outer Next button on instruction pages (88a1d13e)
+- Fix participants rerouted to instructions after waiting room matching (dbd41c54)
+
+---
+
 ## v0.6.15
 
 Released: 2026-02-21
@@ -34,22 +47,6 @@ Released: 2026-02-21
 - Fix required questions in instruction pages being bypassed (f48a99f2)
 - Fix submit button not centered in RapidRateComponent (d2cd14e0)
 - Fix deployment owners getting 403 on experiment tracking session operations (3cfc2ab8)
-
----
-
-## v0.6.13
-
-Released: 2026-02-20
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix video volume resetting to saved value instead of 100% each session (9693ad20)
-- Fix audio recording duration showing 0s in Data Management (b97e8b18)
-- Fix pre-experiment events missing from Data Management by using V4 session tokens (cd4cb95d)
-- Fix experiment permissions system and deployment invite access (8cbf62e6)
-- Fix Prolific workspace selection gaps and improve API key error handling (305f8ed9)
 
 ---
 
