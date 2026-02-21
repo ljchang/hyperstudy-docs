@@ -8,6 +8,23 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.14
+
+Released: 2026-02-21
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix emulator test race condition in endExperiment questionnaire tests (fd3f2e7b)
+- Expand test coverage across backend and frontend (c94ccb1d)
+- Refactor Prolific gateway to V4 deployment-scoped route and fix V4 data quality (b96e39f3)
+- Fix required questions in instruction pages being bypassed (f48a99f2)
+- Fix submit button not centered in RapidRateComponent (d2cd14e0)
+- Fix deployment owners getting 403 on experiment tracking session operations (3cfc2ab8)
+
+---
+
 ## v0.6.13
 
 Released: 2026-02-20
@@ -35,25 +52,6 @@ Released: 2026-02-20
 - Prolific system review: fix V4 gateway, domain consistency, status guards, bonus V4 support, dead code cleanup (4d9a7286)
 - Fix Prolific real-time tracking by forwarding deploymentId through gateway redirects (84a791f1)
 - Fix Prolific study pause/resume/stop 502 errors for AWAITING_REVIEW status (fbe33a38)
-
----
-
-## v0.6.11
-
-Released: 2026-02-19
-
-## What's Changed
-
-## Changes since last production release
-
-- Remove unreliable active sessions count from collapsed deployment cards (880afd9c)
-- Fix participant messaging: use socketMap instead of socket.roomId (53a4a8b7)
-- Restyle participant messaging button as Help pill above Feedback button (4213f55d)
-- Disconnect LiveKit on experiment completion and add redirect countdown timer (5fb7d8b9)
-- Add cancel/remove actions for private recruitment invitations and assignments (82107d67)
-- Fix effect_update_depth_exceeded in InstructionsQuestionBlock (4d52de6e)
-- Fix HLS video loading: switch MediaConvert to SINGLE_DIRECTORY (f589bfa6)
-- Fix duplicate experiment IDs causing Svelte each_key_duplicate crash (75a3fd49)
 
 ---
 
