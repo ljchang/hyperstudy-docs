@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.17
+
+Released: 2026-02-22
+
+## What's Changed
+
+## Changes since last production release
+
+- Add missing stateManager lock mocks to waiting room emulator tests (54937808)
+- Fix waiting room re-matching loop in multi-pod deployments (1081908a)
+
+---
+
 ## v0.6.16
 
 Released: 2026-02-21
@@ -30,23 +43,6 @@ Released: 2026-02-21
 ## Changes since last production release
 
 - Migrate experiment components from experimentDataService facade to dataServiceV4 directly (70b4fb86)
-
----
-
-## v0.6.14
-
-Released: 2026-02-21
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix emulator test race condition in endExperiment questionnaire tests (fd3f2e7b)
-- Expand test coverage across backend and frontend (c94ccb1d)
-- Refactor Prolific gateway to V4 deployment-scoped route and fix V4 data quality (b96e39f3)
-- Fix required questions in instruction pages being bypassed (f48a99f2)
-- Fix submit button not centered in RapidRateComponent (d2cd14e0)
-- Fix deployment owners getting 403 on experiment tracking session operations (3cfc2ab8)
 
 ---
 
