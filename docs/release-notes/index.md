@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.20
+
+Released: 2026-02-24
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix multi-page questionnaire responses from page 2+ not being recorded (5fefdd96)
+- Include recording media files in Download All zip (fb46c9e3)
+- Fix missing questionnaire responses for text input questions (049b3c9c)
+- Add missing data types to Download All: participants, questionnaire, comprehension (fbf326fa)
+- Switch Download All Data from lossy CSV to raw JSON (c9beb257)
+- Fix questionnaire badge count and move jszip to runtime dependencies (813254bb)
+- Fix V3 processors crashing on missing Firestore indexes and Prolific completion codes (06b44de2)
+
+---
+
 ## v0.6.19
 
 Released: 2026-02-24
@@ -52,19 +70,6 @@ Released: 2026-02-23
 - Fix cross-org media access for shared/public experiments (eb50669d)
 - Fix public experiments not visible to members of other organizations (3f943c41)
 - Add PROLIFIC_GATEWAY_SECRET to deployment pipeline (c4967650)
-
----
-
-## v0.6.17
-
-Released: 2026-02-22
-
-## What's Changed
-
-## Changes since last production release
-
-- Add missing stateManager lock mocks to waiting room emulator tests (54937808)
-- Fix waiting room re-matching loop in multi-pod deployments (1081908a)
 
 ---
 
