@@ -8,6 +8,26 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.19
+
+Released: 2026-02-24
+
+## What's Changed
+
+## Changes since last production release
+
+- Add EyeLink 1000 Plus frontend integration (6def85ae)
+- Fix Prolific completion codes returning ABANDON instead of SUCCESS (977acdd1)
+- Fix Prolific sending ABANDON codes instead of correct completion codes (ca8605f3)
+- Fix questionnaire preview not syncing to selected page tab (b266ec06)
+- Fix EventProcessor not reading componentType from V4 event.data (a469d6b4)
+- Fix questionnaire events not recording due to session status rejection (7abb984c)
+- Redesign PostExperimentQuestionnaire editor UI (f16b801b)
+- Fix Prolific "Unknown Code" on researcher dashboard (31ba184a)
+- Add ENCRYPTION_KEY to deployment pipeline (43e57d01)
+
+---
+
 ## v0.6.18
 
 Released: 2026-02-23
@@ -45,19 +65,6 @@ Released: 2026-02-22
 
 - Add missing stateManager lock mocks to waiting room emulator tests (54937808)
 - Fix waiting room re-matching loop in multi-pod deployments (1081908a)
-
----
-
-## v0.6.16
-
-Released: 2026-02-21
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix required questions skippable via outer Next button on instruction pages (88a1d13e)
-- Fix participants rerouted to instructions after waiting room matching (dbd41c54)
 
 ---
 
