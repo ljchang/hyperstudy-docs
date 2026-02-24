@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.22
+
+Released: 2026-02-24
+
+## What's Changed
+
+## Changes since last production release
+
+- Add missing flush mock to PostExperimentQuestionnaireDisplay test (d5ec2887)
+
+---
+
 ## v0.6.21
 
 Released: 2026-02-24
@@ -35,26 +47,6 @@ Released: 2026-02-24
 - Switch Download All Data from lossy CSV to raw JSON (c9beb257)
 - Fix questionnaire badge count and move jszip to runtime dependencies (813254bb)
 - Fix V3 processors crashing on missing Firestore indexes and Prolific completion codes (06b44de2)
-
----
-
-## v0.6.19
-
-Released: 2026-02-24
-
-## What's Changed
-
-## Changes since last production release
-
-- Add EyeLink 1000 Plus frontend integration (6def85ae)
-- Fix Prolific completion codes returning ABANDON instead of SUCCESS (977acdd1)
-- Fix Prolific sending ABANDON codes instead of correct completion codes (ca8605f3)
-- Fix questionnaire preview not syncing to selected page tab (b266ec06)
-- Fix EventProcessor not reading componentType from V4 event.data (a469d6b4)
-- Fix questionnaire events not recording due to session status rejection (7abb984c)
-- Redesign PostExperimentQuestionnaire editor UI (f16b801b)
-- Fix Prolific "Unknown Code" on researcher dashboard (31ba184a)
-- Add ENCRYPTION_KEY to deployment pipeline (43e57d01)
 
 ---
 
