@@ -8,6 +8,25 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.23
+
+Released: 2026-02-25
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix backend Docker build failure caused by UID/GID 1000 conflict (0a66245f)
+- Remove exposed credentials from tracking, harden Traefik, and clean up dead code (63076008)
+- Fix memory leaks, harden security, and optimize monitoring infrastructure (79ad2ddc)
+- Fix deploymentId data visibility bug, OOM-kill cascade, and data loss on crash (dfd926bc)
+- Make gaze consumption layer device-agnostic with activeGazeService router (5cc8e4e0)
+- Integrate metrics pipeline and restructure Usage & Billing dashboard (49b72c34)
+- Fix Prometheus crash: replace wildcard rule_files glob with explicit paths (6a9242f4)
+- Add Prometheus scrape annotations to backend StatefulSet (93f1f5ed)
+
+---
+
 ## v0.6.22
 
 Released: 2026-02-24
@@ -29,24 +48,6 @@ Released: 2026-02-24
 ## Changes since last production release
 
 - Fix flush race condition, options override, and recording filenames (9f469e77)
-
----
-
-## v0.6.20
-
-Released: 2026-02-24
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix multi-page questionnaire responses from page 2+ not being recorded (5fefdd96)
-- Include recording media files in Download All zip (fb46c9e3)
-- Fix missing questionnaire responses for text input questions (049b3c9c)
-- Add missing data types to Download All: participants, questionnaire, comprehension (fbf326fa)
-- Switch Download All Data from lossy CSV to raw JSON (c9beb257)
-- Fix questionnaire badge count and move jszip to runtime dependencies (813254bb)
-- Fix V3 processors crashing on missing Firestore indexes and Prolific completion codes (06b44de2)
 
 ---
 
