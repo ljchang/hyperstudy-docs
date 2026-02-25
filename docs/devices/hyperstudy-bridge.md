@@ -29,7 +29,10 @@ The Bridge runs locally on your research computer and creates a WebSocket server
 | [HyperStudy TTL](/devices/hyperstudy-ttl) | TTL Pulse Generator | USB Serial | Supported |
 | Kernel Flow2 | fNIRS | TCP Socket | Supported |
 | Pupil Labs Neon | Eye Tracker | WebSocket | Supported |
+| [EyeLink 1000 Plus](/devices/eyelink) | Eye Tracker | Ethernet (TCP) | Supported* |
 | Lab Streaming Layer | Various | LSL Protocol | Supported |
+
+_*Requires the [SR Research EyeLink Developers Kit](/devices/eyelink#installing-the-eyelink-developers-kit) installed on the Bridge machine._
 
 ## Installation
 
@@ -112,6 +115,12 @@ Each device type has its own configuration panel in the Bridge GUI:
 - Connection URL
 - Gaze data streaming options
 
+**EyeLink 1000 Plus:**
+- IP address of EyeLink Host PC (default: `100.1.1.1`)
+- Sample rate (250, 500, 1000, or 2000 Hz)
+- Display width/height for gaze coordinate mapping
+- Requires [EyeLink Developers Kit](/devices/eyelink#installing-the-eyelink-developers-kit) installed separately
+
 **LSL Streams:**
 - Stream name patterns to discover
 - Outlet configuration
@@ -172,16 +181,17 @@ const ws = new WebSocket('ws://192.168.1.100:9000');
 │   Web App       │                     │   Server     │
 └─────────────────┘                     └──────┬───────┘
                                                │
-                         ┌─────────────────────┼─────────────────────┐
-                         │                     │                     │
-                   ┌─────▼─────┐         ┌────▼────┐         ┌─────▼─────┐
-                   │    TTL    │         │ Kernel  │         │  Pupil    │
-                   │  Serial   │         │   TCP   │         │    WS     │
-                   └─────┬─────┘         └────┬────┘         └─────┬─────┘
-                         │                     │                     │
-                   ┌─────▼─────┐         ┌────▼────┐         ┌─────▼─────┐
-                   │ TTL Device│         │ Flow2   │         │   Neon    │
-                   └───────────┘         └─────────┘         └───────────┘
+                    ┌──────────────┬────────────┼────────────┬──────────────┐
+                    │              │            │            │              │
+              ┌─────▼─────┐ ┌─────▼────┐ ┌────▼────┐ ┌─────▼─────┐ ┌─────▼─────┐
+              │    TTL    │ │  EyeLink │ │ Kernel  │ │  Pupil    │ │    LSL    │
+              │  Serial   │ │   FFI    │ │   TCP   │ │    WS     │ │  Streams  │
+              └─────┬─────┘ └─────┬────┘ └────┬────┘ └─────┬─────┘ └─────┬─────┘
+                    │             │            │            │              │
+              ┌─────▼─────┐ ┌────▼─────┐ ┌───▼─────┐ ┌────▼─────┐ ┌─────▼─────┐
+              │ TTL Device│ │ EyeLink  │ │  Flow2  │ │   Neon   │ │ LSL-based │
+              └───────────┘ │ 1000 Plus│ └─────────┘ └──────────┘ │  Devices  │
+                            └──────────┘                          └───────────┘
 ```
 
 ## Performance
@@ -292,7 +302,6 @@ npm run tauri build
 
 ---
 
-
 ### v0.8.22
 
 **Released:** 2026-02-25
@@ -309,8 +318,6 @@ npm run tauri build
 - Add EyeLink 1000 Plus eye tracker integration
 
 ---
-
-
 ### v0.8.21
 
 **Released:** 2026-02-17
