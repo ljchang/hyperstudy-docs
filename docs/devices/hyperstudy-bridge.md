@@ -285,6 +285,18 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.24
+
+**Released:** 2026-02-25
+
+## What's Changed
+
+### Bug Fixes
+- Fix EyeLink crash when connecting to unreachable Host PC — adds TCP reachability pre-check and FFI timeout to prevent segfault
+
+---
+
+
 ### v0.8.23
 
 **Released:** 2026-02-25
