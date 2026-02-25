@@ -275,6 +275,24 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.23
+
+**Released:** 2026-02-25
+
+## What's Changed
+
+### New Features
+- **EyeLink 1000 Plus frontend integration** — device configuration UI with IP address, sample rate, and display resolution settings
+
+### Technical
+- **Runtime dynamic loading for EyeLink SDK** — replaced build-time linking with `libloading` for runtime SDK detection; one universal binary for all users, EyeLink activates only if the SR Research SDK is present
+- **Removed `eyelink` Cargo feature flag** — no more separate builds needed; all 15 `cfg` guards removed
+- Added EyeLink to README supported devices table and CLAUDE.md device specs
+- Added frontend tests for EyeLink display fields and IP validation
+
+---
+
+
 ### v0.8.22
 
 **Released:** 2026-02-25
