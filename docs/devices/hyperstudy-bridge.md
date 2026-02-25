@@ -275,6 +275,24 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.22
+
+**Released:** 2026-02-25
+
+## What's Changed
+
+### New Features
+- **Configurable TTL pulse duration** — New "Pulse Duration (ms)" setting in the TTL config modal (1–1000ms, default 10ms). The duration is passed through to both Tauri commands and the WebSocket bridge, and can also be overridden per-pulse via `PULSE <ms>` commands.
+
+### Bug Fixes
+- Fix Neon connect timeout and add connection progress indicator
+
+### New Device Support
+- Add EyeLink 1000 Plus eye tracker integration
+
+---
+
+
 ### v0.8.21
 
 **Released:** 2026-02-17
