@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.24
+
+Released: 2026-02-26
+
+## What's Changed
+
+## Changes since last production release
+
+- Restore lcov reporter removed during coverage config changes (8805ad9f)
+- Raise frontend test coverage from 45% to 71% with 5,700+ new tests (d306d3a4)
+- Fix experiment designer WebSocket disconnect/reconnect bugs (8594eae7)
+- Fix un-centered submit buttons in AudioRecordingComponent (fb49a363)
+
+---
+
 ## v0.6.23
 
 Released: 2026-02-25
@@ -36,18 +51,6 @@ Released: 2026-02-24
 ## Changes since last production release
 
 - Add missing flush mock to PostExperimentQuestionnaireDisplay test (d5ec2887)
-
----
-
-## v0.6.21
-
-Released: 2026-02-24
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix flush race condition, options override, and recording filenames (9f469e77)
 
 ---
 
