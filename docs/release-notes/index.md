@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.25
+
+Released: 2026-02-27
+
+## What's Changed
+
+## Changes since last production release
+
+- Update invitation service test to expect deploymentId field (6c163892)
+- Hide Send Invite button when participant already exists on platform (d212b088)
+- Fix email invitation flow for private experiment participants (87e2e4ae)
+- Fix participant 403 on experiments accessed via public deployment links (0d14765f)
+
+---
+
 ## v0.6.24
 
 Released: 2026-02-26
@@ -39,18 +54,6 @@ Released: 2026-02-25
 - Integrate metrics pipeline and restructure Usage & Billing dashboard (49b72c34)
 - Fix Prometheus crash: replace wildcard rule_files glob with explicit paths (6a9242f4)
 - Add Prometheus scrape annotations to backend StatefulSet (93f1f5ed)
-
----
-
-## v0.6.22
-
-Released: 2026-02-24
-
-## What's Changed
-
-## Changes since last production release
-
-- Add missing flush mock to PostExperimentQuestionnaireDisplay test (d5ec2887)
 
 ---
 
