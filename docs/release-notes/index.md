@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.26
+
+Released: 2026-02-27
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix effect_update_depth_exceeded in ExperimentDesigner (d71ac1f4)
+
+---
+
 ## v0.6.25
 
 Released: 2026-02-27
@@ -35,25 +47,6 @@ Released: 2026-02-26
 - Raise frontend test coverage from 45% to 71% with 5,700+ new tests (d306d3a4)
 - Fix experiment designer WebSocket disconnect/reconnect bugs (8594eae7)
 - Fix un-centered submit buttons in AudioRecordingComponent (fb49a363)
-
----
-
-## v0.6.23
-
-Released: 2026-02-25
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix backend Docker build failure caused by UID/GID 1000 conflict (0a66245f)
-- Remove exposed credentials from tracking, harden Traefik, and clean up dead code (63076008)
-- Fix memory leaks, harden security, and optimize monitoring infrastructure (79ad2ddc)
-- Fix deploymentId data visibility bug, OOM-kill cascade, and data loss on crash (dfd926bc)
-- Make gaze consumption layer device-agnostic with activeGazeService router (5cc8e4e0)
-- Integrate metrics pipeline and restructure Usage & Billing dashboard (49b72c34)
-- Fix Prometheus crash: replace wildcard rule_files glob with explicit paths (6a9242f4)
-- Add Prometheus scrape annotations to backend StatefulSet (93f1f5ed)
 
 ---
 
