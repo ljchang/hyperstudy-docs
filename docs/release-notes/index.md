@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.29
+
+Released: 2026-03-02
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix cluster scaling: PDB deadlock, anti-affinity, HPAs, and dev environment (a2c14f46)
+- Add stimulus metadata to component responses and data management table (921e5fd4)
+
+---
+
 ## v0.6.28
 
 Released: 2026-03-01
@@ -35,18 +48,6 @@ Released: 2026-02-27
 ## Changes since last production release
 
 - Fix second effect_update_depth_exceeded loop in ExperimentDesigner (c1450a35)
-
----
-
-## v0.6.26
-
-Released: 2026-02-27
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix effect_update_depth_exceeded in ExperimentDesigner (d71ac1f4)
 
 ---
 
