@@ -7,6 +7,10 @@ sidebar_position: 4
 
 Stimulus Mappings allow you to conditionally display images or videos based on participant responses. Instead of showing the same media to everyone, you can dynamically select what to display based on choices participants make during the experiment.
 
+:::tip Displaying Stimuli on Input Components
+To show images inline alongside input components (Text Input, Likert Scale, VAS Rating, Multiple Choice, Ranking, Audio Recording, Rapid Rate), see the [Stimulus Display](./stimulus-display.md) guide. Stimulus Mappings and Stimulus Display are complementary — use mappings to define *which* image to show, and display to control *how* it appears next to the input.
+:::
+
 ## Overview
 
 With Stimulus Mappings, you can:

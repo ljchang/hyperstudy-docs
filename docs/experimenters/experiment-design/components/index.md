@@ -67,6 +67,10 @@ Each component has its own set of configurable properties, but they share some c
 - **Data Collection**: Variables to store participant responses
 - **Visibility**: Which roles can see this component
 
+#### Stimulus Display
+
+Seven input components support showing an image alongside the response interface: Text Input, Likert Scale, VAS Rating, Multiple Choice, Ranking, Audio Recording, and Rapid Rate. Enable "Show Stimulus Image" in the component config to display a static or dynamic image in one of four layout positions (above, below, left, right). See [Stimulus Display](../stimulus-display.md) for full details.
+
 ### Component-Specific Properties
 
 Each component type has unique properties related to its function:
