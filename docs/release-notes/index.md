@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.30
+
+Released: 2026-03-03
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix deployment reactivation immediately re-completing (287b6b40)
+- Fix video not reappearing after chat window collapse/expand (0ebbd3f0)
+- Fix submit button hidden when scroll/overflow mode active (082fa379)
+- Add display options (overflow mode, fit strategy) to RapidRate config editor (af89ae33)
+- Fix participant count excluding egress bots and corrupted back button (4d5fbefc)
+
+---
+
 ## v0.6.29
 
 Released: 2026-03-02
@@ -36,18 +52,6 @@ Released: 2026-03-01
 - Fix video/audio tracks not toggling on videochat visibility state transitions (33308693)
 - Add configurable encoding preset for LiveKit recording egress (8e3e4069)
 - Fix Kernel Flow event timestamp ordering for correct duration calculation (f6070c80)
-
----
-
-## v0.6.27
-
-Released: 2026-02-27
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix second effect_update_depth_exceeded loop in ExperimentDesigner (c1450a35)
 
 ---
 
