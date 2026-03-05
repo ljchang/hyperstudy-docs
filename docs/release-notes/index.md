@@ -8,6 +8,23 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.32
+
+Released: 2026-03-05
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix non-Prolific participants showing COMPLETED_NO_CODE completion status (c1a07c4e)
+- Merge branch 'worktree-rosy-sleeping-pascal' into dev (640e7a62)
+- Merge branch 'worktree-peppy-forging-umbrella' into dev (9f696358)
+- Fix Prolific participant stuck state and completion code bugs (1b268280)
+- Fix questionnaire data recording reliability for non-text components (bc471004)
+- Fix recording events missing from CSV export and recording duration overshoot (6f407701)
+
+---
+
 ## v0.6.31
 
 Released: 2026-03-04
@@ -37,19 +54,6 @@ Released: 2026-03-03
 - Fix submit button hidden when scroll/overflow mode active (082fa379)
 - Add display options (overflow mode, fit strategy) to RapidRate config editor (af89ae33)
 - Fix participant count excluding egress bots and corrupted back button (4d5fbefc)
-
----
-
-## v0.6.29
-
-Released: 2026-03-02
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix cluster scaling: PDB deadlock, anti-affinity, HPAs, and dev environment (a2c14f46)
-- Add stimulus metadata to component responses and data management table (921e5fd4)
 
 ---
 
