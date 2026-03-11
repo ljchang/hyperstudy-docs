@@ -8,6 +8,25 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.34
+
+Released: 2026-03-11
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix recordWhenHidden videochat recording unreliability (b67c1e1e)
+- Remove dead Firebase upload path and clean up webhook handler (0bb6bd4b)
+- Fix role-specific configs storing full copies instead of deltas (de72d7c3)
+- Fix CountdownTimer not ticking and add countdown support to LikertScale (4ad7b8e1)
+- Fix duplicate component.response events in questionnaire and instructions contexts (731f5f9b)
+- Fix recording offset race condition and missing recording events (0bb21476)
+- Fix room participant count using subcollection data instead of drifted denormalized counter (e5b83cac)
+- Fix completion code recording for non-Prolific participants (12622c26)
+
+---
+
 ## v0.6.33
 
 Released: 2026-03-10
@@ -96,22 +115,6 @@ Released: 2026-03-05
 - Fix Prolific participant stuck state and completion code bugs (1b268280)
 - Fix questionnaire data recording reliability for non-text components (bc471004)
 - Fix recording events missing from CSV export and recording duration overshoot (6f407701)
-
----
-
-## v0.6.31
-
-Released: 2026-03-04
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix PlatformAdminDashboard test to account for Plan Quotas tab (10fb06d0)
-- Fix monthly reset missing livekitMinutesThisMonth and add Plan Quotas admin UI (ed1858ce)
-- Fix LiveKit recording event visibility and timing precision (1ce976f8)
-- Fix participant disconnect and Prolific completion bugs (f974e453)
-- Fix each_key_duplicate error in StateListWithGroups (559bdbdb)
 
 ---
 
