@@ -29,6 +29,23 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'API Reference',
+        route: '/api-reference',
+        showNavLink: false, // We add our own navbar item for better placement
+        configuration: {
+          url: 'https://api.hyperstudy.io/api/v3/openapi.yaml',
+          authentication: {
+            preferredSecurityScheme: 'ApiKeyAuth',
+          },
+        },
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -89,6 +106,11 @@ const config = {
             docId: 'devices/index',
             position: 'left',
             label: 'Devices',
+          },
+          {
+            to: '/api-reference',
+            position: 'left',
+            label: 'API Reference',
           },
           {
             type: 'doc',

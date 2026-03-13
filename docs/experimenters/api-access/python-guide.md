@@ -623,6 +623,7 @@ pip install requests pandas python-dotenv
 
 ## Next Steps
 
+- **Interactive API reference**: [API Reference](/api-reference) — browse all endpoints and try them live
 - **Learn about other languages**: [JavaScript](./javascript-guide.md) | [R](./r-guide.md)
 - **Understand all endpoints**: [Data Types & Endpoints](./data-types.md)
 - **Manage your keys**: [API Key Management](./api-keys.md)

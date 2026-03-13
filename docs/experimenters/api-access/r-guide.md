@@ -665,6 +665,7 @@ df <- do.call(rbind, lapply(events, function(x) {
 
 ## Next Steps
 
+- **Interactive API reference**: [API Reference](/api-reference) — browse all endpoints and try them live
 - **Learn about other languages**: [Python](./python-guide.md) | [JavaScript](./javascript-guide.md)
 - **Understand all endpoints**: [Data Types & Endpoints](./data-types.md)
 - **Manage your keys**: [API Key Management](./api-keys.md)

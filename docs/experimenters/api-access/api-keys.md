@@ -547,6 +547,7 @@ If you accidentally expose your API key:
 
 Now that you have an API key, you're ready to start downloading data:
 
+- **Try the API**: [API Reference](/api-reference) — interactive reference where you can test endpoints with your key
 - **Learn the API**: [API Overview](./overview.md)
 - **Understand endpoints**: [Data Types & Endpoints](./data-types.md)
 - **Start coding**: [Python Guide](./python-guide.md) | [JavaScript Guide](./javascript-guide.md) | [R Guide](./r-guide.md)

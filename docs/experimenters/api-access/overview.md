@@ -538,8 +538,22 @@ Now that you understand the basics:
    - [JavaScript Guide](./javascript-guide.md) - For web integrations
    - [R Guide](./r-guide.md) - For statistical analysis
 
+## Interactive API Reference
+
+For the complete, interactive API reference with "Try it" functionality, request/response examples, and full schema documentation, see the **[API Reference](/api-reference)**.
+
+The API reference is generated from our OpenAPI 3.1 specification and lets you:
+- Browse all endpoints with parameters and response schemas
+- Execute requests directly from the browser
+- See code examples in multiple languages (curl, Python, JavaScript, etc.)
+- Authenticate with your API key and test endpoints live
+
+The raw OpenAPI spec is also available for tooling and SDK generation at:
+```
+https://api.hyperstudy.io/api/v3/openapi.yaml
+```
+
 ## Additional Resources
 
 - **GUI Data Management**: [Data Management Guide](../data-management.md)
-- **API Specification**: OpenAPI/Swagger docs (coming soon)
 - **Support**: Contact support with questions or issues
