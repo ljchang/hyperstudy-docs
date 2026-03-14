@@ -72,38 +72,44 @@ Before using the API, you need:
    - Navigate to Admin Dashboard → API Keys → Create API Key
 
 3. **A Programming Environment**
-   - Python (recommended): `pip install requests pandas`
+   - Python (recommended): `pip install hyperstudy`
    - JavaScript/Node.js: `npm install node-fetch`
    - R: `install.packages(c("httr", "jsonlite"))`
 
 ### Quick Start Example
 
-Here's a complete example in Python:
+Here's a complete example using the [Python SDK](./python-guide.md):
+
+```python
+import hyperstudy
+
+hs = hyperstudy.HyperStudy()  # Reads HYPERSTUDY_API_KEY env var
+
+# Fetch events as a pandas DataFrame
+events = hs.get_events("your-room-id", scope="room")
+print(f"Retrieved {len(events)} events")
+print(events[["onset_sec", "componentType", "content"]].head())
+```
+
+Or using raw HTTP requests (any language):
 
 ```python
 import requests
 import os
 
-# Your API key (store in environment variable)
 API_KEY = os.environ.get('HYPERSTUDY_API_KEY')
 BASE_URL = 'https://api.hyperstudy.io/api/v3'
 
-# Make your first API request
 response = requests.get(
     f'{BASE_URL}/data/events/room/your-room-id',
     headers={'X-API-Key': API_KEY},
     params={'limit': 10}
 )
 
-# Check if successful
 if response.ok:
     result = response.json()
     events = result['data']
     print(f"Retrieved {len(events)} events")
-
-    # Access event data
-    for event in events:
-        print(f"{event['onset']}ms: {event['componentType']} - {event['content']}")
 else:
     print(f"Error: {response.status_code} - {response.text}")
 ```
@@ -303,7 +309,15 @@ For large datasets, the API returns data in pages.
 
 ### Fetching All Pages
 
-**Python Example**:
+The [Python SDK](./python-guide.md) handles pagination automatically with a progress bar:
+
+```python
+# Fetches all pages automatically
+all_events = hs.get_events("room-id", scope="room")
+```
+
+If using raw HTTP requests, you need to loop through pages manually:
+
 ```python
 def fetch_all_events(api_key, room_id):
     """Fetch all events using pagination"""
@@ -322,12 +336,9 @@ def fetch_all_events(api_key, room_id):
         result = response.json()
         all_events.extend(result['data'])
 
-        # Check pagination
         pagination = result['metadata']['pagination']
         has_more = pagination['hasMore']
         offset = pagination.get('nextOffset', offset + limit)
-
-        print(f"Fetched {len(all_events)}/{pagination['total']} events")
 
     return all_events
 ```
@@ -534,7 +545,7 @@ Now that you understand the basics:
 1. **Get an API Key**: [API Key Management](./api-keys.md)
 2. **Learn the Endpoints**: [Data Types & Endpoints](./data-types.md)
 3. **Start Coding**:
-   - [Python Guide](./python-guide.md) - Most common for data analysis
+   - [Python Guide](./python-guide.md) - Recommended: use the `hyperstudy` SDK (`pip install hyperstudy`)
    - [JavaScript Guide](./javascript-guide.md) - For web integrations
    - [R Guide](./r-guide.md) - For statistical analysis
 
@@ -548,10 +559,29 @@ The API reference is generated from our OpenAPI 3.1 specification and lets you:
 - See code examples in multiple languages (curl, Python, JavaScript, etc.)
 - Authenticate with your API key and test endpoints live
 
-The raw OpenAPI spec is also available for tooling and SDK generation at:
+The raw OpenAPI spec is also available for tooling at:
 ```
 https://api.hyperstudy.io/api/v3/openapi.yaml
 ```
+
+## Python SDK
+
+For Python users, we provide an official SDK that handles authentication, pagination, error handling, and DataFrame conversion automatically:
+
+```bash
+pip install hyperstudy
+```
+
+```python
+import hyperstudy
+
+hs = hyperstudy.HyperStudy(api_key="hst_live_...")
+
+events = hs.get_events("experiment-id")          # pandas DataFrame
+events = hs.get_events("experiment-id", output="polars")  # polars DataFrame
+```
+
+See the [Python Guide](./python-guide.md) for full documentation, or visit the [SDK repository on GitHub](https://github.com/ljchang/hyperstudy-pythonsdk).
 
 ## Additional Resources
 
