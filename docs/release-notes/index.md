@@ -8,6 +8,23 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.38
+
+Released: 2026-03-14
+
+## What's Changed
+
+## Changes since last production release
+
+- Rename Compliance card to Collaboration and reorder deployment screenshots (f8943e22)
+- Add experiment tracker and Prolific configuration screenshots to landing page (de415c81)
+- Fix unifiedPermissionService test failure with optional chaining on response.headers (dec87fe7)
+- Update landing page feature cards with fresh screenshots and layout fix (a94bf414)
+- Fix permission removal JSON error and add server-side user enrichment (b2a2ee7e)
+- Fix blank API v3 docs page by allowing Scalar CDN in CSP for docs route (9f3832d2)
+
+---
+
 ## v0.6.37
 
 Released: 2026-03-14
@@ -36,30 +53,6 @@ Released: 2026-03-13
 
 - Fix ghost states from duplicate state IDs in experiment designer (662a8220)
 - Fix Escape key in API key modals by using window-level handler (cbe9a0f9)
-
----
-
-## v0.6.35
-
-Released: 2026-03-12
-
-## What's Changed
-
-## Changes since last production release
-
-- Add Escape key support to close custom modals (b523d503)
-- Add write/admin scopes to API key generation (afabdf9d)
-- Fix backend Docker build missing shared/ directory and roles format in test (faa35f70)
-- Fix emulator tests for component type validation (9f7d2037)
-- Fix  alias resolution in Docker build and CI tests (d886858b)
-- Add per-component JSON Schema validation (Phase 4) (a152ef73)
-- Add V3 experiment CRUD routes with API key authentication (f80f2331)
-- Fix experiment import rejecting valid component types and add schema-driven validation (ac1cc714)
-- Fix submit button visibility on MultipleChoice, Ranking, and RapidRate components (6d33e80a)
-- Clean up HLS video playback technical debt (f8d49c0b)
-- Fix CollaboratorCursors infinite effect loop and toFixed type errors (032355f1)
-- Add multi-layer video error recovery to prevent experiment freeze (34ce4784)
-- Fix EventProcessor state lookup mismatch causing confused component names (6fea3b34)
 
 ---
 
