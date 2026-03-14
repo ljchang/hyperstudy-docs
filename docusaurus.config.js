@@ -41,6 +41,7 @@ const config = {
           authentication: {
             preferredSecurityScheme: 'ApiKeyAuth',
           },
+          hiddenClients: ['php', 'ruby', 'java', 'csharp', 'go', 'swift', 'kotlin', 'objc', 'c', 'clojure', 'http', 'powershell'],
         },
       },
     ],
