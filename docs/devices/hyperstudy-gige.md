@@ -3,6 +3,8 @@ sidebar_position: 4
 title: GigE Virtual Camera
 ---
 
+import { GigEDownload } from '@site/src/components/GitHubDownload';
+
 # GigE Virtual Camera
 
 A native macOS application that creates virtual cameras from GigE Vision industrial cameras, making them available to any macOS application including HyperStudy experiments.
@@ -29,18 +31,13 @@ The GigE Virtual Camera application bridges the gap between professional GigE Vi
 
 ## Installation
 
-### Download
+Download the latest release:
 
-**[Download the latest release →](https://github.com/hyperstudyio/hyperstudy-gige/releases/latest)**
+<GigEDownload />
 
 ### Step-by-Step Installation
 
-1. **Download the DMG**
-   - Go to the [Releases page](https://github.com/hyperstudyio/hyperstudy-gige/releases)
-   - Download the latest `GigEVirtualCamera-vX.X.X.dmg` file
-   - The app is fully signed and notarized by Apple
-
-2. **Install the Application**
+1. **Install the Application**
    - Double-click the downloaded DMG file
    - Drag `GigEVirtualCamera.app` to your `Applications` folder
    - Eject the DMG

@@ -3,7 +3,7 @@ sidebar_position: 2
 title: HyperStudy Bridge
 ---
 
-import BridgeDownload from '@site/src/components/BridgeDownload';
+import { BridgeDownload } from '@site/src/components/GitHubDownload';
 
 # HyperStudy Bridge
 
