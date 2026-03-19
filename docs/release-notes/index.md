@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.42
+
+Released: 2026-03-19
+
+## What's Changed
+
+## Changes since last production release
+
+- Add true sampling without replacement (no pool reset) (9a6041d8)
+- Preserve state groupings and randomizeStates through experiment export/import (9d850169)
+
+---
+
 ## v0.6.41
 
 Released: 2026-03-18
@@ -36,18 +49,6 @@ Released: 2026-03-16
 
 - Update GitHub repo URLs from ljchang to hyperstudyio org (694c47da)
 - Add Terms of Service, Privacy Policy, and legal agreement infrastructure (3170c94f)
-
----
-
-## v0.6.39
-
-Released: 2026-03-14
-
-## What's Changed
-
-## Changes since last production release
-
-- Allow cross-origin access to OpenAPI spec endpoint (88782ba2)
 
 ---
 
