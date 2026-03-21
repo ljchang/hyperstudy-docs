@@ -279,6 +279,18 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.26
+
+**Released:** 2026-03-21
+
+## What's Changed
+
+### Bug Fixes
+- Fix update check showing both error and success toasts simultaneously when the update check fails
+
+---
+
+
 ### v0.8.25
 
 **Released:** 2026-03-21
