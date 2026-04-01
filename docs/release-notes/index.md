@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.48
+
+Released: 2026-04-01
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: add participantServiceV4 mock to ExperimentRunner tests (4b24c35f)
+
+---
+
 ## v0.6.47
 
 Released: 2026-04-01
@@ -30,19 +42,6 @@ Released: 2026-04-01
 
 - fix: move client diagnostics collection to experiment setup via socket (012a561c)
 - fix: pass MEDIACONVERT_ROLE_ARN and TRANSCODE_SECRET through deployment pipeline (e09909e3)
-
----
-
-## v0.6.45
-
-Released: 2026-04-01
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: prevent WebSocket echo from causing input lag in sparse rating config (845ea4da)
-- fix: add missing media timing columns to sparse ratings table and remove dead code (2e7b9f81)
 
 ---
 
