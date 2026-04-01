@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.47
+
+Released: 2026-04-01
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: use session token for direct Firestore updates in diagnostics and clock sync (4cd77fb7)
+
+---
+
 ## v0.6.46
 
 Released: 2026-04-01
@@ -31,19 +43,6 @@ Released: 2026-04-01
 
 - fix: prevent WebSocket echo from causing input lag in sparse rating config (845ea4da)
 - fix: add missing media timing columns to sparse ratings table and remove dead code (2e7b9f81)
-
----
-
-## v0.6.44
-
-Released: 2026-04-01
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix HLS transcoding: add missing AWS credentials to backend deployment (738bbe71)
-- fix: deploy monthly reset and usage reconciliation CronJobs (cb80c14b)
 
 ---
 
