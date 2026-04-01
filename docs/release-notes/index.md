@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.45
+
+Released: 2026-04-01
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: prevent WebSocket echo from causing input lag in sparse rating config (845ea4da)
+- fix: add missing media timing columns to sparse ratings table and remove dead code (2e7b9f81)
+
+---
+
 ## v0.6.44
 
 Released: 2026-04-01
@@ -42,19 +55,6 @@ Released: 2026-04-01
 - feat: add clock sync service using Cristian's algorithm with EMA smoothing (a166e2ee)
 - feat: add client diagnostics collection service with UA parsing (b0bcae16)
 - Add media pause/resume onset times to processed sparse ratings (02264972)
-
----
-
-## v0.6.42
-
-Released: 2026-03-19
-
-## What's Changed
-
-## Changes since last production release
-
-- Add true sampling without replacement (no pool reset) (9a6041d8)
-- Preserve state groupings and randomizeStates through experiment export/import (9d850169)
 
 ---
 
