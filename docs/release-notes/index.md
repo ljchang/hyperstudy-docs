@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.50
+
+Released: 2026-04-02
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: revert awaited teardown to synchronous disconnect to fix CI unhandled rejection (5ff8cefe)
+- fix: revert createSimpleMockSocket to original form to avoid global test side effects (971113a2)
+- fix: reset mock socket connected state in afterEach to prevent stale connection timeout (1d3e15be)
+- fix: move hasSignaledReady to module scope so setupSocketListeners can access it (e6e23112)
+- fix: resolve socket reconnection race condition causing participants to get stuck on sync screen (95a423fa)
+
+---
+
 ## v0.6.49
 
 Released: 2026-04-02
@@ -29,18 +45,6 @@ Released: 2026-04-01
 ## Changes since last production release
 
 - fix: add participantServiceV4 mock to ExperimentRunner tests (4b24c35f)
-
----
-
-## v0.6.47
-
-Released: 2026-04-01
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: use session token for direct Firestore updates in diagnostics and clock sync (4cd77fb7)
 
 ---
 
