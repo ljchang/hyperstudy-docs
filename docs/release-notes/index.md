@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.49
+
+Released: 2026-04-02
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: move diagnostics and clock sync emit to actual initialization path (a6506a96)
+
+---
+
 ## v0.6.48
 
 Released: 2026-04-01
@@ -29,19 +41,6 @@ Released: 2026-04-01
 ## Changes since last production release
 
 - fix: use session token for direct Firestore updates in diagnostics and clock sync (4cd77fb7)
-
----
-
-## v0.6.46
-
-Released: 2026-04-01
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: move client diagnostics collection to experiment setup via socket (012a561c)
-- fix: pass MEDIACONVERT_ROLE_ARN and TRANSCODE_SECRET through deployment pipeline (e09909e3)
 
 ---
 
