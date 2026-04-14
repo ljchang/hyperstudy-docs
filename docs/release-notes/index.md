@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.56
+
+Released: 2026-04-14
+
+## What's Changed
+
+## Changes since last production release
+
+- revert two-phase rejoin drain + remove pause banner (7616ecdd)
+- refactor: collapse redundant guards in handleResumeReady (569c1a55)
+- fix: symmetric resume handshake + drop reconnect overlay backdrop (1c2710e5)
+- fix: pause host video on rejoin into an active pause window (d7ae3864)
+- fix: preserve pre-disconnect playback state across rejoin window (4b092985)
+- fix: server-authoritative host, fast reconnect, and camera recovery (2eafd68d)
+- fix: unified rejoin contract with per-participant disconnect timers (a1d27375)
+
+---
+
 ## v0.6.55
 
 Released: 2026-04-10
@@ -30,19 +48,6 @@ Released: 2026-04-08
 
 - feat: add deploymentId filtering to all V3 data endpoints (6f8ac74e)
 - fix: restore viewer video sync resilience and prevent seek-to-end killing video (6260d030)
-
----
-
-## v0.6.53
-
-Released: 2026-04-07
-
-## What's Changed
-
-## Changes since last production release
-
-- feat: resolve deploymentId from room on events, show deployment ID in detail view (30f39b76)
-- fix: correct sparse rating onset timing and media pause/resume matching (01a97f6b)
 
 ---
 
