@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.57
+
+Released: 2026-04-15
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: guard videoElement and participant null-derefs surfaced in Sentry (348c9f26)
+- fix: close speaker-test AudioContext so Continue doesn't hang after audio check (631f93a6)
+- fix: don't swallow space bar in questionnaires containing a rapid-rate question (517fdc38)
+
+---
+
 ## v0.6.56
 
 Released: 2026-04-14
@@ -35,19 +49,6 @@ Released: 2026-04-10
 ## Changes since last production release
 
 - fix: remove org branding from experiment runner, left-align in waiting room (fbabace0)
-
----
-
-## v0.6.54
-
-Released: 2026-04-08
-
-## What's Changed
-
-## Changes since last production release
-
-- feat: add deploymentId filtering to all V3 data endpoints (6f8ac74e)
-- fix: restore viewer video sync resilience and prevent seek-to-end killing video (6260d030)
 
 ---
 
