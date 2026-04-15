@@ -3,7 +3,7 @@ title: Text Component
 sidebar_position: 2
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Text Component
 
@@ -11,7 +11,24 @@ The Text component displays formatted text content to participants. It's one of 
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-showtext--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-showtext--default"
+  height="500px"
+  argTypes={{
+    'config.text': { control: 'text', multiline: true, defaultValue: 'Welcome to the experiment!', description: 'Text or HTML to display' },
+    'config.fontSize': { control: 'select', options: ['small', 'medium', 'large', 'xlarge'], defaultValue: 'medium', description: 'Text size' },
+    'config.textAlign': { control: 'select', options: ['left', 'center', 'right'], defaultValue: 'center', description: 'Text alignment' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.showContinueButton': { control: 'boolean', defaultValue: false, description: 'Show a continue button' },
+    'config.continueButtonText': { control: 'text', defaultValue: 'Continue', description: 'Continue button label' },
+  }}
+  presets={[
+    { name: 'Instruction', args: { 'config.text': '<h3>Task Instructions</h3><p>Read the following carefully.</p>', 'config.textAlign': 'left', 'config.fontSize': 'medium' } },
+    { name: 'Large centered', args: { 'config.text': 'Please pay attention.', 'config.fontSize': 'xlarge', 'config.textAlign': 'center' } },
+    { name: 'With continue', args: { 'config.showContinueButton': true, 'config.continueButtonText': 'I understand' } },
+  ]}
+/>
 
 ## Key Features
 

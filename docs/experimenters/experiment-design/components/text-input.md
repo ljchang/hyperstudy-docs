@@ -7,9 +7,27 @@ sidebar_position: 5
 
 The Text Input component allows participants to provide free-form text responses. It supports single-line inputs, multi-line text areas, and specialized input types like email and number.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-textinput--default" height="400px" />
+<ComponentPlayground
+  story="experiment-textinput--default"
+  height="500px"
+  argTypes={{
+    'config.prompt': { control: 'text', multiline: true, defaultValue: 'Please enter your response:', description: 'Prompt text shown above the input' },
+    'config.inputType': { control: 'select', options: ['shortAnswer', 'paragraph', 'number', 'email'], defaultValue: 'shortAnswer', description: 'Input field type' },
+    'config.placeholder': { control: 'text', defaultValue: 'Type here...', description: 'Placeholder text' },
+    'config.maxLength': { control: 'number', defaultValue: 500, min: 0, description: 'Maximum input length (0 for unlimited)' },
+    'config.required': { control: 'boolean', defaultValue: true, description: 'Require input before continue' },
+    'config.showContinueButton': { control: 'boolean', defaultValue: true, description: 'Show submit button' },
+    'config.continueButtonText': { control: 'text', defaultValue: 'Submit Response', description: 'Submit button label' },
+  }}
+  presets={[
+    { name: 'Short answer', args: { 'config.inputType': 'shortAnswer', 'config.prompt': 'What is your favorite color?' } },
+    { name: 'Paragraph', args: { 'config.inputType': 'paragraph', 'config.prompt': 'Describe your experience:', 'config.maxLength': 1000 } },
+    { name: 'Email', args: { 'config.inputType': 'email', 'config.prompt': 'Enter your email:', 'config.placeholder': 'you@example.com' } },
+  ]}
+/>
 
 ## Key Features
 

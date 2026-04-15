@@ -9,7 +9,7 @@ The Code component displays syntax-highlighted code snippets. It's useful for pr
 
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-code--javascript" height="400px" />
+<StorybookEmbed story="experiment-code--javascript" showControls height="500px" />
 
 ## Key Features
 

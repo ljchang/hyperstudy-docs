@@ -1,4 +1,5 @@
 import React from 'react';
+import { buildFullUiUrl, buildIframeUrl, buildOpenInStorybookUrl } from '../storybook/urls';
 import styles from './styles.module.css';
 
 interface StorybookEmbedProps {
@@ -12,27 +13,13 @@ interface StorybookEmbedProps {
   title?: string;
 }
 
-/**
- * Embeds a Storybook story in the documentation.
- *
- * Usage:
- * ```jsx
- * <StorybookEmbed story="experiment-showtext--default" />
- * <StorybookEmbed story="experiment-vasrating--default" showControls height="600px" />
- * ```
- */
 export default function StorybookEmbed({
   story,
   height = '400px',
   showControls = false,
   title,
 }: StorybookEmbedProps): JSX.Element {
-  const baseUrl = 'https://storybook.hyperstudy.io';
-
-  // Use full UI path for controls, iframe.html for just the story
-  const src = showControls
-    ? `${baseUrl}/?path=/story/${story}&full=1&shortcuts=false&singleStory=true`
-    : `${baseUrl}/iframe.html?id=${story}&viewMode=story`;
+  const src = showControls ? buildFullUiUrl(story, 'right') : buildIframeUrl(story);
 
   return (
     <div className={styles.container}>
@@ -45,7 +32,7 @@ export default function StorybookEmbed({
         allow="clipboard-write"
       />
       <a
-        href={`${baseUrl}/?path=/story/${story}`}
+        href={buildOpenInStorybookUrl(story)}
         target="_blank"
         rel="noopener noreferrer"
         className={styles.link}

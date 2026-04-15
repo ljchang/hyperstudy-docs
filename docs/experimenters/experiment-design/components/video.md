@@ -3,7 +3,7 @@ title: Synchronized Video Component
 sidebar_position: 3
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Synchronized Video Component
 
@@ -11,7 +11,25 @@ The Synchronized Video component allows you to present video content precisely s
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-showvideo--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-showvideo--default"
+  height="550px"
+  argTypes={{
+    'config.videoUrl': { control: 'text', defaultValue: 'https://www.w3schools.com/html/mov_bbb.mp4', description: 'URL of the video' },
+    'config.videoSize': { control: 'number', defaultValue: 80, min: 10, max: 100, step: 5, description: 'Video size as % of available space' },
+    'config.horizontalPosition': { control: 'select', options: ['left', 'center', 'right'], defaultValue: 'center', description: 'Horizontal position' },
+    'config.verticalPosition': { control: 'select', options: ['upper', 'center', 'lower'], defaultValue: 'center', description: 'Vertical position' },
+    'config.controls': { control: 'boolean', defaultValue: true, description: 'Show video controls (host only)' },
+    'config.autoPlay': { control: 'boolean', defaultValue: false, description: 'Auto-play when loaded' },
+    'config.startTime': { control: 'number', defaultValue: 0, min: 0, step: 0.5, description: 'Start time in seconds' },
+    'config.endTime': { control: 'number', defaultValue: 0, min: 0, step: 0.5, description: 'End time in seconds (0 = end of video)' },
+  }}
+  presets={[
+    { name: 'Full-screen autoplay', args: { 'config.videoSize': 100, 'config.controls': false, 'config.autoPlay': true } },
+    { name: 'Picture-in-picture', args: { 'config.videoSize': 30, 'config.horizontalPosition': 'right', 'config.verticalPosition': 'lower' } },
+    { name: 'Clip segment (10s–30s)', args: { 'config.startTime': 10, 'config.endTime': 30, 'config.videoSize': 70 } },
+  ]}
+/>
 
 ## Usage Scenarios
 

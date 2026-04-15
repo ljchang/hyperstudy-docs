@@ -3,7 +3,7 @@ title: VAS Rating Component
 sidebar_position: 5
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # VAS Rating Component
 
@@ -13,7 +13,26 @@ The Visual Analog Scale (VAS) Rating component allows participants to provide re
 
 Try the component with different configurations:
 
-<StorybookEmbed story="experiment-vasrating--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-vasrating--default"
+  height="500px"
+  argTypes={{
+    'config.question': { control: 'text', multiline: true, defaultValue: 'Please provide your rating:', description: 'Question or prompt text' },
+    'config.minLabel': { control: 'text', defaultValue: 'Not at all', description: 'Label at the minimum end' },
+    'config.maxLabel': { control: 'text', defaultValue: 'Very much', description: 'Label at the maximum end' },
+    'config.minValue': { control: 'text', defaultValue: '0', description: 'Minimum value' },
+    'config.maxValue': { control: 'text', defaultValue: '100', description: 'Maximum value' },
+    'config.step': { control: 'number', defaultValue: 1, min: 0.1, step: 0.1, description: 'Step size for the slider' },
+    'config.showValueDisplay': { control: 'boolean', defaultValue: false, description: 'Show the numerical value' },
+    'config.sliderColor': { control: 'color', defaultValue: '#0077cc', description: 'Slider color' },
+    'config.required': { control: 'boolean', defaultValue: true, description: 'Require interaction before continue' },
+  }}
+  presets={[
+    { name: 'Agreement', args: { 'config.question': 'How much do you agree?', 'config.minLabel': 'Strongly disagree', 'config.maxLabel': 'Strongly agree' } },
+    { name: 'Emotion', args: { 'config.question': 'How are you feeling?', 'config.minLabel': 'Terrible', 'config.maxLabel': 'Wonderful' } },
+    { name: 'Show value', args: { 'config.showValueDisplay': true } },
+  ]}
+/>
 
 ## Key Features
 

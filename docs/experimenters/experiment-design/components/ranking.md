@@ -9,7 +9,7 @@ The Ranking component allows participants to order items by dragging them into t
 
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-ranking--default" height="450px" />
+<StorybookEmbed story="experiment-ranking--default" showControls height="550px" />
 
 ## Key Features
 

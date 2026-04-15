@@ -9,7 +9,7 @@ The Rapid Rate component provides a multi-dimensional rating interface for quick
 
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-rapidrate--default" height="400px" />
+<StorybookEmbed story="experiment-rapidrate--default" showControls height="500px" />
 
 ## Key Features
 

@@ -9,7 +9,7 @@ The Waiting component displays a message with an optional loading spinner. It's 
 
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-waiting--default" height="300px" />
+<StorybookEmbed story="experiment-waiting--default" showControls height="500px" />
 
 ## Key Features
 

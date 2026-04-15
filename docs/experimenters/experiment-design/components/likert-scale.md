@@ -7,9 +7,27 @@ sidebar_position: 11
 
 The Likert Scale component presents a standard ordinal scale for measuring agreement, frequency, or other survey-style responses. It supports 3, 5, 7, or custom point scales with customizable labels.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-likertscale--default" height="350px" />
+<ComponentPlayground
+  story="experiment-likertscale--default"
+  height="500px"
+  argTypes={{
+    'config.question': { control: 'text', multiline: true, defaultValue: 'Please indicate your level of agreement:', description: 'Question or prompt text' },
+    'config.scale': { control: 'number', defaultValue: 5, min: 2, max: 11, step: 1, description: 'Number of points on the scale' },
+    'config.minLabel': { control: 'text', defaultValue: 'Strongly Disagree', description: 'Label for the minimum end' },
+    'config.maxLabel': { control: 'text', defaultValue: 'Strongly Agree', description: 'Label for the maximum end' },
+    'config.accentColor': { control: 'color', defaultValue: '#2196F3', description: 'Selection highlight color' },
+    'config.required': { control: 'boolean', defaultValue: true, description: 'Require selection before continue' },
+  }}
+  presets={[
+    { name: '3-point', args: { 'config.scale': 3, 'config.minLabel': 'Disagree', 'config.maxLabel': 'Agree' } },
+    { name: '5-point (classic)', args: { 'config.scale': 5, 'config.minLabel': 'Strongly Disagree', 'config.maxLabel': 'Strongly Agree' } },
+    { name: '7-point', args: { 'config.scale': 7 } },
+    { name: 'Frequency', args: { 'config.minLabel': 'Never', 'config.maxLabel': 'Always' } },
+  ]}
+/>
 
 ## Key Features
 
