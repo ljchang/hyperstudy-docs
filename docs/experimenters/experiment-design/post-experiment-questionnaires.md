@@ -3,9 +3,27 @@ title: Post-Experiment Questionnaires
 sidebar_position: 9
 ---
 
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
 # Post-Experiment Questionnaires
 
 Post-experiment questionnaires allow you to collect additional data from participants after they complete your experiment. This powerful feature supports demographics collection, feedback gathering, manipulation checks, and validated psychometric measures.
+
+## Preview
+
+The demo below shows a questionnaire with all seven supported question types (text input, multiple choice, Likert, VAS, ranking, rapid rate, audio recording). Use the navigation to move between pages.
+
+<StorybookEmbed story="participant-postexperimentquestionnairedisplay--all-question-types" height="700px" />
+
+More variants:
+
+### Multi-page flow
+
+<StorybookEmbed story="participant-postexperimentquestionnairedisplay--multi-page" height="600px" />
+
+### Minimal single page
+
+<StorybookEmbed story="participant-postexperimentquestionnairedisplay--default" height="500px" />
 
 ## Overview
 
