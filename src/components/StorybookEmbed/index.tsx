@@ -29,7 +29,7 @@ export default function StorybookEmbed({
         className={styles.iframe}
         title={title || `Storybook: ${story}`}
         loading="lazy"
-        allow="clipboard-write"
+        allow="microphone; camera; autoplay; clipboard-write"
       />
       <a
         href={buildOpenInStorybookUrl(story)}

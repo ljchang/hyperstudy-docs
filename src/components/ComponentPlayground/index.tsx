@@ -220,6 +220,7 @@ export default function ComponentPlayground({
             className={styles.iframe}
             style={{ height }}
             loading="lazy"
+            allow="microphone; camera; autoplay; clipboard-write"
           />
         </div>
       </div>
