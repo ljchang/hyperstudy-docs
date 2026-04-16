@@ -3,10 +3,39 @@ title: Video Chat Component
 sidebar_position: 6
 ---
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
+
 # Video Chat Component
 
 The Video Chat component provides real-time audio and video communication between participants in an experiment. As a global component, it can persist across multiple states, enabling continuous interaction throughout the experiment.
 
+## Interactive Demo
+
+<ComponentPlayground
+  story="livekit-videochat--default"
+  height="600px"
+  argTypes={{
+    'config.viewMode': { control: 'select', options: ['grid', 'speaker', 'focus', 'single'], defaultValue: 'grid', description: 'Video layout mode' },
+    'config.position': { control: 'select', options: ['top-right', 'top-left', 'bottom-right', 'bottom-left'], defaultValue: 'top-right', description: 'Panel position on screen' },
+    'config.showControls': { control: 'boolean', defaultValue: true, description: 'Show audio/video controls' },
+    'config.startCollapsed': { control: 'boolean', defaultValue: false, description: 'Start with panel collapsed' },
+    'config.hideSelf': { control: 'boolean', defaultValue: false, description: 'Hide local participant video (still transmits)' },
+    'config.isAudioMuted': { control: 'boolean', defaultValue: true, description: 'Start with microphone muted' },
+    'config.isVideoOff': { control: 'boolean', defaultValue: true, description: 'Start with camera off' },
+    'config.allowViewModeChange': { control: 'boolean', defaultValue: true, description: 'Allow participants to change layout' },
+  }}
+  presets={[
+    { name: 'Grid view', args: { 'config.viewMode': 'grid', 'config.position': 'top-right' } },
+    { name: 'Speaker view', args: { 'config.viewMode': 'speaker' } },
+    { name: 'Single participant', args: { 'config.viewMode': 'single' } },
+    { name: 'Collapsed', args: { 'config.startCollapsed': true } },
+    { name: 'Observation', args: { 'config.showControls': false, 'config.allowViewModeChange': false } },
+  ]}
+/>
+
+:::note
+The demo above shows the VideoChat UI with mock participants. Real audio/video streams require a live LiveKit connection, which only runs in a real experiment session. Granting microphone/camera permissions in the iframe will not produce real streams here — layout, position, and control toggles are the configurable surface you can explore.
+:::
 
 ## Key Features
 
