@@ -7,9 +7,29 @@ sidebar_position: 9
 
 The Waiting component displays a message with an optional loading spinner. It's used for transitions, synchronization points, or any situation where participants need to wait.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-waiting--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-waiting--default"
+  height="400px"
+  argTypes={{
+    'config.message': { control: 'text', multiline: true, defaultValue: 'Please wait...', description: 'Message to display while waiting' },
+    'config.readyMessage': { control: 'text', defaultValue: 'Ready to continue!', description: 'Message when ready' },
+    'config.showSpinner': { control: 'boolean', defaultValue: true, description: 'Show loading spinner' },
+    'config.showCountdown': { control: 'boolean', defaultValue: false, description: 'Show countdown timer' },
+    'config.countdownStyle': { control: 'select', options: ['time', 'progressBar'], defaultValue: 'time', description: 'Countdown display style' },
+    'config.countdownPosition': { control: 'select', options: ['top', 'bottom'], defaultValue: 'top', description: 'Countdown position' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Default', args: { 'config.message': 'Please wait...', 'config.showSpinner': true } },
+    { name: 'Sync', args: { 'config.message': 'Waiting for other participants to join...', 'config.showSpinner': true } },
+    { name: 'Text only', args: { 'config.message': 'The next part will begin shortly.', 'config.showSpinner': false } },
+    { name: 'With countdown', args: { 'config.showCountdown': true, 'config.countdownStyle': 'progressBar', 'config.countdownPosition': 'bottom' } },
+  ]}
+/>
 
 ## Key Features
 

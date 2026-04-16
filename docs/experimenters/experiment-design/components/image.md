@@ -3,7 +3,7 @@ title: Image Component
 sidebar_position: 3
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Image Component
 
@@ -11,7 +11,29 @@ The Image component displays static images to participants. It's useful for pres
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-showimage--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-showimage--default"
+  height="500px"
+  argTypes={{
+    'config.imageUrl': { control: 'text', defaultValue: 'https://picsum.photos/800/600', description: 'URL of the image to display' },
+    'config.size': { control: 'select', options: ['small', 'medium', 'large', 'fullwidth', 'original'], defaultValue: 'medium', description: 'Image size preset (small: 300px, medium: 500px, large: 800px, fullwidth: 90% width, original: natural size)' },
+    'config.altText': { control: 'text', defaultValue: 'Experimental image', description: 'Alt text for accessibility' },
+    'config.caption': { control: 'text', defaultValue: '', description: 'Caption displayed below image' },
+    'config.showContinueButton': { control: 'boolean', defaultValue: true, description: 'Show continue button' },
+    'config.continueButtonText': { control: 'text', defaultValue: 'Continue', description: 'Continue button label' },
+    'config.showCountdown': { control: 'boolean', defaultValue: false, description: 'Show countdown timer' },
+    'config.countdownStyle': { control: 'select', options: ['time', 'progressBar'], defaultValue: 'time', description: 'Countdown style' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1e1e1e', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Small', args: { 'config.size': 'small' } },
+    { name: 'Large', args: { 'config.size': 'large' } },
+    { name: 'Full width', args: { 'config.size': 'fullwidth' } },
+    { name: 'With caption', args: { 'config.caption': 'Figure 1: Example stimulus', 'config.size': 'medium' } },
+    { name: 'With continue', args: { 'config.showContinueButton': true, 'config.continueButtonText': 'I have viewed this image' } },
+  ]}
+/>
 
 ## Key Features
 

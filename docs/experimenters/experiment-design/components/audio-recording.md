@@ -3,7 +3,7 @@ title: Audio Recording Component
 sidebar_position: 11
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Audio Recording Component (Experiment State)
 
@@ -11,7 +11,26 @@ The Audio Recording component enables participants to record audio responses dir
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-audiorecording--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-audiorecording--default"
+  height="500px"
+  argTypes={{
+    'config.prompt': { control: 'text', multiline: true, defaultValue: 'Please record your response:', description: 'Prompt text for recording' },
+    'config.maxRecordingTime': { control: 'number', defaultValue: 0, min: 0, max: 300, step: 5, description: 'Max recording time in seconds (0 = use state timer)' },
+    'config.audioFormat': { control: 'select', options: ['webm', 'mp3'], defaultValue: 'webm', description: 'Audio format' },
+    'config.showWaveform': { control: 'boolean', defaultValue: true, description: 'Show waveform visualization' },
+    'config.allowReview': { control: 'boolean', defaultValue: false, description: 'Allow playback review before submit' },
+    'config.autostartRecording': { control: 'boolean', defaultValue: false, description: 'Auto-start recording on load' },
+    'config.showCountdown': { control: 'boolean', defaultValue: false, description: 'Show countdown timer' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Think-aloud', args: { 'config.prompt': 'Think out loud as you work through this problem.', 'config.maxRecordingTime': 300, 'config.showWaveform': true } },
+    { name: 'Quick impression', args: { 'config.prompt': 'Give your first impression in a few words.', 'config.maxRecordingTime': 15, 'config.showWaveform': false, 'config.autostartRecording': true } },
+    { name: 'With review', args: { 'config.allowReview': true, 'config.maxRecordingTime': 60 } },
+  ]}
+/>
 
 ## Overview
 

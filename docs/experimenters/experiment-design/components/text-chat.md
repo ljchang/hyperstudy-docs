@@ -7,9 +7,23 @@ sidebar_position: 2
 
 The Text Chat component enables real-time text messaging between participants during experiments. It uses LiveKit's data channels for reliable, low-latency communication.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="livekit-textchat--default" height="500px" />
+<ComponentPlayground
+  story="livekit-textchat--default"
+  height="500px"
+  argTypes={{
+    'config.allowSendingMessages': { control: 'boolean', defaultValue: true, description: 'Allow participants to send messages' },
+    'config.allowMessageDeletion': { control: 'boolean', defaultValue: true, description: 'Allow message deletion' },
+    'config.position': { control: 'select', options: ['top-right', 'top-left', 'bottom-right', 'bottom-left'], defaultValue: 'bottom-right', description: 'Panel position' },
+  }}
+  presets={[
+    { name: 'Default', args: { 'config.allowSendingMessages': true, 'config.allowMessageDeletion': true, 'config.position': 'bottom-right' } },
+    { name: 'Read-only', args: { 'config.allowSendingMessages': false, 'config.allowMessageDeletion': false } },
+    { name: 'Top-left', args: { 'config.position': 'top-left' } },
+  ]}
+/>
 
 ## Key Features
 

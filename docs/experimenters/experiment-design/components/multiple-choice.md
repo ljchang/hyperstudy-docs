@@ -3,7 +3,7 @@ title: Multiple Choice Component
 sidebar_position: 4
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Multiple Choice Component
 
@@ -11,7 +11,25 @@ The Multiple Choice component presents participants with a question and a set of
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-multiplechoice--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-multiplechoice--default"
+  height="500px"
+  argTypes={{
+    'config.question': { control: 'text', multiline: true, defaultValue: 'What is your favorite color?', description: 'Question or prompt text' },
+    'config.allowMultiple': { control: 'boolean', defaultValue: false, description: 'Allow multiple selections' },
+    'config.required': { control: 'boolean', defaultValue: true, description: 'Require selection before continue' },
+    'config.layout': { control: 'select', options: ['vertical', 'horizontal'], defaultValue: 'vertical', description: 'Layout direction' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+    'config.buttonColor': { control: 'color', defaultValue: '#0077cc', description: 'Button color' },
+    'config.selectedButtonColor': { control: 'color', defaultValue: '#2196F3', description: 'Selected button color' },
+  }}
+  presets={[
+    { name: 'Single select', args: { 'config.allowMultiple': false, 'config.question': 'Choose one answer:' } },
+    { name: 'Multi-select', args: { 'config.allowMultiple': true, 'config.question': 'Select all that apply:' } },
+    { name: 'Horizontal', args: { 'config.layout': 'horizontal' } },
+  ]}
+/>
 
 ## Key Features
 

@@ -3,9 +3,34 @@ title: Trigger Component
 sidebar_position: 11
 ---
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
+
 # Trigger Component
 
 The Trigger component enables hardware synchronization for experiments, particularly useful for neuroimaging studies (fMRI, EEG) and psychophysiology research. It can either send triggers to external equipment or wait to receive triggers from external devices like MRI scanners.
+
+## Interactive Demo
+
+<ComponentPlayground
+  story="experiment-trigger--default"
+  height="400px"
+  argTypes={{
+    'config.mode': { control: 'select', options: ['send', 'receive', 'receiveAndSend'], defaultValue: 'send', description: 'Mode of operation' },
+    'config.triggerType': { control: 'select', options: ['keyboard', 'ttl'], defaultValue: 'keyboard', description: 'Type of trigger to send (send mode)' },
+    'config.triggerKey': { control: 'text', defaultValue: 't', description: 'Key to send (send mode)' },
+    'config.expectedKey': { control: 'text', defaultValue: '5', description: 'Key to wait for (receive mode)' },
+    'config.instructions': { control: 'text', multiline: true, defaultValue: 'Press the key below to send a trigger.', description: 'Instructions to display' },
+    'config.showInstructions': { control: 'boolean', defaultValue: true, description: 'Show instructions' },
+    'config.sendTTLOnReceive': { control: 'boolean', defaultValue: false, description: 'Send TTL when trigger is received' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Scanner receive', args: { 'config.mode': 'receive', 'config.expectedKey': '5', 'config.instructions': 'Waiting for scanner trigger...' } },
+    { name: 'Keyboard send', args: { 'config.mode': 'send', 'config.triggerKey': 't', 'config.instructions': 'Press the key below to send a trigger.' } },
+    { name: 'fMRI + TTL', args: { 'config.mode': 'receive', 'config.expectedKey': '5', 'config.sendTTLOnReceive': true, 'config.instructions': 'Waiting for scanner trigger (TTL output enabled)...' } },
+  ]}
+/>
 
 ![HyperStudy TTL device in 3D-printed enclosure with BNC connector](/img/experimenters/ttl-device.jpg)
 

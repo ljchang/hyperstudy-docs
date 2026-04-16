@@ -7,9 +7,27 @@ sidebar_position: 13
 
 The Rapid Rate component provides a multi-dimensional rating interface for quick assessments across multiple attributes. Participants can rate several dimensions simultaneously using parallel sliders.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-rapidrate--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-rapidrate--default"
+  height="500px"
+  argTypes={{
+    'config.prompt': { control: 'text', multiline: true, defaultValue: 'Please rate the following dimensions:', description: 'Prompt text' },
+    'config.showReferenceLines': { control: 'boolean', defaultValue: false, description: 'Show reference lines from previous ratings' },
+    'config.requireClickToActivate': { control: 'boolean', defaultValue: true, description: 'Require click to activate slider' },
+    'config.sensitivity': { control: 'number', defaultValue: 1.0, min: 0.1, max: 2.0, step: 0.1, description: 'Mouse drag sensitivity' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Emotion (VAD)', args: { 'config.prompt': 'How are you feeling right now?', 'config.dimensions': [{ label: 'Valence', minLabel: 'Negative', maxLabel: 'Positive' }, { label: 'Arousal', minLabel: 'Calm', maxLabel: 'Excited' }, { label: 'Dominance', minLabel: 'Submissive', maxLabel: 'Dominant' }] } },
+    { name: 'Product eval', args: { 'config.prompt': 'Rate this product:', 'config.dimensions': [{ label: 'Quality', minLabel: 'Poor', maxLabel: 'Excellent' }, { label: 'Value', minLabel: 'Overpriced', maxLabel: 'Great Value' }, { label: 'Design', minLabel: 'Unappealing', maxLabel: 'Beautiful' }] } },
+    { name: 'Immediate drag', args: { 'config.requireClickToActivate': false, 'config.sensitivity': 1.0 } },
+    { name: 'High sensitivity', args: { 'config.sensitivity': 1.8, 'config.requireClickToActivate': true } },
+  ]}
+/>
 
 ## Key Features
 

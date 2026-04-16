@@ -7,9 +7,30 @@ sidebar_position: 12
 
 The Ranking component allows participants to order items by dragging them into their preferred sequence. It's ideal for preference ordering, prioritization tasks, and forced-choice rankings.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-ranking--default" showControls height="550px" />
+<ComponentPlayground
+  story="experiment-ranking--default"
+  height="550px"
+  argTypes={{
+    'config.question': { control: 'text', multiline: true, defaultValue: 'Please rank the following items:', description: 'Prompt text' },
+    'config.lowLabel': { control: 'text', defaultValue: 'Least Important', description: 'Label for lowest rank' },
+    'config.highLabel': { control: 'text', defaultValue: 'Most Important', description: 'Label for highest rank' },
+    'config.showLabels': { control: 'boolean', defaultValue: true, description: 'Show ranking labels' },
+    'config.layout': { control: 'select', options: ['vertical', 'horizontal'], defaultValue: 'vertical', description: 'Layout direction' },
+    'config.required': { control: 'boolean', defaultValue: true, description: 'Require ranking before continue' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+    'config.cardColor': { control: 'color', defaultValue: '#2a2a2a', description: 'Card background color' },
+  }}
+  presets={[
+    { name: 'Vertical', args: { 'config.layout': 'vertical', 'config.showLabels': true } },
+    { name: 'Horizontal', args: { 'config.layout': 'horizontal', 'config.showLabels': true } },
+    { name: 'No labels', args: { 'config.showLabels': false } },
+    { name: 'Preference', args: { 'config.highLabel': 'Most Preferred', 'config.lowLabel': 'Least Preferred', 'config.question': 'Order these from your most to least preferred:' } },
+  ]}
+/>
 
 ## Key Features
 

@@ -3,7 +3,7 @@ title: Continuous Rating Component
 sidebar_position: 7
 ---
 
-import StorybookEmbed from '@site/src/components/StorybookEmbed';
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 
 # Continuous Rating Component
 
@@ -11,7 +11,31 @@ The Continuous Rating component allows participants to provide real-time, ongoin
 
 ## Interactive Demo
 
-<StorybookEmbed story="experiment-continuousrating--default" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-continuousrating--default"
+  height="600px"
+  argTypes={{
+    'config.prompt': { control: 'text', defaultValue: 'How are you feeling?', description: 'Prompt text for the rating' },
+    'config.minLabel': { control: 'text', defaultValue: 'Not at all', description: 'Label for minimum value' },
+    'config.maxLabel': { control: 'text', defaultValue: 'Very much', description: 'Label for maximum value' },
+    'config.initialValue': { control: 'number', defaultValue: 50, min: 0, max: 100, step: 1, description: 'Initial slider value' },
+    'config.showValue': { control: 'boolean', defaultValue: true, description: 'Show current numeric value' },
+    'config.showHistory': { control: 'boolean', defaultValue: true, description: 'Show rating history visualization' },
+    'config.showCenterGuideline': { control: 'boolean', defaultValue: false, description: 'Show center guideline' },
+    'config.centerLabel': { control: 'text', defaultValue: 'Neutral', description: 'Label for center guideline' },
+    'config.lineColor': { control: 'color', defaultValue: '#4caf50', description: 'Rating line color' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#1c1c1c', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+    'config.horizontalPosition': { control: 'select', options: ['left', 'center', 'right'], defaultValue: 'center', description: 'Horizontal position' },
+    'config.verticalPosition': { control: 'select', options: ['upper', 'center', 'lower'], defaultValue: 'lower', description: 'Vertical position' },
+  }}
+  presets={[
+    { name: 'Emotion tracking', args: { 'config.prompt': 'How positive or negative do you feel?', 'config.minLabel': 'Very negative', 'config.maxLabel': 'Very positive', 'config.showCenterGuideline': true, 'config.centerLabel': 'Neutral' } },
+    { name: 'Engagement', args: { 'config.prompt': 'How engaged are you?', 'config.minLabel': 'Not engaged', 'config.maxLabel': 'Fully engaged', 'config.lineColor': '#2196F3' } },
+    { name: 'No history', args: { 'config.showHistory': false } },
+    { name: 'Bottom-left', args: { 'config.horizontalPosition': 'left', 'config.verticalPosition': 'lower' } },
+  ]}
+/>
 
 ## Key Features
 

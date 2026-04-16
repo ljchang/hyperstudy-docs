@@ -7,9 +7,29 @@ sidebar_position: 8
 
 The Code component displays syntax-highlighted code snippets. It's useful for programming experiments, code review tasks, or any situation where you need to present formatted code to participants.
 
+import ComponentPlayground from '@site/src/components/ComponentPlayground';
 import StorybookEmbed from '@site/src/components/StorybookEmbed';
 
-<StorybookEmbed story="experiment-code--javascript" showControls height="500px" />
+<ComponentPlayground
+  story="experiment-code--javascript"
+  height="500px"
+  argTypes={{
+    'config.script': { control: 'text', multiline: true, defaultValue: 'function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\nconsole.log(fibonacci(10));', description: 'JavaScript code to execute' },
+    'config.displayCode': { control: 'boolean', defaultValue: false, description: 'Show code in the component' },
+    'config.displayResult': { control: 'boolean', defaultValue: false, description: 'Show execution result' },
+    'config.autoRun': { control: 'boolean', defaultValue: true, description: 'Run code automatically on load' },
+    'config.showContinueButton': { control: 'boolean', defaultValue: false, description: 'Show continue button' },
+    'config.continueButtonText': { control: 'text', defaultValue: 'Continue', description: 'Continue button label' },
+    'config.backgroundColor': { control: 'color', defaultValue: '#222222', description: 'Background color' },
+    'config.textColor': { control: 'color', defaultValue: '#ffffff', description: 'Text color' },
+  }}
+  presets={[
+    { name: 'Show code', args: { 'config.displayCode': true, 'config.displayResult': false } },
+    { name: 'Show result', args: { 'config.displayCode': false, 'config.displayResult': true } },
+    { name: 'Code + result', args: { 'config.displayCode': true, 'config.displayResult': true } },
+    { name: 'With continue', args: { 'config.showContinueButton': true, 'config.continueButtonText': 'I understand this code' } },
+  ]}
+/>
 
 ## Key Features
 
