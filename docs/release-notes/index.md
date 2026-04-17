@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.62
+
+Released: 2026-04-17
+
+## What's Changed
+
+## Changes since last production release
+
+- storybook: rename Code/JavaScript story export to match docs ID (e3da0d07)
+
+---
+
 ## v0.6.61
 
 Released: 2026-04-17
@@ -31,22 +43,6 @@ Released: 2026-04-17
 - storybook: complete firebase auth/storage/firestore mocks and refresh ShowVideo demo URLs (d38e3eb8)
 - storybook: expand socketClient mock with full export surface (51fd4641)
 - storybook: use resolveId plugin to catch all relative import paths (40c7e668)
-
----
-
-## v0.6.59
-
-Released: 2026-04-17
-
-## What's Changed
-
-## Changes since last production release
-
-- storybook: expose full livekitService surface to VideoChat mock (629b8304)
-- storybook: mock data-service/device modules for Trigger stories (2adb7b57)
-- storybook: add Trigger component stories (29f4d2a8)
-- feat: add TTL lifecycle pulses toggle to experiment designer (6e31d2fc)
-- storybook: add overlay + questionnaire stories, refresh component variants (7038197e)
 
 ---
 
