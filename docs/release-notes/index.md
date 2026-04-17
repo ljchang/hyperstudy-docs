@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.59
+
+Released: 2026-04-17
+
+## What's Changed
+
+## Changes since last production release
+
+- storybook: expose full livekitService surface to VideoChat mock (629b8304)
+- storybook: mock data-service/device modules for Trigger stories (2adb7b57)
+- storybook: add Trigger component stories (29f4d2a8)
+- feat: add TTL lifecycle pulses toggle to experiment designer (6e31d2fc)
+- storybook: add overlay + questionnaire stories, refresh component variants (7038197e)
+
+---
+
 ## v0.6.58
 
 Released: 2026-04-15
@@ -36,24 +52,6 @@ Released: 2026-04-15
 - fix: guard videoElement and participant null-derefs surfaced in Sentry (348c9f26)
 - fix: close speaker-test AudioContext so Continue doesn't hang after audio check (631f93a6)
 - fix: don't swallow space bar in questionnaires containing a rapid-rate question (517fdc38)
-
----
-
-## v0.6.56
-
-Released: 2026-04-14
-
-## What's Changed
-
-## Changes since last production release
-
-- revert two-phase rejoin drain + remove pause banner (7616ecdd)
-- refactor: collapse redundant guards in handleResumeReady (569c1a55)
-- fix: symmetric resume handshake + drop reconnect overlay backdrop (1c2710e5)
-- fix: pause host video on rejoin into an active pause window (d7ae3864)
-- fix: preserve pre-disconnect playback state across rejoin window (4b092985)
-- fix: server-authoritative host, fast reconnect, and camera recovery (2eafd68d)
-- fix: unified rejoin contract with per-participant disconnect timers (a1d27375)
 
 ---
 
