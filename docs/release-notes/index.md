@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.60
+
+Released: 2026-04-17
+
+## What's Changed
+
+## Changes since last production release
+
+- storybook: complete firebase auth/storage/firestore mocks and refresh ShowVideo demo URLs (d38e3eb8)
+- storybook: expand socketClient mock with full export surface (51fd4641)
+- storybook: use resolveId plugin to catch all relative import paths (40c7e668)
+
+---
+
 ## v0.6.59
 
 Released: 2026-04-17
@@ -38,20 +52,6 @@ Released: 2026-04-15
 - fix: scalable waiting-room matching for burst Prolific recruitment (066a4b32)
 - fix: exclude fieldEditHistory when duplicating experiments (ae2c9237)
 - fix: don't stomp ShowVideo startTime seek with empty sync cache on fresh join (30ac6a2c)
-
----
-
-## v0.6.57
-
-Released: 2026-04-15
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: guard videoElement and participant null-derefs surfaced in Sentry (348c9f26)
-- fix: close speaker-test AudioContext so Continue doesn't hang after audio check (631f93a6)
-- fix: don't swallow space bar in questionnaires containing a rapid-rate question (517fdc38)
 
 ---
 
