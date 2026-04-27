@@ -8,6 +8,34 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.64
+
+Released: 2026-04-27
+
+## What's Changed
+
+## Changes since last production release
+
+- test(deployment-metadata-editor): mock loadAllOrgExperiments to track CI (71edd2f9)
+- fix(v4-discovery): per-list pagination metadata so public/prolific truncation is observable (8e35130b)
+- fix(participation-store): drain V4 discovery + history cursors (bb5e0e5c)
+- fix(data-service-v3): drain all participant pages by default (ea55c2a3)
+- fix(experiment-store): add loadAllOrgExperiments / loadAllSharedExperiments and use them everywhere (48362dfe)
+- fix(experiments-table): paginate through all org+shared experiments instead of dropping the tail (f3728475)
+- fix(experiment-v2): silent no-op for component-complete on non-SYNCHRONIZED + filter high-freq logs (fd7a3431)
+- fix(experiment-v2): flush data + setCompleted + countdown on completion (dffdbd14)
+- test(experiment-v2): replace removed .v2-state debug hook with data-boot-state (c4027985)
+- fix(experiment-v2): video URL substitution + header parity + completion UI (927d7c16)
+- fix(experiment-v2): use server-authoritative participantId for engine actions (97314928)
+- fix(experiment-v2): attach WS message listener before auth await (f4de280c)
+- chore(experiment-v2): add diagnostic logging to WS message path (862c6282)
+- fix(experiment-v2): serialize WS message handling per socket (00680cbe)
+- fix(redis): iterate scanIterator batches and restore UPPERCASE options (6cb6c82c)
+- fix(ingress): add Traefik route for /ws/experiment/v2 WebSocket (858a8d5c)
+- fix(experiment-v2): WS URL ladder, auth token threading, Sentry observability (41b41521)
+
+---
+
 ## v0.6.63
 
 Released: 2026-04-24
@@ -137,18 +165,6 @@ Released: 2026-04-17
 ## Changes since last production release
 
 - storybook: rename Code/JavaScript story export to match docs ID (e3da0d07)
-
----
-
-## v0.6.61
-
-Released: 2026-04-17
-
-## What's Changed
-
-## Changes since last production release
-
-- chore: untrack auto-generated design-tokens.source.json (6a375a3c)
 
 ---
 
